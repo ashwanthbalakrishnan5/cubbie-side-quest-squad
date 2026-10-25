@@ -65,7 +65,9 @@ def main() -> int:
         print("ok")
         return 0
     logging.basicConfig(
-        level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s"
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+        force=True,  # composio configures the root logger on import
     )
     asyncio.run(run(settings))
     return 0
