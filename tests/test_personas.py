@@ -35,12 +35,12 @@ def test_persona_busy_is_relative_to_week():
 
     leo = spans("demo:leo")
     assert (
-        datetime(2026, 10, 30, 18, tzinfo=TZ),
-        datetime(2026, 10, 30, 21, tzinfo=TZ),
+        datetime(2026, 10, 29, 18, tzinfo=TZ),
+        datetime(2026, 10, 29, 21, tzinfo=TZ),
     ) in leo
     assert (
-        datetime(2026, 11, 6, 18, tzinfo=TZ),
-        datetime(2026, 11, 6, 21, tzinfo=TZ),
+        datetime(2026, 11, 5, 18, tzinfo=TZ),
+        datetime(2026, 11, 5, 21, tzinfo=TZ),
     ) in leo
     maya = spans("demo:maya")
     assert (
@@ -57,8 +57,8 @@ def test_persona_busy_is_relative_to_week():
     assert all(s.weekday() < 5 for s, _ in spans("demo:priya"))
     next_week = spans("demo:leo", datetime(2026, 11, 2, tzinfo=TZ))
     assert (
-        datetime(2026, 11, 6, 18, tzinfo=TZ),
-        datetime(2026, 11, 6, 21, tzinfo=TZ),
+        datetime(2026, 11, 5, 18, tzinfo=TZ),
+        datetime(2026, 11, 5, 21, tzinfo=TZ),
     ) in next_week
 
 
