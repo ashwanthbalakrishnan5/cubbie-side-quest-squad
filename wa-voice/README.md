@@ -39,7 +39,8 @@ WebSocket frames:
 - sidecar → client, text: `{"event":"answered"}` once the callee picks up, `{"event":"ended","reason":"…"}` when the
   call is over.
 
-One call at a time. A call is ended after 150 s regardless, so the sidecar never stays busy.
+One call at a time. A declined call ends at once (`"reason":"declined"`), one not picked up within 35 s is hung up
+(`"no answer"`), and an answered call is ended after 150 s regardless, so the sidecar never stays busy.
 
 ## Test
 

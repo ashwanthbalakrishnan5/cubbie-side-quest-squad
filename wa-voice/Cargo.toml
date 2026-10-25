@@ -22,3 +22,6 @@ whatsapp-rust = { git = "https://github.com/oxidezap/whatsapp-rust", branch = "m
     "voip-relay-native",
     "voip-mlow",
 ] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["test-util"] }

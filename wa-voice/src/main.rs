@@ -18,7 +18,7 @@ use axum::routing::{get, post};
 use log::{info, warn};
 use serde::Deserialize;
 use serde_json::json;
-use tokio::time::{interval, timeout};
+use tokio::time::{interval, sleep, timeout};
 use wacore::voip::CallEvent;
 use whatsapp_rust::prelude::*;
 use whatsapp_rust::voip::CallHandle;
@@ -33,6 +33,8 @@ const FRAME: usize = 960;
 const FRAME_TIME: Duration = Duration::from_millis(60);
 /// Safety net so a call nobody hangs up never leaves the sidecar busy.
 const MAX_CALL: Duration = Duration::from_secs(150);
+/// WhatsApp never times out an unanswered offer for us; the bot waits at most 40 s.
+const RING_TIMEOUT: Duration = Duration::from_secs(35);
 
 struct Call {
     id: String,
@@ -173,12 +175,27 @@ async fn place_call(State(app): State<Arc<App>>, body: axum::body::Bytes) -> Res
         }
     });
 
-    // Watcher: free the slot when the call ends.
+    // Watcher: end unanswered or overlong calls, free the slot when the call ends.
     let (app2, c) = (app.clone(), call.clone());
     tokio::spawn(async move {
-        if timeout(MAX_CALL, c.handle.wait_ended()).await.is_err() {
-            c.set_reason("max duration");
-            c.handle.terminate().await;
+        let picked_up = async {
+            while !c.handle.media_connected() {
+                sleep(Duration::from_millis(200)).await;
+            }
+        };
+        match ring(c.handle.wait_ended(), picked_up).await {
+            // A <reject> ends the call before media connects.
+            Ring::Ended => c.set_reason("declined"),
+            Ring::NoAnswer => {
+                c.set_reason("no answer");
+                c.handle.terminate().await;
+            }
+            Ring::Answered => {
+                if timeout(MAX_CALL, c.handle.wait_ended()).await.is_err() {
+                    c.set_reason("max duration");
+                    c.handle.terminate().await;
+                }
+            }
         }
         info!("call {} ended: {}", c.id, c.reason());
         let mut slot = app2.call.lock().await;
@@ -189,6 +206,23 @@ async fn place_call(State(app): State<Arc<App>>, body: axum::body::Bytes) -> Res
 
     *slot = Some(call.clone());
     Json(json!({ "call_id": call.id })).into_response()
+}
+
+#[derive(Debug, PartialEq)]
+enum Ring {
+    Answered,
+    Ended,
+    NoAnswer,
+}
+
+/// The ringing phase: whichever of hang-up, pick-up or `RING_TIMEOUT` comes first.
+async fn ring(ended: impl Future<Output = ()>, picked_up: impl Future<Output = ()>) -> Ring {
+    tokio::select! {
+        biased;
+        _ = ended => Ring::Ended,
+        _ = picked_up => Ring::Answered,
+        _ = sleep(RING_TIMEOUT) => Ring::NoAnswer,
+    }
 }
 
 async fn audio_ws(
@@ -340,6 +374,19 @@ mod tests {
         assert_eq!(valid_phone("+123456789"), None);
         assert_eq!(valid_phone("+1234567890123456"), None);
         assert_eq!(valid_phone("+1 480 555 0123"), None);
+    }
+
+    #[tokio::test(start_paused = true)]
+    async fn ring_outcomes() {
+        use std::future::{pending, ready};
+        let t0 = tokio::time::Instant::now();
+        assert_eq!(ring(pending(), pending()).await, Ring::NoAnswer);
+        assert_eq!(t0.elapsed(), RING_TIMEOUT);
+        assert_eq!(ring(ready(()), pending()).await, Ring::Ended);
+        assert_eq!(
+            ring(pending(), sleep(Duration::from_secs(5))).await,
+            Ring::Answered
+        );
     }
 
     #[test]
