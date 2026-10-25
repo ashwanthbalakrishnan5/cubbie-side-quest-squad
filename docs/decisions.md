@@ -178,3 +178,11 @@ One line each: what was decided, and why, when the plan didn't cover it.
 - T14: After nudge_call, the status check now runs whatever the call outcome was (answered or not) and before both the vote write and the DM / channel-mention fallback. If the poll closed during the call, nothing is sent.
 - T14: This works because store.plan()/plans() return the same in-memory Plan objects that the close paths change, so plan.status shows a close that happens during a call without a re-fetch.
 - T14: Added 2 regression tests: test_unanswered_call_after_poll_closed_sends_nothing (no DM and no channel mention) and test_poll_closed_during_one_call_skips_the_rest (Ada and Bo both opted in, Ada's call closes the poll; calls == [('Ada','polling')], no DMs).
+
+## E2E and deploy (2026-10-25)
+- E2E `scripts/smoke_live.py` passed twice in #general of Test-Server-Cubbie: demo squad, real feed + Claude, components-v2 card, thread with agent posts, 3-answer poll, persona votes, results card, Discord scheduled event.
+- Personas now have weekday classes (Mon–Fri 9–16) for this week and next, so demo plans land after class or on weekends (first run picked a Wednesday 9:30 AM event).
+- `__main__` uses `logging.basicConfig(force=True)`: composio configures the root logger on import, which hid INFO logs.
+- Deployed to openclaw: `~/squad`, `squad.service` (systemd, `uv run --python 3.12 python -m squad`), `.env` with `PUBLIC_URL=https://squad.ashwanthbk.com` and `DEMO_FAST=1` (quick persona votes and nudges for demos and judges).
+- Caddy (`/opt/media/Caddyfile`, backup `.bak-squad`) proxies `squad.ashwanthbk.com` → `172.19.0.1:8090`; iptables allows `172.19.0.0/16` → 8090 (saved with netfilter-persistent); Cloudflare A record `squad` → 129.146.181.140, DNS only like `door`.
+- `wa-voice` is not built on openclaw yet: WhatsApp pairing was skipped, so there is nothing to run.

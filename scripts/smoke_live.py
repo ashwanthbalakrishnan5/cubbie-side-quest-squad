@@ -4,7 +4,7 @@ Logs in as the bot (stop any running `python -m squad` first: one token, one ses
 plans a real side quest in DEV_CHANNEL_ID, waits for the persona votes, closes the poll and checks the results
 through Discord's REST API. Uses a separate store under data/smoke/.
 
-    DEMO_FAST=1 uv run python scripts/smoke_live.py
+    DEMO_FAST=1 PYTHONPATH=. uv run python scripts/smoke_live.py
 """
 
 from __future__ import annotations
@@ -91,7 +91,9 @@ async def main() -> int:
 
         print("planning (real feed + Claude)…")
         await bot.flows.run_plan(squad, channel, Request())
-        plans = [p for p in bot.store.plans("polling") if p.channel_id == str(channel.id)]
+        plans = [
+            p for p in bot.store.plans("polling") if p.channel_id == str(channel.id)
+        ]
         if not plans:
             print("no plan posted (see channel for the no-plan card)")
             return 1
@@ -107,7 +109,9 @@ async def main() -> int:
         headers = {"Authorization": f"Bot {settings.discord_token}"}
         async with aiohttp.ClientSession(headers=headers) as s:
             card = await rest(s, f"/channels/{channel.id}/messages/{plan.message_id}")
-            poll = await rest(s, f"/channels/{channel.id}/messages/{plan.poll_message_id}")
+            poll = await rest(
+                s, f"/channels/{channel.id}/messages/{plan.poll_message_id}"
+            )
             thread_msgs = await rest(s, f"/channels/{plan.thread_id}/messages?limit=50")
             events = await rest(s, f"/guilds/{channel.guild.id}/scheduled-events")
         if not card["flags"] & COMPONENTS_V2:
