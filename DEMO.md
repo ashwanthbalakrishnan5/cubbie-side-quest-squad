@@ -13,13 +13,14 @@ the same every time in about 30 seconds.
    (each agent's line, the coordinator, "Priya's agent checked with Priya privately: all good.") and the poll. The
    friends vote a few seconds apart; Jordan's agent remembers "no events after 9pm on Fridays". If you haven't
    joined, it signs you up (music, food, chill, $20, 2 seats).
-3. **Vote live.** Try **Can't make it ❌** to show the private "Mind sharing why?" DM (only you see it). Changing to
-   **I'm in ✅** afterwards is fine; it won't ask again.
-4. **Nudge.** Didn't vote within about 8 s of the friends? It nudges you on its own. Any time, `/squad nudge` rings
-   your phone over WhatsApp (when `wa-voice` is connected and `DEMO_PHONE` is set in `.env`, or your number is on
-   your profile) or DMs you otherwise. Decline the call: you get "📞 Rang …, no answer" privately, nothing public.
-   Quiet hours still apply (default 10pm–9am).
+3. **Don't vote yet: let it ring.** About 8 s after the friends vote, the demo nudges you on its own: your phone
+   rings over WhatsApp from the bot's number (`DEMO_PHONE` on the server). Show the judges, then decline; you get
+   "📞 Rang …, no answer" privately, nothing public. Quiet hours still apply (default 10pm–9am).
+4. **Now vote live.** Pick **Can't make it ❌** to show the private "Mind sharing why?" DM (only you see it).
+   Changing to **I'm in ✅** afterwards is fine; it won't ask again.
 5. **Close poll now** on the card: "🎉 It's on" with going, rides and the 📅 Discord event, instantly.
+
+Backup: `/squad nudge` rings you on demand if the automatic call didn't fire (for example you voted too early).
 
 Again? Run `/squad demo` once more (same channel works: new plan, no repeat intros) or use a new channel.
 
