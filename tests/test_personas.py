@@ -29,16 +29,37 @@ def test_four_personas_ids_and_seats():
 def test_persona_busy_is_relative_to_week():
     by_id = {p.id: p for p in PERSONAS}
     wednesday = datetime(2026, 10, 28, 15, 0, tzinfo=TZ)  # week of Mon 26 Oct
-    (leo,) = persona_busy(by_id["demo:leo"], wednesday, TZ)
-    assert leo.start == datetime(2026, 10, 30, 18, 0, tzinfo=TZ)
-    assert leo.end == datetime(2026, 10, 30, 21, 0, tzinfo=TZ)
-    (maya,) = persona_busy(by_id["demo:maya"], wednesday, TZ)
-    assert maya.start == datetime(2026, 10, 31, 12, 0, tzinfo=TZ)
-    assert maya.end == datetime(2026, 10, 31, 16, 0, tzinfo=TZ)
-    assert persona_busy(by_id["demo:jordan"], wednesday, TZ) == []
-    assert persona_busy(by_id["demo:priya"], wednesday, TZ) == []
-    next_week = persona_busy(by_id["demo:leo"], datetime(2026, 11, 2, tzinfo=TZ), TZ)
-    assert next_week[0].start == datetime(2026, 11, 6, 18, 0, tzinfo=TZ)
+
+    def spans(pid, when=wednesday):
+        return {(b.start, b.end) for b in persona_busy(by_id[pid], when, TZ)}
+
+    leo = spans("demo:leo")
+    assert (
+        datetime(2026, 10, 30, 18, tzinfo=TZ),
+        datetime(2026, 10, 30, 21, tzinfo=TZ),
+    ) in leo
+    assert (
+        datetime(2026, 11, 6, 18, tzinfo=TZ),
+        datetime(2026, 11, 6, 21, tzinfo=TZ),
+    ) in leo
+    maya = spans("demo:maya")
+    assert (
+        datetime(2026, 10, 31, 12, tzinfo=TZ),
+        datetime(2026, 10, 31, 16, tzinfo=TZ),
+    ) in maya
+    # everyone has weekday classes, nobody has weekend classes
+    jordan = spans("demo:jordan")
+    assert (
+        datetime(2026, 10, 26, 9, tzinfo=TZ),
+        datetime(2026, 10, 26, 16, tzinfo=TZ),
+    ) in jordan
+    assert len(jordan) == 10
+    assert all(s.weekday() < 5 for s, _ in spans("demo:priya"))
+    next_week = spans("demo:leo", datetime(2026, 11, 2, tzinfo=TZ))
+    assert (
+        datetime(2026, 11, 6, 18, tzinfo=TZ),
+        datetime(2026, 11, 6, 21, tzinfo=TZ),
+    ) in next_week
 
 
 def test_demo_votes_cover_every_persona():

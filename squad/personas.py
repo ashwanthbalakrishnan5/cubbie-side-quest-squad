@@ -66,18 +66,23 @@ _BUSY: dict[str, list[tuple[int, int, int]]] = {
 }
 
 
+CLASSES = [(d, 9, 16) for d in range(5)]  # everyone's in class Mon–Fri daytime
+
+
 def persona_busy(member: Member, week_of: datetime, tz) -> list[BusyBlock]:
+    """Class hours plus the persona's own blocks, for this week and next (plans look 7 days ahead)."""
     day = week_of.astimezone(tz).date()
     monday = day - timedelta(days=day.weekday())
     blocks = []
-    for offset, start_h, end_h in _BUSY.get(member.id, []):
-        d = monday + timedelta(days=offset)
-        blocks.append(
-            BusyBlock(
-                start=datetime.combine(d, time(start_h), tz),
-                end=datetime.combine(d, time(end_h), tz),
+    for week in (0, 7):
+        for offset, start_h, end_h in CLASSES + _BUSY.get(member.id, []):
+            d = monday + timedelta(days=week + offset)
+            blocks.append(
+                BusyBlock(
+                    start=datetime.combine(d, time(start_h), tz),
+                    end=datetime.combine(d, time(end_h), tz),
+                )
             )
-        )
     return blocks
 
 
