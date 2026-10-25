@@ -4,3 +4,5 @@ __pycache__/
 data/
 CLAUDE.md
 wa-voice/target/
+video/renders/
+video/**/node_modules/

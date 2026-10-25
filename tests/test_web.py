@@ -58,3 +58,21 @@ def test_check_mode_exits_zero(tmp_path):
     )
     assert out.returncode == 0, out.stderr
     assert out.stdout.strip() == "ok"
+
+
+async def test_media_serves_files_from_data_dir(tmp_path):
+    (tmp_path / "media").mkdir()
+    (tmp_path / "media" / "demo.txt").write_text("hi")
+    app = make_app(
+        Settings(
+            discord_token="x",
+            anthropic_api_key="x",
+            gemini_api_key="x",
+            data_dir=tmp_path,
+        )
+    )
+    async with TestClient(TestServer(app)) as c:
+        resp = await c.get("/media/demo.txt")
+        assert resp.status == 200
+        assert await resp.text() == "hi"
+        assert (await c.get("/media/missing.mp4")).status == 404

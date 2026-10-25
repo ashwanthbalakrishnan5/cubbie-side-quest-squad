@@ -35,4 +35,8 @@ def make_app(settings: Settings) -> web.Application:
     app.router.add_get("/", index)
     app.router.add_get("/health", health)
     app.router.add_get("/calendar/done", calendar_done)
+    # demo video and poster live outside git, in data/media on the server
+    media = settings.data_dir / "media"
+    media.mkdir(parents=True, exist_ok=True)
+    app.router.add_static("/media/", media)
     return app

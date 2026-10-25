@@ -9,7 +9,7 @@
 <a href="#try-it"><img alt="Discord bot" src="https://img.shields.io/badge/Discord-bot-5865F2?style=for-the-badge&labelColor=2A0F22"></a>
 <a href="#how-it-works"><img alt="Real ASU events" src="https://img.shields.io/badge/real-ASU%20events-8C1D40?style=for-the-badge&labelColor=2A0F22"></a>
 <a href="#what-each-agent-shares-vs-keeps-private"><img alt="One agent per friend" src="https://img.shields.io/badge/agents-one%20per%20friend-FFC627?style=for-the-badge&labelColor=2A0F22"></a>
-<a href="#for-builders"><img alt="145 tests passing" src="https://img.shields.io/badge/tests-145%20passing-0A84FF?style=for-the-badge&labelColor=2A0F22"></a>
+<a href="#for-builders"><img alt="146 tests passing" src="https://img.shields.io/badge/tests-146%20passing-0A84FF?style=for-the-badge&labelColor=2A0F22"></a>
 
 [See it](#see-it) · [Try it](#try-it) · [How it works](#how-it-works) · [Run your own](#run-your-own)
 
@@ -217,7 +217,7 @@ qrencode -t ansiutf8 < data/wa-qr.txt  # scan from WhatsApp → Linked devices
 ## For builders
 
 ```bash
-uv run pytest                               # 145 tests
+uv run pytest                               # 146 tests
 uv run ruff check . && uv run ruff format .
 cd wa-voice && cargo test && cargo clippy -- -D warnings   # 4 tests
 ```
