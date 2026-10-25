@@ -1,0 +1,114 @@
+{
+  "audio": "assets/vo/s09.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "Leo",
+      "start": 0.08,
+      "end": 0.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "hasn't",
+      "start": 0.38,
+      "end": 0.64,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "voted",
+      "start": 0.68,
+      "end": 0.98,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "yet,",
+      "start": 1.04,
+      "end": 1.18,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "so",
+      "start": 1.46,
+      "end": 1.54,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "he",
+      "start": 1.58,
+      "end": 1.66,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "gets",
+      "start": 1.7,
+      "end": 1.94,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "one",
+      "start": 2.02,
+      "end": 2.12,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "friendly",
+      "start": 2.24,
+      "end": 2.56,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "call.",
+      "start": 2.6,
+      "end": 2.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Just",
+      "start": 3.54,
+      "end": 3.78,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "one,",
+      "start": 3.82,
+      "end": 4.019,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 4.26,
+      "end": 4.34,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "never",
+      "start": 4.4,
+      "end": 4.62,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "during",
+      "start": 4.7,
+      "end": 4.92,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "his",
+      "start": 4.96,
+      "end": 5.1,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "quiet",
+      "start": 5.14,
+      "end": 5.44,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "hours",
+      "start": 5.52,
+      "end": 5.9,
+      "speaker": "speaker_0"
+    }
+  ]
+}

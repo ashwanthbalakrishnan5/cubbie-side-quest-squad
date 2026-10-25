@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!-- S10 It's on (v2: film 138.100-143.800 s; rings on the s10.wav words per SPEC 10.3), Cut A: Discord. Leo's phone (S09's in-call screen, held where S09 left it)
+     exits right; Ash's #squad window enters; the who-line sticker from S09 lands in the plan card's who line;
+     Ash clicks "Close poll now"; the results card (ui/cards.py results_card + carpool.py with the cast's seats)
+     lands; the Discord event row appears in the sidebar. Hand-off: the root maroon wipe at 7.8. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        /* chip on the cream stage, bottom-right: the app window covers the top-left corner in this scene */
+        #s10-chip { left: auto; top: auto; right: 96px; bottom: 72px; }
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        .dc-ts {
+          padding: 0 2px;
+          border-radius: 3px;
+          background: rgba(255, 255, 255, 0.06);
+        }
+        .s10-who p {
+          white-space: pre;
+        }
+        #s10-leocam {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1920px;
+          height: 1080px;
+          transform-origin: 0 0;
+          z-index: 30;
+        }
+        #s10-leo {
+          position: absolute;
+          left: 949px;
+          top: 50px;
+        }
+        #s10-leo .ip {
+          position: relative;
+          left: 0;
+          top: 0;
+        }
+        .s10-timer {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: calc(342 * var(--pt));
+          text-align: center;
+          font-size: calc(17 * var(--pt));
+          line-height: calc(22 * var(--pt));
+          color: #aeaeb2;
+          font-variant-numeric: tabular-nums;
+        }
+        .call-btns.s10-row {
+          left: calc(36 * var(--pt));
+          right: calc(36 * var(--pt));
+        }
+        .call-wave i {
+          transform: scaleY(0.1);
+        }
+        #s10-who {
+          position: absolute;
+          left: 180px;
+          top: 470px;
+          z-index: 40;
+          transform-origin: 0 50%;
+        }
+        .s10-rides .sq-arrow {
+          margin: 0 1px;
+        }
+        .dc-event {
+          border-bottom: none;
+          margin-bottom: 4px;
+        }
+        .dc-event svg {
+          width: 20px;
+          height: 20px;
+          color: #b5bac1;
+        }
+      </style>
+      <div data-hf-id="hf-w9sr" id="root" data-composition-id="s10" data-width="1920" data-height="1080" data-duration="5.7">
+        <div data-hf-id="hf-7p4v" class="sq-scene">
+          <div data-hf-id="hf-d3xm" class="sq-cam" id="s10-cam">
+            <div data-hf-id="hf-7vlo" class="sq-grid" data-layout-ignore=""></div>
+            <div data-hf-id="hf-jpwv" class="dc-win" id="s10-win" data-layout-allow-overlap="">
+              <div data-hf-id="hf-8lnq" class="dc-ui">
+                <div data-hf-id="hf-2bka" class="dc-title"><div data-hf-id="hf-7jrb" class="dc-lights"><i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i></div></div>
+                <div data-hf-id="hf-ous8" class="dc-rail">
+                  <div data-hf-id="hf-nn03" class="dc-srv home" data-dci="home"></div>
+                  <div data-hf-id="hf-09lw" class="dc-railsep"></div>
+                  <div data-hf-id="hf-87vz" class="dc-srv squad on">🌵</div>
+                  <div data-hf-id="hf-40rc" class="dc-srv add" data-dci="plus"></div>
+                </div>
+                <div data-hf-id="hf-irux" class="dc-side">
+                  <div data-hf-id="hf-vyxi" class="dc-side-head">ASU friends<span data-hf-id="hf-puui" data-dci="chev"></span></div>
+                  <div data-hf-id="hf-ojhu" class="dc-side-body">
+                    <div data-hf-id="hf-rbp8" class="dc-event" id="s10-event"><span data-hf-id="hf-sot6" data-dci="cal"></span>1 Event</div>
+                    <div data-hf-id="hf-ervl" class="dc-cat"><span data-hf-id="hf-jt4e" data-dci="chev"></span>Text Channels<span data-hf-id="hf-955y" class="plus">+</span></div>
+                    <div data-hf-id="hf-qthj" class="dc-ch"><span data-hf-id="hf-wlj6" data-dci="hash"></span>general</div>
+                    <div data-hf-id="hf-mlla" class="dc-ch on"><span data-hf-id="hf-fx46" data-dci="hash"></span>squad</div>
+                  </div>
+                  <div data-hf-id="hf-3p7l" class="dc-user">
+                    <span data-hf-id="hf-kvvt" class="dc-av ash">A</span>
+                    <div data-hf-id="hf-yeow"><div data-hf-id="hf-frlh" class="dc-user-name">Ash</div><div data-hf-id="hf-4bnc" class="dc-user-st">Online</div></div>
+                    <div data-hf-id="hf-aiwh" class="dc-user-ico"><span data-hf-id="hf-gvtj" data-dci="mic"></span><span data-hf-id="hf-h4ux" data-dci="phones"></span><span data-hf-id="hf-i29j" data-dci="gear"></span></div>
+                  </div>
+                </div>
+                <div data-hf-id="hf-da9m" class="dc-chat">
+                  <div data-hf-id="hf-eo72" class="dc-head">
+                    <span data-hf-id="hf-gbf7" data-dci="hash"></span><span data-hf-id="hf-aws3" class="dc-head-name">squad</span><span data-hf-id="hf-q0hv" class="dc-head-div"></span>
+                    <span data-hf-id="hf-fnhl" class="dc-head-topic">friends who keep saying "we should hang out"</span>
+                  </div>
+                  <div data-hf-id="hf-uid3" class="dc-scroller" id="s10-scroller">
+                    <div data-hf-id="hf-ftgj" class="dc-list" id="s10-list">
+                      <div data-hf-id="hf-bw8n" class="dc-msg">
+                        <span data-hf-id="hf-q24j" class="dc-av bot">🗺️</span>
+                        <div data-hf-id="hf-7ttz" class="dc-meta"><span data-hf-id="hf-c7pg" class="dc-name" style="--nc: #fff">Side Quests Squad</span><span data-hf-id="hf-giy3" class="dc-app">APP</span><span data-hf-id="hf-gb44" class="dc-time">Today at 4:03 PM</span></div>
+                        <div data-hf-id="hf-0zti" class="dc-text">👀 Spotted something that fits everyone's week: <b data-hf-id="hf-4k04">Open Mic Night</b>, October 30, 2026 7:00 PM. Want to go?</div>
+                      </div>
+                      <div data-hf-id="hf-rw6r" class="dc-msg">
+                        <span data-hf-id="hf-66yr" class="dc-av bot">🗺️</span>
+                        <div data-hf-id="hf-r6jr" class="dc-meta"><span data-hf-id="hf-vxh8" class="dc-name" style="--nc: #fff">Side Quests Squad</span><span data-hf-id="hf-tznv" class="dc-app">APP</span><span data-hf-id="hf-x17y" class="dc-time">Today at 4:05 PM</span></div>
+                        <div data-hf-id="hf-l7kd" class="dc-ctr">
+                          <div data-hf-id="hf-1ok5" class="dc-h2">🗺️ This week's side quest</div>
+                          <div data-hf-id="hf-z4k6" class="dc-h3">Open Mic Night</div>
+                          <p data-hf-id="hf-6sxh">🕖 <span data-hf-id="hf-a8am" class="dc-ts">Friday, October 30, 2026 7:00 PM</span> · <span data-hf-id="hf-v587" class="dc-ts">in 5 days</span></p>
+                          <p data-hf-id="hf-5zp8">📍 Memorial Union 202 · $5 · free food 🍕</p>
+                          <p data-hf-id="hf-11bw" class="dc-em">Live music, free pizza, and home by 9</p>
+                          <p data-hf-id="hf-qxli">Maya and Leo both want music, Priya's in for the free food and a chill crowd, and it wraps up early enough for Jordan's Saturday.</p>
+                          <p data-hf-id="hf-9ywt"><b data-hf-id="hf-55ti">Trade-offs</b><br data-hf-id="hf-x5px">• Someone has a budget limit<br data-hf-id="hf-rsrt">• Leo would've picked the hike</p>
+                          <div data-hf-id="hf-79ck" class="dc-sep"></div>
+                          <div data-hf-id="hf-8kxu" class="dc-stack s10-who" id="s10-wholine">
+                            <p data-hf-id="hf-2x8v" id="s10-w4">✅ Maya, Ash, Priya  ❌ 1 can't make it</p>
+                            <p data-hf-id="hf-rni6" id="s10-w5">✅ Maya, Ash, Priya, Leo  ❌ 1 can't make it</p>
+                          </div>
+                          <div data-hf-id="hf-ydx7" class="dc-btns">
+                            <span data-hf-id="hf-rlz6" class="dc-btn">Event page<span data-hf-id="hf-ppwb" data-dci="ext"></span></span>
+                            <span data-hf-id="hf-hlq7" class="dc-btn" id="s10-close">Close poll now<i data-hf-id="hf-domm" class="dc-dim"></i></span>
+                            <span data-hf-id="hf-t6gl" class="dc-btn">How did you pick this?</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div data-hf-id="hf-6daj" class="dc-msg cont" id="s10-m6">
+                        <div data-hf-id="hf-8x1r" class="dc-poll">
+                          <div data-hf-id="hf-9v4j" class="dc-poll-q">Open Mic Night, you in?</div>
+                          <div data-hf-id="hf-llb4" class="dc-poll-sub">Select one answer</div>
+                          <div data-hf-id="hf-u7no" class="dc-ans"><i data-hf-id="hf-qk0r" class="dc-ans-fill" id="s10-f0"></i><span data-hf-id="hf-22tl" class="dc-ans-label">I'm in ✅</span><span data-hf-id="hf-hdbh" class="dc-ans-n dc-stack" id="s10-n0"><span data-hf-id="hf-6w6n">3 votes<b data-hf-id="hf-agvo">75%</b></span><span data-hf-id="hf-j0iy">4 votes<b data-hf-id="hf-9ecw">80%</b></span></span></div>
+                          <div data-hf-id="hf-u73w" class="dc-ans"><i data-hf-id="hf-b0kn" class="dc-ans-fill" style="transform: scaleX(0)"></i><span data-hf-id="hf-rspi" class="dc-ans-label">Maybe 🤔</span><span data-hf-id="hf-k9c9" class="dc-ans-n">0 votes<b data-hf-id="hf-e7dq">0%</b></span></div>
+                          <div data-hf-id="hf-t06t" class="dc-ans"><i data-hf-id="hf-insp" class="dc-ans-fill" id="s10-f2"></i><span data-hf-id="hf-rx0y" class="dc-ans-label">Can't make it ❌</span><span data-hf-id="hf-p9jj" class="dc-ans-n dc-stack" id="s10-n2"><span data-hf-id="hf-y7ac">1 vote<b data-hf-id="hf-p667">25%</b></span><span data-hf-id="hf-gwt8">1 vote<b data-hf-id="hf-1cjy">20%</b></span></span></div>
+                          <div data-hf-id="hf-llfr" class="dc-poll-foot dc-stack" id="s10-foot"><span data-hf-id="hf-7c49">4 votes · 1h left</span><span data-hf-id="hf-zlwm">5 votes · 1h left</span></div>
+                        </div>
+                      </div>
+                      <div data-hf-id="hf-v7iw" class="dc-msg" id="s10-m7">
+                        <span data-hf-id="hf-5snq" class="dc-av bot">🗺️</span>
+                        <div data-hf-id="hf-qs8q" class="dc-meta"><span data-hf-id="hf-uqk5" class="dc-name" style="--nc: #fff">Side Quests Squad</span><span data-hf-id="hf-tlcu" class="dc-app">APP</span><span data-hf-id="hf-c1k7" class="dc-time">Today at 4:13 PM</span></div>
+                        <div data-hf-id="hf-8az0" class="dc-ctr" id="s10-res">
+                          <div data-hf-id="hf-ppup" class="dc-h2">🎉 It's on</div>
+                          <div data-hf-id="hf-whq2" class="dc-h3">Open Mic Night</div>
+                          <p data-hf-id="hf-bju1">🕖 <span data-hf-id="hf-crxe" class="dc-ts">Friday, October 30, 2026 7:00 PM</span> · <span data-hf-id="hf-w08n" class="dc-ts">in 5 days</span></p>
+                          <p data-hf-id="hf-tzec">📍 Memorial Union 202 · $5 · free food 🍕</p>
+                          <p data-hf-id="hf-q1an"><span data-hf-id="hf-0lco" class="dc-tgt" id="s10-going"><b data-hf-id="hf-76l1">Going:</b> Maya, Ash, Priya, Leo<i data-hf-id="hf-n3ex" data-sq="ring" id="s10-r1"></i></span></p>
+                          <p data-hf-id="hf-n7hn" class="s10-rides"><span data-hf-id="hf-09kl" class="dc-tgt" id="s10-rides"><b data-hf-id="hf-z5pw">Rides</b><br data-hf-id="hf-szow">🚗 Ash <i data-hf-id="hf-1kda" data-sq="arrow"></i> Maya, Priya<br data-hf-id="hf-sldv">🚗 Leo <i data-hf-id="hf-o9xe" data-sq="arrow"></i> driving solo<i data-hf-id="hf-r1iy" data-sq="ring" id="s10-r2"></i></span></p>
+                          <p data-hf-id="hf-wo4v"><span data-hf-id="hf-r61s" class="dc-tgt" id="s10-evlink">📅 <span data-hf-id="hf-8wqt" class="dc-link">Discord event</span><i data-hf-id="hf-uzmz" data-sq="ring" id="s10-r3"></i></span></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-hf-id="hf-8pzw" class="dc-compose"><span data-hf-id="hf-qdhs" class="dc-plus">+</span><div data-hf-id="hf-kk4s" class="dc-field"><span data-hf-id="hf-mp6z" class="dc-ph">Message #squad</span></div></div>
+                </div>
+              </div>
+            </div>
+            <div data-hf-id="hf-nn79" class="dc-cursor" id="s10-cur" data-dci="cursor"></div>
+          </div>
+          <!-- Leo's phone, held exactly where S09's camera (1.13 about 1180, 540) left it -->
+          <div data-hf-id="hf-nant" id="s10-leocam">
+            <div data-hf-id="hf-b6hg" id="s10-leo">
+              <div data-hf-id="hf-m1rn" class="ip">
+                <i data-hf-id="hf-k910" class="ip-btn l" style="top: 190px; height: 34px"></i>
+                <i data-hf-id="hf-5sae" class="ip-btn l" style="top: 250px; height: 62px"></i>
+                <i data-hf-id="hf-6eea" class="ip-btn l" style="top: 324px; height: 62px"></i>
+                <i data-hf-id="hf-dd7e" class="ip-btn r" style="top: 280px; height: 96px"></i>
+                <div data-hf-id="hf-w10k" class="ip-screen dark">
+                  <div data-hf-id="hf-s3rk" class="call">
+                    <div data-hf-id="hf-kg1w" class="call-av">🗺️</div>
+                    <div data-hf-id="hf-6qzc" class="call-name">Side Quests Squad</div>
+                    <div data-hf-id="hf-83sb" class="s10-timer">0:07</div>
+                    <div data-hf-id="hf-sg8q" class="call-wave">
+                      <i data-hf-id="hf-ylp6"></i><i data-hf-id="hf-0l8b"></i><i data-hf-id="hf-0zjc"></i><i data-hf-id="hf-zsm9"></i><i data-hf-id="hf-06xa"></i><i data-hf-id="hf-26gf"></i><i data-hf-id="hf-2krg"></i><i data-hf-id="hf-oz7w"></i><i data-hf-id="hf-okwv"></i><i data-hf-id="hf-o6lu"></i><i data-hf-id="hf-jqbp"></i><i data-hf-id="hf-qkg0"></i>
+                      <i data-hf-id="hf-q64z"></i><i data-hf-id="hf-prty"></i><i data-hf-id="hf-pdix"></i><i data-hf-id="hf-hqsk"></i><i data-hf-id="hf-hchj"></i><i data-hf-id="hf-8d0n"></i><i data-hf-id="hf-8rbo"></i><i data-hf-id="hf-7kel"></i><i data-hf-id="hf-7ypm"></i><i data-hf-id="hf-9y8r"></i><i data-hf-id="hf-acjs"></i><i data-hf-id="hf-95mp"></i>
+                    </div>
+                    <div data-hf-id="hf-fk7h" class="call-btns s10-row">
+                      <div data-hf-id="hf-t4e3" class="call-b grey"><span data-hf-id="hf-8xrg" class="disc" data-ico="speaker"></span>Speaker</div>
+                      <div data-hf-id="hf-btab" class="call-b grey"><span data-hf-id="hf-eewq" class="disc" data-ico="mute"></span>Mute</div>
+                      <div data-hf-id="hf-x337" class="call-b end"><span data-hf-id="hf-odcy" class="disc" data-ico="hangup"></span>End</div>
+                    </div>
+                  </div>
+                  <div data-hf-id="hf-vmoj" class="ip-island"></div>
+                  <div data-hf-id="hf-tox6" class="ip-status">
+                    <div data-hf-id="hf-shcr" class="ip-clock">4:52</div>
+                    <div data-hf-id="hf-ux6i" class="ip-icons" data-sq="status"></div>
+                  </div>
+                  <div data-hf-id="hf-sncx" class="ip-home"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div data-hf-id="hf-qgcg" id="s10-who"><span data-hf-id="hf-592p" class="sq-sticker-line">✅ Maya, Ash, Priya, Leo  ❌ 1 can't make it</span></div>
+          <div data-hf-id="hf-rlnb" class="sq-chip-slot" id="s10-chip" data-layout-allow-overlap=""><span data-hf-id="hf-3g4a" class="sq-chip"><b data-hf-id="hf-91ed">08</b>Go</span></div>
+        </div>
+        <audio data-hf-id="hf-ngu4" id="s10-sfx-1" class="clip" data-hf-media-start-basis="local" data-start="0.6" data-duration="0.094" data-track-index="20" data-volume="0.3" src="assets/audio/sfx/ui/click1.ogg"></audio>
+        <audio data-hf-id="hf-wrsq" id="s10-sfx-2" class="clip" data-hf-media-start-basis="local" data-start="1.35" data-duration="0.459" data-track-index="21" data-volume="0.4" src="assets/audio/sfx/casino/card-place-2.ogg"></audio>
+        <audio data-hf-id="hf-yyg4" id="s10-sfx-3" class="clip" data-hf-media-start-basis="local" data-start="4.16" data-duration="0.883" data-track-index="20" data-volume="0.2" src="assets/audio/sfx/casino/card-place-3.ogg"></audio>
+      </div>
+      <script>
+        (function () {
+          var root = document.querySelector('[data-composition-id="s10"]');
+          SQ.mount(root);
+          DC.mount(root);
+          var $ = function (id) {
+            return document.getElementById(id);
+          };
+          var tl = gsap.timeline({ paused: true });
+          function hideAt0(els) {
+            gsap.set(els, { opacity: 0 });
+            tl.set(els, { opacity: 0 }, 0);
+          }
+
+          function build() {
+            var cam = $("s10-cam"),
+              win = $("s10-win"),
+              cur = $("s10-cur");
+            var scroller = $("s10-scroller"),
+              list = $("s10-list"),
+              m6 = $("s10-m6"),
+              m7 = $("s10-m7");
+            var y6 = DC.bottomY(scroller, m6);
+            var y7 = DC.bottomY(scroller, m7);
+            gsap.set(list, { y: y6 });
+            tl.set(list, { y: y6 }, 0);
+            hideAt0([m7, $("s10-w5"), $("s10-n0").children[1], $("s10-n2").children[1], $("s10-foot").children[1], $("s10-event")]);
+            gsap.set($("s10-f0"), { scaleX: 0.75 });
+            gsap.set($("s10-f2"), { scaleX: 0.25 });
+            tl.set($("s10-f0"), { scaleX: 0.75 }, 0);
+            tl.set($("s10-f2"), { scaleX: 0.25 }, 0);
+
+            SQ.camSet(tl, cam, SQ.frame(1, 960, 540));
+            SQ.land(tl, $("s10-chip"), 0.3);
+            tl.to($("s10-chip"), { opacity: 0, duration: 0.2, ease: "power1.in" }, 3.6); // the push to the Discord event covers the corner
+
+            // 0.00-0.50 Leo's phone exits right; Ash's window enters from the left
+            var lc = SQ.frame(1.13, 1180, 540, 1180, 540);
+            gsap.set($("s10-leocam"), lc);
+            tl.set($("s10-leocam"), lc, 0);
+            tl.fromTo($("s10-leo"), { x: 0, filter: "blur(0px)" }, { x: 1400, filter: "blur(8px)", duration: 0.5, ease: "power3.in" }, 0);
+            tl.fromTo(win, { x: -1500, filter: "blur(10px)" }, { x: 0, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 0);
+
+            // the who-line sticker (S09's carry) lands into the plan card's who line
+            var who = $("s10-who");
+            var wl = DC.at(win, $("s10-w5"), 0, 0.5, y6);
+            var from = { x: 160, y: -40 };
+            var to = { x: wl.x - 180 - 18, y: wl.y - 470 };
+            gsap.set(who, { x: from.x, y: from.y, scale: 0.92, filter: "blur(4px)" });
+            tl.set(who, { x: from.x, y: from.y, scale: 0.92, filter: "blur(4px)" }, 0);
+            SQ.arc(tl, who, 0, 0.5, from, to, 30, "power2.out");
+            tl.to(who, { scale: 0.62, filter: "blur(0px)", duration: 0.5, ease: "power2.out" }, 0);
+            tl.to(who, { opacity: 0, duration: 0.12, ease: "power1.in" }, 0.5);
+            DC.swap(tl, $("s10-w4"), $("s10-w5"), 0.45);
+            DC.swap(tl, $("s10-n0").children[0], $("s10-n0").children[1], 0.45);
+            DC.swap(tl, $("s10-n2").children[0], $("s10-n2").children[1], 0.45);
+            DC.swap(tl, $("s10-foot").children[0], $("s10-foot").children[1], 0.45);
+            tl.to($("s10-f0"), { scaleX: 0.8, duration: 0.4, ease: "power2.out" }, 0.5);
+            tl.to($("s10-f2"), { scaleX: 0.2, duration: 0.4, ease: "power2.out" }, 0.5);
+
+            // 0.60 Ash clicks "Close poll now"
+            var cl = DC.at(win, $("s10-close"), 0.5, 0.55, y6);
+            var off = { x: cl.x + 300, y: cl.y + 330 };
+            gsap.set(cur, { x: off.x, y: off.y, opacity: 0 });
+            tl.set(cur, { x: off.x, y: off.y, opacity: 0 }, 0);
+            tl.set(cur, { opacity: 1 }, 0.2);
+            DC.move(tl, cur, 0.2, off, cl, 0.36);
+            DC.press(tl, cur, 0.6);
+            DC.btnPress(tl, $("s10-close"), 0.6);
+            tl.to(cur, { opacity: 0, duration: 0.15 }, 1.2);
+
+            // 1.35 results card lands; camera onto it; rings on "who's going" 2.15, "who's driving who" 2.97,
+            // "a reminder" 4.16 (the Discord event lands in the sidebar on the same word)
+            tl.to(list, { y: y7, duration: 0.25, ease: "power3.out" }, 1.35);
+            tl.set(m7, { opacity: 1 }, 1.35);
+            DC.arrive(tl, $("s10-res"), 1.35);
+            var rc = DC.at(win, $("s10-res"), 0.5, 0.5, y7);
+            tl.to(cam, Object.assign(SQ.frame(1.45, rc.x, rc.y, 980, 560), { duration: 0.6, ease: "power3.inOut" }), 1.35);
+            SQ.ring(tl, $("s10-r1"), 2.15);
+            SQ.ringOut(tl, $("s10-r1"), 2.9);
+            SQ.ring(tl, $("s10-r2"), 2.97);
+            SQ.ringOut(tl, $("s10-r2"), 3.85);
+            var ev = DC.at(win, $("s10-event"), 0.5, 0.5);
+            var mid = { x: (ev.x + rc.x) / 2, y: rc.y };
+            tl.to(cam, Object.assign(SQ.frame(1.36, mid.x, mid.y, 960, 560), { duration: 0.5, ease: "power3.inOut" }), 3.65);
+            SQ.ring(tl, $("s10-r3"), 4.16);
+            SQ.land(tl, $("s10-event"), 4.16);
+            tl.to(cam, Object.assign(SQ.frame(1.39, mid.x, mid.y, 960, 560), { duration: 1.5, ease: "sine.inOut" }), 4.2);
+            window.__timelines["s10"] = tl;
+          }
+          if (document.fonts && document.fonts.status !== "loaded") {
+            document.fonts.ready.then(build);
+          } else {
+            build();
+          }
+        })();
+      </script>
+    </template>
+  </body>
+</html>

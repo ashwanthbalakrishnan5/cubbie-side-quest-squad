@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- S02 Title (film 13.433-20.266 s, both cuts; VO s02.wav @0.30). The maroon wipe (root overlay) reveals the stage at 0.0-0.2. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s02-tag {
+          top: 236px;
+        }
+        #s02-line1 {
+          top: 302px;
+        }
+        #s02-stk {
+          top: 470px;
+        }
+        #s02-sub {
+          top: 690px;
+        }
+      </style>
+      <div data-hf-id="hf-u1xa" id="root" data-composition-id="s02" data-width="1920" data-height="1080" data-duration="6.833">
+        <div data-hf-id="hf-7p4v" class="sq-scene">
+          <div data-hf-id="hf-zypf" class="sq-cam" id="s02-cam">
+            <div data-hf-id="hf-7vlo" class="sq-grid" data-layout-ignore=""></div>
+            <div data-hf-id="hf-8e5a" id="s02-block">
+              <div data-hf-id="hf-76y0" class="sq-tag-slot" id="s02-tag"><span data-hf-id="hf-s7tg" class="sq-tag">Cubbie Hackathon · Track 3 · ASU</span></div>
+              <div data-hf-id="hf-bpqu" class="sq-title-1" id="s02-line1">Side Quests:</div>
+              <div data-hf-id="hf-cjv5" class="sq-sticker-slot" id="s02-stk"><span data-hf-id="hf-d37m" class="sq-sticker">Squad Mode</span></div>
+              <div data-hf-id="hf-k9uf" class="sq-sub" id="s02-sub">
+                Squad Mode picks the event, the time and the ride, so you actually go.
+              </div>
+            </div>
+          </div>
+        </div>
+        <audio data-hf-id="hf-f4lz" id="s02-sfx-1" class="clip" data-hf-media-start-basis="local" data-start="1.048" data-duration="0.689" data-track-index="20" data-volume="0.4" src="assets/audio/sfx/casino/card-place-1.ogg"></audio>
+      </div>
+      <script>
+        (function () {
+          var $ = function (id) {
+            return document.getElementById(id);
+          };
+          var tl = gsap.timeline({ paused: true });
+          var cam = $("s02-cam");
+          SQ.camSet(tl, cam, SQ.frame(1, 960, 540));
+          // stage push 1.00 -> 1.03; the title block holds still inside it
+          tl.to(cam, Object.assign(SQ.frame(1.03, 960, 540), { duration: 6.4, ease: "sine.inOut" }), 0.2);
+
+          SQ.blurWords(tl, SQ.words($("s02-line1")), 0.25);
+          // sticker lands on "Squad Mode" (VO word at 1.19)
+          SQ.land(tl, $("s02-stk"), 1.19);
+          tl.fromTo($("s02-sub"), { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "none" }, 2.3);
+          // every word inks in order except "picks", which waits for "does the picking" (5.64) and gets a gold underline
+          var sw = SQ.words($("s02-sub"));
+          var picks = sw.filter(function (w) {
+            return w.textContent === "picks";
+          })[0];
+          SQ.inkWords(tl, sw.filter(function (w) {
+            return w !== picks;
+          }), 2.3, 0.07);
+          picks.style.background = "linear-gradient(#ffc627, #ffc627) 0 92% / 0% 12px no-repeat";
+          tl.set(picks, { color: "rgba(17,17,17,0.25)" }, 0);
+          tl.to(picks, { color: "rgba(17,17,17,1)", backgroundSize: "100% 12px", duration: 0.3, ease: "power2.out" }, 5.64);
+          SQ.land(tl, $("s02-tag"), 3.9);
+
+          // blur swap out: title, sub, tag
+          tl.to(
+            ["#s02-tag", "#s02-line1", "#s02-stk", "#s02-sub"],
+            { opacity: 0, filter: "blur(8px)", duration: 0.15, ease: "power2.in" },
+            6.68,
+          );
+          window.__timelines["s02"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

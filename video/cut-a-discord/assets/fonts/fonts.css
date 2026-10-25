@@ -1,0 +1,37 @@
+/* Copy this folder to <project>/assets/fonts/; paths are root-relative per the HyperFrames contract.
+   Static TTFs from Google Fonts (Latin). No glyphs for → or emoji: draw → as inline SVG, emoji fall back to the system emoji font. */
+@font-face {
+  font-family: "Archivo Black";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url("assets/fonts/ArchivoBlack-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Space Grotesk";
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+  src: url("assets/fonts/SpaceGrotesk-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Space Grotesk";
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+  src: url("assets/fonts/SpaceGrotesk-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url("assets/fonts/Inter-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 600;
+  font-style: normal;
+  font-display: block;
+  src: url("assets/fonts/Inter-SemiBold.ttf") format("truetype");
+}

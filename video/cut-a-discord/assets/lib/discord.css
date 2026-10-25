@@ -1,0 +1,1078 @@
+/* Cut A only: Discord desktop window (dark), authored in Discord px ("dp") inside .dc-ui, which is scaled
+   by 1.3 (SPEC 3.2 says 1.4; 1.3 gives the window a real Discord width of 937 dp, so a Components V2 card and
+   its button row fit unwrapped. Reading rule kept: every read line is framed at camera >= 1.35 = 28 px). The window outer box is a stage object (3 px ink border,
+   10 px hard shadow). GSAP never transforms .dc-ui (it carries the CSS scale); it moves .dc-win or children. */
+
+.dc-win {
+  position: absolute;
+  left: 348px;
+  top: 122px;
+  width: 1224px;
+  height: 700px;
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: 10px 10px 0 var(--ink);
+  overflow: hidden;
+  background: #313338;
+}
+.dc-ui {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 936.9px;
+  height: 533.8px;
+  transform: scale(1.3);
+  transform-origin: 0 0;
+  font-family: var(--f-ui);
+  font-weight: 400;
+  color: #dbdee1;
+  font-size: 16px;
+  line-height: 22px;
+  overflow: hidden;
+}
+.dc-ui svg {
+  display: block;
+}
+
+/* title bar + traffic lights */
+.dc-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 22px;
+  background: #1e1f22;
+  z-index: 5;
+}
+.dc-lights {
+  position: absolute;
+  left: 10px;
+  top: 6px;
+  display: flex;
+  gap: 6px;
+}
+.dc-lights i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+.dc-lights i:nth-child(2) {
+  background: #febc2e;
+}
+.dc-lights i:nth-child(3) {
+  background: #28c840;
+}
+
+/* server rail */
+.dc-rail {
+  position: absolute;
+  left: 0;
+  top: 22px;
+  bottom: 0;
+  width: 72px;
+  background: #1e1f22;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+}
+.dc-srv {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #313338;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  line-height: 1;
+  color: #dbdee1;
+}
+.dc-srv.on {
+  border-radius: 16px;
+}
+.dc-srv.home.on {
+  background: #5865f2;
+  color: #fff;
+}
+.dc-srv.squad {
+  background: var(--maroon);
+}
+.dc-srv.add {
+  color: #23a55a;
+}
+.dc-srv svg {
+  width: 24px;
+  height: 24px;
+}
+.dc-srv.on::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 4px;
+  width: 4px;
+  height: 40px;
+  border-radius: 0 4px 4px 0;
+  background: #f2f3f5;
+}
+.dc-railsep {
+  width: 32px;
+  height: 2px;
+  border-radius: 1px;
+  background: #35363c;
+}
+
+/* channel / DM sidebar */
+.dc-side {
+  position: absolute;
+  left: 72px;
+  top: 22px;
+  bottom: 0;
+  width: 240px;
+  background: #2b2d31;
+}
+.dc-side-head {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid #1f2023;
+  font-weight: 600;
+  font-size: 16px;
+  color: #f2f3f5;
+  white-space: nowrap;
+}
+.dc-side-head svg {
+  width: 18px;
+  height: 18px;
+  color: #b5bac1;
+}
+.dc-search {
+  height: 28px;
+  margin: 10px 10px;
+  border-radius: 4px;
+  background: #1e1f22;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 14px;
+  color: #949ba4;
+  white-space: nowrap;
+}
+.dc-side-body {
+  padding: 12px 8px 0;
+}
+.dc-side-body.dm {
+  padding-top: 8px;
+}
+.dc-event {
+  height: 34px;
+  margin: 0 0 8px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #f2f3f5;
+  border-bottom: 1px solid #3f4147;
+  white-space: nowrap;
+}
+.dc-cat {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 24px;
+  margin: 8px 0 2px 2px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #949ba4;
+  white-space: nowrap;
+}
+.dc-cat svg {
+  width: 12px;
+  height: 12px;
+}
+.dc-cat .plus {
+  margin-left: auto;
+  font-size: 18px;
+  line-height: 1;
+  color: #b5bac1;
+}
+.dc-ch {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #949ba4;
+  white-space: nowrap;
+}
+.dc-ch svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+.dc-ch.on {
+  background: #404249;
+  color: #f2f3f5;
+}
+.dc-ch.dmrow {
+  height: 42px;
+  gap: 12px;
+}
+.dc-ch.dmrow .dc-av {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+.dc-user {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 52px;
+  background: #232428;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+}
+.dc-user .dc-av {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+.dc-user-name {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: #f2f3f5;
+}
+.dc-user-st {
+  font-size: 12px;
+  line-height: 14px;
+  color: #b5bac1;
+}
+.dc-user-ico {
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+  color: #b5bac1;
+}
+.dc-user-ico svg {
+  width: 20px;
+  height: 20px;
+  margin: 6px;
+}
+
+/* chat column */
+.dc-chat {
+  position: absolute;
+  left: 312px;
+  right: 0;
+  top: 22px;
+  bottom: 0;
+  background: #313338;
+}
+.dc-head {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  border-bottom: 1px solid #1f2023;
+  box-shadow: 0 1px 0 rgba(4, 4, 5, 0.2);
+  z-index: 3;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.dc-head svg {
+  width: 24px;
+  height: 24px;
+  color: #80848e;
+  flex: none;
+}
+.dc-head-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #f2f3f5;
+}
+.dc-head-div {
+  width: 1px;
+  height: 24px;
+  background: #3f4147;
+  margin: 0 4px;
+  flex: none;
+}
+.dc-head-topic {
+  font-size: 14px;
+  color: #949ba4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dc-head .dc-av {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+}
+.dc-scroller {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 48px;
+  bottom: 68px;
+  overflow: hidden;
+}
+.dc-list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding-bottom: 8px;
+}
+.dc-start {
+  padding: 16px 16px 8px;
+}
+.dc-start-ico {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #41434a;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+.dc-start-ico svg {
+  width: 40px;
+  height: 40px;
+}
+.dc-start .dc-av.big {
+  width: 80px;
+  height: 80px;
+  font-size: 40px;
+}
+.dc-start-h {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  color: #f2f3f5;
+  white-space: nowrap;
+}
+.dc-start-h.dm {
+  font-size: 24px;
+  line-height: 30px;
+}
+.dc-start-p {
+  font-size: 16px;
+  line-height: 20px;
+  color: #b5bac1;
+}
+
+/* message */
+.dc-msg {
+  position: relative;
+  margin-top: 17px;
+  padding: 2px 16px 2px 72px;
+  min-height: 46px;
+}
+.dc-msg.cont {
+  margin-top: 4px;
+  min-height: 0;
+}
+.dc-msg > .dc-av {
+  position: absolute;
+  left: 16px;
+  top: 4px;
+}
+.dc-msg.reply > .dc-av {
+  top: 26px;
+}
+.dc-av {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--c, #5865f2);
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1;
+  color: #111;
+  flex: none;
+}
+.dc-av.ash,
+.dc-av.bot {
+  background: var(--maroon);
+  color: #fff;
+}
+.dc-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 22px;
+  white-space: nowrap;
+}
+.dc-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--nc, #f2f3f5);
+}
+.dc-app {
+  height: 15px;
+  padding: 0 4px;
+  border-radius: 3px;
+  background: #5865f2;
+  color: #fff;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: 0.02em;
+}
+.dc-time {
+  margin-left: 2px;
+  font-size: 12px;
+  color: #949ba4;
+}
+.dc-text {
+  font-size: 16px;
+  line-height: 22px;
+  color: #dbdee1;
+}
+.dc-mention {
+  padding: 0 2px;
+  border-radius: 3px;
+  background: rgba(88, 101, 242, 0.3);
+  color: #c9cdfb;
+  font-weight: 600;
+}
+.dc-replyline {
+  position: relative;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: #b5bac1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.dc-replyline::before {
+  content: "";
+  position: absolute;
+  left: -36px;
+  top: 10px;
+  width: 30px;
+  height: 12px;
+  border-left: 2px solid #4e5058;
+  border-top: 2px solid #4e5058;
+  border-top-left-radius: 6px;
+}
+.dc-replyline .dc-av {
+  width: 16px;
+  height: 16px;
+  font-size: 8px;
+}
+.dc-replyline b {
+  font-weight: 600;
+  color: #f2f3f5;
+}
+.dc-eph {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #949ba4;
+  white-space: nowrap;
+}
+.dc-eph svg {
+  width: 16px;
+  height: 16px;
+}
+.dc-eph a {
+  color: #00a8fc;
+  text-decoration: none;
+}
+.dc-link {
+  color: #00a8fc;
+}
+.dc-arrow-r svg,
+svg.sq-arrow {
+  display: inline-block;
+}
+
+/* Components V2 container */
+.dc-ctr {
+  position: relative;
+  width: 500px;
+  margin-top: 4px;
+  padding: 16px 16px 16px 20px;
+  border-radius: 8px;
+  background: #2b2d31;
+  border: 1px solid #3f4147;
+}
+.dc-ctr::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  bottom: -1px;
+  width: 4px;
+  border-radius: 8px 0 0 8px;
+  background: var(--maroon);
+}
+.dc-ctr > * + * {
+  margin-top: 8px;
+}
+.dc-ctr p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #dbdee1;
+}
+.dc-ctr b,
+.dc-text b {
+  font-weight: 600;
+  color: #f2f3f5;
+}
+.dc-h2 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #f2f3f5;
+}
+.dc-h3 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #f2f3f5;
+}
+.dc-ctr .dc-em {
+  font-style: italic;
+}
+.dc-sep {
+  height: 1px;
+  background: #3f4147;
+}
+.dc-ctr > .dc-sep {
+  margin: 16px 0 8px;
+}
+.dc-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dc-btn {
+  position: relative;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  background: #4e5058;
+  white-space: nowrap;
+}
+.dc-btn.ok {
+  background: #248046;
+}
+.dc-btn.pri {
+  background: #5865f2;
+}
+.dc-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.dc-btn .dc-dim {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: #000;
+  opacity: 0;
+}
+
+/* stacked states in one place (blur swaps) */
+.dc-stack {
+  display: grid;
+}
+.dc-stack > * {
+  grid-area: 1 / 1;
+}
+
+/* native poll */
+.dc-poll {
+  width: 440px;
+  margin-top: 4px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #2b2d31;
+  border: 1px solid #3f4147;
+}
+.dc-poll-q {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 22px;
+  color: #f2f3f5;
+}
+.dc-poll-sub {
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #949ba4;
+}
+.dc-ans {
+  position: relative;
+  height: 42px;
+  margin-top: 8px;
+  border-radius: 8px;
+  background: #383a40;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+.dc-poll-sub + .dc-ans {
+  margin-top: 12px;
+}
+.dc-ans-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(88, 101, 242, 0.35);
+  transform-origin: 0 50%;
+}
+.dc-ans-label {
+  position: relative;
+  font-size: 16px;
+  color: #f2f3f5;
+}
+.dc-ans-n {
+  position: relative;
+  margin-left: auto;
+  font-size: 14px;
+  color: #b5bac1;
+}
+.dc-ans-n b {
+  font-weight: 600;
+  color: #f2f3f5;
+  margin-left: 6px;
+}
+.dc-poll-foot {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #949ba4;
+}
+
+/* composer, popovers, typing */
+.dc-compose {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 24px;
+  height: 44px;
+  border-radius: 8px;
+  background: #383a40;
+  display: flex;
+  align-items: center;
+  padding: 0 16px 0 12px;
+  gap: 12px;
+  white-space: nowrap;
+  z-index: 4;
+}
+.dc-plus {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #b5bac1;
+  color: #383a40;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  flex: none;
+}
+.dc-field {
+  position: relative;
+  flex: 1;
+  height: 22px;
+  font-size: 16px;
+  line-height: 22px;
+  color: #dbdee1;
+  overflow: hidden;
+}
+.dc-ph {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #6d6f78;
+}
+.dc-caret {
+  display: inline-block;
+  width: 1.5px;
+  height: 18px;
+  margin-left: 1px;
+  vertical-align: -3px;
+  background: #dbdee1;
+}
+.dc-pop {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 76px;
+  border-radius: 8px;
+  background: #2b2d31;
+  border: 1px solid #1f2023;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
+  padding: 8px 0;
+  z-index: 6;
+  transform-origin: 50% 100%;
+}
+.dc-pop-h {
+  padding: 4px 12px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #b5bac1;
+}
+.dc-pop-h .dc-av {
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+}
+.dc-pop-row {
+  margin: 0 8px;
+  height: 40px;
+  padding: 0 8px;
+  border-radius: 4px;
+  background: #404249;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.dc-pop-row .dc-av {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+}
+.dc-pop-cmd {
+  font-weight: 600;
+  font-size: 16px;
+  color: #f2f3f5;
+}
+.dc-pop-desc {
+  font-size: 14px;
+  color: #949ba4;
+}
+.dc-typing {
+  position: absolute;
+  left: 16px;
+  bottom: 1px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #dbdee1;
+  white-space: nowrap;
+}
+.dc-typing b {
+  font-weight: 600;
+}
+.dc-dots {
+  display: flex;
+  gap: 3px;
+  margin-right: 2px;
+}
+.dc-dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #dbdee1;
+  opacity: 0.35;
+}
+
+/* modal */
+.dc-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 20;
+}
+.dc-modal {
+  position: absolute;
+  left: 248px;
+  top: 40px;
+  width: 440px;
+  border-radius: 8px;
+  background: #313338;
+  overflow: hidden;
+  z-index: 21;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.dc-mhead {
+  position: relative;
+  padding: 16px 16px 12px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #f2f3f5;
+  white-space: nowrap;
+}
+.dc-mhead svg {
+  position: absolute;
+  right: 14px;
+  top: 16px;
+  width: 24px;
+  height: 24px;
+  color: #b5bac1;
+}
+.dc-mbody {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+.dc-mlist {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0 16px;
+}
+.dc-field-blk {
+  padding-bottom: 20px;
+}
+.dc-lab {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #f2f3f5;
+  white-space: nowrap;
+}
+.dc-desc {
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #b5bac1;
+  white-space: nowrap;
+}
+.dc-opts {
+  margin-top: 8px;
+}
+.dc-opt {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: #dbdee1;
+  white-space: nowrap;
+}
+.dc-cb {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border-radius: 4px;
+  border: 2px solid #4e5058;
+}
+.dc-cb .on {
+  position: absolute;
+  inset: -2px;
+  border-radius: 4px;
+  background: #5865f2;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  opacity: 0;
+}
+.dc-cb .on svg {
+  width: 14px;
+  height: 14px;
+}
+.dc-cb.ticked .on {
+  opacity: 1;
+}
+.dc-rd {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border-radius: 50%;
+  border: 2px solid #4e5058;
+}
+.dc-rd .on {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid #5865f2;
+  opacity: 0;
+}
+.dc-rd .on::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #5865f2;
+}
+.dc-rd.ticked .on {
+  opacity: 1;
+}
+.dc-input {
+  position: relative;
+  margin-top: 8px;
+  height: 40px;
+  border-radius: 8px;
+  background: #1e1f22;
+  padding: 9px 12px;
+  font-size: 16px;
+  line-height: 22px;
+  color: #dbdee1;
+  white-space: nowrap;
+}
+.dc-input.para {
+  height: 104px;
+  white-space: normal;
+}
+.dc-input .dc-ph {
+  left: 12px;
+  top: 9px;
+}
+.dc-mfoot {
+  height: 64px;
+  background: #2b2d31;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0 16px;
+}
+.dc-mfoot .dc-btn {
+  height: 38px;
+  font-size: 14px;
+}
+.dc-mfoot .dc-btn.txt {
+  background: transparent;
+  color: #f2f3f5;
+}
+
+/* thread side panel */
+.dc-thread {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  background: #313338;
+  border-left: 1px solid #1f2023;
+  z-index: 8;
+}
+.dc-thread .dc-head {
+  gap: 8px;
+}
+.dc-thread .dc-msg {
+  margin-top: 12px;
+  padding-left: 60px;
+  padding-right: 12px;
+}
+.dc-thread .dc-msg > .dc-av {
+  left: 12px;
+}
+.dc-thread .dc-scroller {
+  bottom: 68px;
+}
+
+/* focus ring inside the scaled UI: keep the world stroke at ~6 px gold + ink edge */
+.dc-ui .sq-ring {
+  inset: -7px;
+  width: calc(100% + 14px);
+  height: calc(100% + 14px);
+}
+.dc-ui .sq-ring rect {
+  rx: 8px;
+  x: 2px;
+  y: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+}
+.dc-ui .sq-ring .ink {
+  stroke-width: 7px;
+}
+.dc-ui .sq-ring .gold {
+  stroke-width: 4.3px;
+}
+.dc-tgt {
+  position: relative;
+  display: inline-block;
+}
+/* a ring around a phrase inside running text hugs it, so it never covers the lines above and below */
+.dc-text .dc-tgt .sq-ring,
+.dc-desc .dc-tgt .sq-ring,
+.dc-ctr p .dc-tgt .sq-ring {
+  inset: -3px -6px;
+  width: calc(100% + 12px);
+  height: calc(100% + 6px);
+}
+.dc-text .dc-tgt .sq-ring rect,
+.dc-desc .dc-tgt .sq-ring rect,
+.dc-ctr p .dc-tgt .sq-ring rect {
+  rx: 5px;
+}
+.dc-text .dc-tgt .sq-ring .ink,
+.dc-desc .dc-tgt .sq-ring .ink,
+.dc-ctr p .dc-tgt .sq-ring .ink {
+  stroke-width: 5.5px;
+}
+.dc-text .dc-tgt .sq-ring .gold,
+.dc-desc .dc-tgt .sq-ring .gold,
+.dc-ctr p .dc-tgt .sq-ring .gold {
+  stroke-width: 3.4px;
+}
+
+/* macOS arrow cursor (world layer, 42 px tall = ~57 px at camera 1.35) */
+.dc-cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 42px;
+  z-index: 60;
+  transform-origin: 2px 2px;
+  filter: drop-shadow(2px 3px 0 rgba(17, 17, 17, 0.35));
+  pointer-events: none;
+}
+.dc-cursor svg {
+  width: 30px;
+  height: 42px;
+  overflow: visible;
+}

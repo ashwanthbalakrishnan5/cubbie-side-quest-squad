@@ -1,0 +1,98 @@
+[
+  {
+    "text": "When",
+    "start": 0.04,
+    "end": 0.18,
+    "id": "w0"
+  },
+  {
+    "text": "the",
+    "start": 0.24,
+    "end": 0.42,
+    "id": "w1"
+  },
+  {
+    "text": "poll",
+    "start": 0.42,
+    "end": 0.66,
+    "id": "w2"
+  },
+  {
+    "text": "closes,",
+    "start": 0.66,
+    "end": 1.07,
+    "id": "w3"
+  },
+  {
+    "text": "you",
+    "start": 1.2,
+    "end": 1.35,
+    "id": "w4"
+  },
+  {
+    "text": "get",
+    "start": 1.35,
+    "end": 1.43,
+    "id": "w5"
+  },
+  {
+    "text": "who's",
+    "start": 1.54,
+    "end": 1.85,
+    "id": "w6"
+  },
+  {
+    "text": "going,",
+    "start": 1.85,
+    "end": 2.32,
+    "id": "w7"
+  },
+  {
+    "text": "who's",
+    "start": 2.36,
+    "end": 2.67,
+    "id": "w8"
+  },
+  {
+    "text": "driving",
+    "start": 2.67,
+    "end": 3.16,
+    "id": "w9"
+  },
+  {
+    "text": "who,",
+    "start": 3.16,
+    "end": 3.39,
+    "id": "w10"
+  },
+  {
+    "text": "and",
+    "start": 3.52,
+    "end": 3.7,
+    "id": "w11"
+  },
+  {
+    "text": "a",
+    "start": 3.7,
+    "end": 3.75,
+    "id": "w12"
+  },
+  {
+    "text": "reminder",
+    "start": 3.86,
+    "end": 4.25,
+    "id": "w13"
+  },
+  {
+    "text": "for",
+    "start": 4.25,
+    "end": 4.43,
+    "id": "w14"
+  },
+  {
+    "text": "everyone.",
+    "start": 4.43,
+    "end": 5.14,
+    "id": "w15"
+  }
+]

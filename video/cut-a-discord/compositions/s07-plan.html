@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!-- S07 The plan lands (v2: film 95.133-110.900 s; rings on the s07.wav words per SPEC 10.3), Cut A: Discord. The plan card (ui/cards.py plan_card, Components V2),
+     the native poll (VOTE_ANSWERS, 1 h), the "🗺️ Open Mic Night" thread with the agents' lines, four votes and the
+     anonymous who line (cards.py who_line). Hand-in from S06: #squad at camera SQ.frame(1.13, 960, 822, 1050, 805).
+     Hand-off to S08: the "Can't make it ❌" row grows over the frame and turns cream (S08 lands its window on it). -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        /* chip on the cream stage, bottom-right: the app window covers the top-left corner in this scene */
+        #s07-chip { left: auto; top: auto; right: 96px; bottom: 72px; }
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        .dc-ts {
+          padding: 0 2px;
+          border-radius: 3px;
+          background: rgba(255, 255, 255, 0.06);
+        }
+        .s07-who p {
+          white-space: pre;
+        }
+        #s07-grow {
+          position: absolute;
+          inset: 0;
+          background: #383a40;
+          z-index: 40;
+        }
+        .s07-a2wrap {
+          position: relative;
+          margin-top: 8px;
+        }
+        .s07-a2wrap .dc-ans {
+          margin-top: 0;
+        }
+      </style>
+      <div data-hf-id="hf-ap44" id="root" data-composition-id="s07" data-width="1920" data-height="1080" data-duration="15.767">
+        <div data-hf-id="hf-7p4v" class="sq-scene">
+          <div data-hf-id="hf-cta6" class="sq-cam" id="s07-cam">
+            <div data-hf-id="hf-7vlo" class="sq-grid" data-layout-ignore=""></div>
+            <div data-hf-id="hf-4eh3" class="dc-win" id="s07-win" data-layout-allow-overlap="">
+              <div data-hf-id="hf-8lnq" class="dc-ui">
+                <div data-hf-id="hf-2bka" class="dc-title"><div data-hf-id="hf-7jrb" class="dc-lights"><i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i></div></div>
+                <div data-hf-id="hf-ous8" class="dc-rail">
+                  <div data-hf-id="hf-nn03" class="dc-srv home" data-dci="home"></div>
+                  <div data-hf-id="hf-09lw" class="dc-railsep"></div>
+                  <div data-hf-id="hf-87vz" class="dc-srv squad on">🌵</div>
+                  <div data-hf-id="hf-40rc" class="dc-srv add" data-dci="plus"></div>
+                </div>
+                <div data-hf-id="hf-irux" class="dc-side">
+                  <div data-hf-id="hf-vyxi" class="dc-side-head">ASU friends<span data-hf-id="hf-puui" data-dci="chev"></span></div>
+                  <div data-hf-id="hf-ojhu" class="dc-side-body">
+                    <div data-hf-id="hf-ervl" class="dc-cat"><span data-hf-id="hf-jt4e" data-dci="chev"></span>Text Channels<span data-hf-id="hf-955y" class="plus">+</span></div>
+                    <div data-hf-id="hf-qthj" class="dc-ch"><span data-hf-id="hf-wlj6" data-dci="hash"></span>general</div>
+                    <div data-hf-id="hf-mlla" class="dc-ch on"><span data-hf-id="hf-fx46" data-dci="hash"></span>squad</div>
+                  </div>
+                  <div data-hf-id="hf-3p7l" class="dc-user">
+                    <span data-hf-id="hf-kvvt" class="dc-av ash">A</span>
+                    <div data-hf-id="hf-yeow"><div data-hf-id="hf-frlh" class="dc-user-name">Ash</div><div data-hf-id="hf-4bnc" class="dc-user-st">Online</div></div>
+                    <div data-hf-id="hf-aiwh" class="dc-user-ico"><span data-hf-id="hf-gvtj" data-dci="mic"></span><span data-hf-id="hf-h4ux" data-dci="phones"></span><span data-hf-id="hf-i29j" data-dci="gear"></span></div>
+                  </div>
+                </div>
+                <div data-hf-id="hf-da9m" class="dc-chat">
+                  <div data-hf-id="hf-eo72" class="dc-head">
+                    <span data-hf-id="hf-gbf7" data-dci="hash"></span><span data-hf-id="hf-aws3" class="dc-head-name">squad</span><span data-hf-id="hf-q0hv" class="dc-head-div"></span>
+                    <span data-hf-id="hf-fnhl" class="dc-head-topic">friends who keep saying "we should hang out"</span>
+                  </div>
+                  <div data-hf-id="hf-ujwj" class="dc-scroller" id="s07-scroller">
+                    <div data-hf-id="hf-f103" class="dc-list" id="s07-list">
+                      <div data-hf-id="hf-eeho" class="dc-start">
+                        <div data-hf-id="hf-yc56" class="dc-start-ico" data-dci="hash"></div>
+                        <div data-hf-id="hf-b55e" class="dc-start-h">Welcome to #squad!</div>
+                        <div data-hf-id="hf-ccpw" class="dc-start-p">This is the start of the #squad channel.</div>
+                      </div>
+                      <div data-hf-id="hf-bw8n" class="dc-msg reply">
+                        <div data-hf-id="hf-fi7n" class="dc-replyline"><span data-hf-id="hf-uel9" class="dc-av ash">A</span><b data-hf-id="hf-v43j">Ash</b> used <span data-hf-id="hf-spgi" class="dc-link">/squad join</span></div>
+                        <span data-hf-id="hf-q24j" class="dc-av bot">🗺️</span>
+                        <div data-hf-id="hf-7ttz" class="dc-meta"><span data-hf-id="hf-c7pg" class="dc-name" style="--nc: #fff">Side Quests Squad</span><span data-hf-id="hf-giy3" class="dc-app">APP</span><span data-hf-id="hf-eq6q" class="dc-time">Today at 4:01 PM</span></div>
+                        <div data-hf-id="hf-l7kd" class="dc-ctr">
+                          <p data-hf-id="hf-r4g1">You're in 🎉 One more step:</p>
+                          <div data-hf-id="hf-ydx7" class="dc-btns">
+                            <span data-hf-id="hf-g3qi" class="dc-btn pri">Calls &amp; quiet hours</span>
+                            <span data-hf-id="hf-l81i" class="dc-btn">Connect Google Calendar<span data-hf-id="hf-ppwb" data-dci="ext"></span></span>
+                          </div>
+                          <p data-hf-id="hf-44ya">No calendar? I'll use the free times you ticked.</p>
+                        </div>
+                        <div data-hf-id="hf-4v5x" class="dc-eph"><span data-hf-id="hf-nta1" data-dci="eye"></span>Only you can see this •&#160;<a data-hf-id="hf-4zyf">Dismiss message</a></div>
+                      </div>
+                      <div data-hf-id="hf-b6m5" class="dc-msg cont">
+                        <div data-hf-id="hf-9zms" class="dc-text">Saved ✨</div>
+                        <div data-hf-id="hf-n4m1" class="dc-eph"><span data-hf-id="hf-rjd9" data-dci="eye"></span>Only you can see this •&#160;<a data-hf-id="hf-kduv">Dismiss message</a></div>
+                      </div>
+                      <div data-hf-id="hf-hogb" class="dc-msg" id="s07-m4">
+                        <span data-hf-id="hf-66yr" class="dc-av bot">🗺️</span>
+                        <div data-hf-id="hf-qs8q" class="dc-meta"><span data-hf-id="hf-vxh8" class="dc-name" style="--nc: #fff">Side Quests Squad</span><span data-hf-id="hf-tznv" class="dc-app">APP</span><span data-hf-id="hf-t8jg" class="dc-time">Today at 4:03 PM</span></div>
+                        <div data-hf-id="hf-0zti" class="dc-text">👀 Spotted something that fits everyone's week: <b data-hf-id="hf-4k04">Open Mic Night</b>, October 30, 2026 7:00 PM. Want to go?</div>
+                      </div>
+                      <div data-hf-id="hf-x9b2" class="dc-msg" id="s07-m5">
+                        <span data-hf-id="hf-5snq" class="dc-av bot">🗺️</span>
+                        <div data-hf-id="hf-qdxp" class="dc-meta"><span data-hf-id="hf-uqk5" class="dc-name" style="--nc: #fff">Side Quests Squad</span><span data-hf-id="hf-tlcu" class="dc-app">APP</span><span data-hf-id="hf-x17y" class="dc-time">Today at 4:05 PM</span></div>
+                        <div data-hf-id="hf-68h4" class="dc-ctr" id="s07-card">
+                          <div data-hf-id="hf-1ok5" class="dc-h2">🗺️ This week's side quest</div>
+                          <div data-hf-id="hf-z4k6" class="dc-h3">Open Mic Night</div>
+                          <p data-hf-id="hf-6sxh"><span data-hf-id="hf-jmeo" class="dc-tgt">🕖 <span data-hf-id="hf-a8am" class="dc-ts">Friday, October 30, 2026 7:00 PM</span> · <span data-hf-id="hf-v587" class="dc-ts">in 5 days</span><i data-hf-id="hf-yhkm" data-sq="ring" id="hl-s07-1"></i></span></p>
+                          <p data-hf-id="hf-5zp8"><span data-hf-id="hf-jk5x" class="dc-tgt">📍 Memorial Union 202 · $5 · free food 🍕<i data-hf-id="hf-sbut" data-sq="ring" id="hl-s07-2"></i></span></p>
+                          <p data-hf-id="hf-alrx" class="dc-em" id="s07-headline"><span data-hf-id="hf-fsqt" class="dc-tgt">Live music, free pizza, and home by 9<i data-hf-id="hf-rk70" data-sq="ring" id="hl-s07-3"></i></span></p>
+                          <p data-hf-id="hf-5ofc" id="s07-why"><span data-hf-id="hf-3e5z" class="dc-tgt">Maya and Leo both want music, Priya's in for the free food and a chill crowd, and it wraps up early enough for Jordan's Saturday.<i data-hf-id="hf-f1oj" data-sq="ring" id="hl-s07-4"></i></span></p>
+                          <p data-hf-id="hf-u72k" id="s07-trade"><b data-hf-id="hf-55ti">Trade-offs</b><br data-hf-id="hf-x5px">• <span data-hf-id="hf-5otz" class="dc-tgt" id="s07-budget">Someone has a budget limit<i data-hf-id="hf-k6q1" data-sq="ring" id="s07-ring1"></i></span><br data-hf-id="hf-rsrt">• Leo would've picked the hike</p>
+                          <div data-hf-id="hf-79ck" class="dc-sep"></div>
+                          <div data-hf-id="hf-hnb0" class="dc-stack s07-who" id="s07-who">
+                            <p data-hf-id="hf-ymsi" id="s07-w0">Nobody's voted yet, no pressure 🙂</p>
+                            <p data-hf-id="hf-ywao" id="s07-w1">✅ Maya</p>
+                            <p data-hf-id="hf-74ox" id="s07-w2">✅ Maya, Ash</p>
+                            <p data-hf-id="hf-4cr5" id="s07-w3">✅ Maya, Ash, Priya</p>
+                            <p data-hf-id="hf-uknm" id="s07-w4">✅ Maya, Ash, Priya  <span data-hf-id="hf-9f1i" class="dc-tgt" id="s07-cant">❌ 1 can't make it<i data-hf-id="hf-o4u2" data-sq="ring" id="s07-ring2"></i></span></p>
+                          </div>
+                          <div data-hf-id="hf-8am3" class="dc-btns">
+                            <span data-hf-id="hf-rlz6" class="dc-btn">Event page<span data-hf-id="hf-74bf" data-dci="ext"></span></span>
+                            <span data-hf-id="hf-3uwo" class="dc-btn">Close poll now</span>
+                            <span data-hf-id="hf-t6gl" class="dc-btn">How did you pick this?</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div data-hf-id="hf-tiyj" class="dc-msg cont" id="s07-m6">
+                        <div data-hf-id="hf-urrz" class="dc-poll" id="s07-poll">
+                          <div data-hf-id="hf-9v4j" class="dc-poll-q">Open Mic Night, you in?</div>
+                          <div data-hf-id="hf-llb4" class="dc-poll-sub">Select one answer</div>
+                          <div data-hf-id="hf-mg3k" class="dc-ans" id="s07-a0"><i data-hf-id="hf-czef" class="dc-ans-fill" id="s07-f0"></i><span data-hf-id="hf-22tl" class="dc-ans-label">I'm in ✅</span><span data-hf-id="hf-hgsl" class="dc-ans-n dc-stack" id="s07-n0"><span data-hf-id="hf-y7ac">1 vote<b data-hf-id="hf-eel7">100%</b></span><span data-hf-id="hf-muio">2 votes<b data-hf-id="hf-rlwb">100%</b></span><span data-hf-id="hf-6w6n">3 votes<b data-hf-id="hf-r7la">100%</b></span><span data-hf-id="hf-yzrj">3 votes<b data-hf-id="hf-agvo">75%</b></span></span></div>
+                          <div data-hf-id="hf-pfd5" class="dc-ans" id="s07-a1"><i data-hf-id="hf-91ae" class="dc-ans-fill" id="s07-f1"></i><span data-hf-id="hf-rspi" class="dc-ans-label">Maybe 🤔</span><span data-hf-id="hf-e94x" class="dc-ans-n" id="s07-n1">0 votes<b data-hf-id="hf-e7dq">0%</b></span></div>
+                          <div data-hf-id="hf-yb6g" class="s07-a2wrap"><div data-hf-id="hf-tdh6" class="dc-ans" id="s07-a2"><i data-hf-id="hf-536d" class="dc-ans-fill" id="s07-f2"></i><span data-hf-id="hf-rx0y" class="dc-ans-label">Can't make it ❌</span><span data-hf-id="hf-pd0n" class="dc-ans-n dc-stack" id="s07-n2"><span data-hf-id="hf-9ehq">0 votes<b data-hf-id="hf-gnnm">0%</b></span><span data-hf-id="hf-gwt8">1 vote<b data-hf-id="hf-p667">25%</b></span></span></div><i data-hf-id="hf-s2y3" data-sq="ring" id="s07-ring3"></i></div>
+                          <div data-hf-id="hf-amz3" class="dc-poll-foot dc-stack" id="s07-foot"><span data-hf-id="hf-owf9">0 votes · 1h left</span><span data-hf-id="hf-uobv">1 vote · 1h left</span><span data-hf-id="hf-rq5r">2 votes · 1h left</span><span data-hf-id="hf-4l64">3 votes · 1h left</span><span data-hf-id="hf-7c49">4 votes · 1h left</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-hf-id="hf-8pzw" class="dc-compose"><span data-hf-id="hf-qdhs" class="dc-plus">+</span><div data-hf-id="hf-kk4s" class="dc-field"><span data-hf-id="hf-mp6z" class="dc-ph">Message #squad</span></div></div>
+                  <div data-hf-id="hf-nzjh" class="dc-thread" id="s07-thread" data-layout-allow-overlap="">
+                    <div data-hf-id="hf-jsv6" class="dc-head"><span data-hf-id="hf-fegq" data-dci="thread"></span><span data-hf-id="hf-dus6" class="dc-head-name">🗺️ Open Mic Night</span><span data-hf-id="hf-7csb" style="margin-left: auto; width: 20px; height: 20px; color: #b5bac1" data-dci="x"></span></div>
+                    <div data-hf-id="hf-wrs0" class="dc-scroller" id="s07-tscroll">
+                      <div data-hf-id="hf-9hgh" class="dc-list" id="s07-tlist">
+                        <div data-hf-id="hf-8wew" class="dc-msg" id="s07-t0"><span data-hf-id="hf-4kw6" class="dc-av" style="--c: var(--pink)">M</span><div data-hf-id="hf-t62w" class="dc-meta"><span data-hf-id="hf-emhq" class="dc-name" style="--nc: var(--pink)">Maya's agent</span><span data-hf-id="hf-t71t" class="dc-app">APP</span></div><div data-hf-id="hf-mvwr" class="dc-text">I'd love the open mic 🎤</div></div>
+                        <div data-hf-id="hf-bvoh" class="dc-msg" id="s07-t1"><span data-hf-id="hf-x6jj" class="dc-av" style="--c: var(--mint)">J</span><div data-hf-id="hf-srrv" class="dc-meta"><span data-hf-id="hf-wh2c" class="dc-name" style="--nc: var(--mint)">Jordan's agent</span><span data-hf-id="hf-ssqs" class="dc-app">APP</span></div><div data-hf-id="hf-mh8m" class="dc-text">happy to drive if it's not a late one</div></div>
+                        <div data-hf-id="hf-ftsi" class="dc-msg" id="s07-t2"><span data-hf-id="hf-uhgm" class="dc-av" style="--c: var(--sky)">P</span><div data-hf-id="hf-sdgu" class="dc-meta"><span data-hf-id="hf-nctw" class="dc-name" style="--nc: var(--sky)">Priya's agent</span><span data-hf-id="hf-sefr" class="dc-app">APP</span></div><div data-hf-id="hf-lf07" class="dc-text">free food and a chill crowd, yes</div></div>
+                        <div data-hf-id="hf-jrwj" class="dc-msg" id="s07-t3"><span data-hf-id="hf-r9vj" class="dc-av" style="--c: var(--gold)">L</span><div data-hf-id="hf-rz5t" class="dc-meta"><span data-hf-id="hf-atl6" class="dc-name" style="--nc: var(--gold)">Leo's agent</span><span data-hf-id="hf-s04q" class="dc-app">APP</span></div><div data-hf-id="hf-ruj5" class="dc-text">I'd pick the hike, but I'm in for music</div></div>
+                        <div data-hf-id="hf-waf0" class="dc-msg" id="s07-t4"><span data-hf-id="hf-5ecp" class="dc-av bot">🗺️</span><div data-hf-id="hf-urb0" class="dc-meta"><span data-hf-id="hf-zjij" class="dc-name" style="--nc: var(--gold)">Coordinator</span><span data-hf-id="hf-rltp" class="dc-app">APP</span></div><div data-hf-id="hf-unpc" class="dc-text">Maya and Leo both want music, Priya's in for the free food and a chill crowd, and it wraps up early enough for Jordan's Saturday.</div></div>
+                      </div>
+                    </div>
+                    <div data-hf-id="hf-y3ys" class="dc-compose"><span data-hf-id="hf-nh60" class="dc-plus">+</span><div data-hf-id="hf-34w4" class="dc-field"><span data-hf-id="hf-1lmv" class="dc-ph">Message 🗺️ Open Mic Night</span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-hf-id="hf-0r8x" class="dc-cursor" id="s07-cur" data-dci="cursor"></div>
+          </div>
+          <div data-hf-id="hf-h8ao" id="s07-grow" data-layout-ignore=""></div>
+          <div data-hf-id="hf-m3ij" class="sq-chip-slot" id="s07-chip" data-layout-allow-overlap=""><span data-hf-id="hf-jye7" class="sq-chip"><b data-hf-id="hf-3si6">05</b>Plan</span></div>
+        </div>
+        <audio data-hf-id="hf-0dhr" id="s07-sfx-1" class="clip" data-hf-media-start-basis="local" data-start="0.6" data-duration="0.689" data-track-index="20" data-volume="0.4" src="assets/audio/sfx/casino/card-place-1.ogg"></audio>
+        <audio data-hf-id="hf-2n3w" id="s07-sfx-2" class="clip" data-hf-media-start-basis="local" data-start="8.95" data-duration="0.191" data-track-index="21" data-volume="0.35" src="assets/audio/sfx/interface/drop_002.ogg"></audio>
+        <audio data-hf-id="hf-nwb7" id="s07-sfx-3" class="clip" data-hf-media-start-basis="local" data-start="9.54" data-duration="0.094" data-track-index="20" data-volume="0.3" src="assets/audio/sfx/ui/click1.ogg"></audio>
+        <audio data-hf-id="hf-yyn8" id="s07-sfx-4" class="clip" data-hf-media-start-basis="local" data-start="10.34" data-duration="0.056" data-track-index="21" data-volume="0.3" src="assets/audio/sfx/ui/click2.ogg"></audio>
+        <audio data-hf-id="hf-oela" id="s07-sfx-5" class="clip" data-hf-media-start-basis="local" data-start="11.14" data-duration="0.086" data-track-index="20" data-volume="0.3" src="assets/audio/sfx/ui/click3.ogg"></audio>
+        <audio data-hf-id="hf-t3hf" id="s07-sfx-6" class="clip" data-hf-media-start-basis="local" data-start="11.94" data-duration="0.094" data-track-index="21" data-volume="0.3" src="assets/audio/sfx/ui/click1.ogg"></audio>
+      </div>
+      <script>
+        (function () {
+          var root = document.querySelector('[data-composition-id="s07"]');
+          SQ.mount(root);
+          DC.mount(root);
+          var $ = function (id) {
+            return document.getElementById(id);
+          };
+          var tl = gsap.timeline({ paused: true });
+          function hideAt0(els) {
+            gsap.set(els, { opacity: 0 });
+            tl.set(els, { opacity: 0 }, 0);
+          }
+
+          function build() {
+            var cam = $("s07-cam"),
+              win = $("s07-win"),
+              cur = $("s07-cur");
+            var scroller = $("s07-scroller"),
+              list = $("s07-list");
+            var m5 = $("s07-m5"),
+              m6 = $("s07-m6"),
+              card = $("s07-card");
+            var y4 = DC.bottomY(scroller, $("s07-m4"));
+            var y5top = DC.topY(m5, 4);
+            var y5 = DC.bottomY(scroller, m5);
+            var y6 = DC.bottomY(scroller, m6);
+            gsap.set(list, { y: y4 });
+            tl.set(list, { y: y4 }, 0);
+            hideAt0([m5, m6]);
+
+            SQ.camSet(tl, cam, SQ.frame(1.13, 960, 822, 1050, 805));
+            SQ.land(tl, $("s07-chip"), 0.3);
+
+            // 0.60 ("the plan goes up") the plan card lands (Discord jumps to the new message's top), camera onto its top
+            tl.to(list, { y: y5top, duration: 0.25, ease: "power3.out" }, 0.6);
+            tl.set(m5, { opacity: 1 }, 0.6);
+            DC.arrive(tl, card, 0.6);
+            var c0 = DC.at(win, card, 0.5, 0, y5top);
+            tl.to(cam, Object.assign(SQ.frame(1.5, c0.x, c0.y, 980, 250), { duration: 0.7, ease: "power3.inOut" }), 0.8);
+            // "The time" 1.90, "the place" 2.39
+            SQ.ring(tl, $("hl-s07-1"), 1.9);
+            SQ.ringOut(tl, $("hl-s07-1"), 2.35);
+            SQ.ring(tl, $("hl-s07-2"), 2.39);
+            SQ.ringOut(tl, $("hl-s07-2"), 2.95);
+            // "why it picked" 2.76: scroll + pan down to the headline and why
+            tl.to(list, { y: y5, duration: 0.6, ease: "power3.inOut" }, 2.5);
+            var c1 = DC.at(win, $("s07-why"), 0.5, 0.5, y5);
+            tl.to(cam, Object.assign(SQ.frame(1.5, c1.x, c1.y, 980, 500), { duration: 0.6, ease: "power3.inOut" }), 2.5);
+            SQ.ring(tl, $("hl-s07-3"), 2.76);
+            SQ.ring(tl, $("hl-s07-4"), 2.82);
+            SQ.ringOut(tl, $("hl-s07-3"), 3.85);
+            SQ.ringOut(tl, $("hl-s07-4"), 3.85);
+            // "the trade-offs" 4.36: ring on the budget line
+            var c2 = DC.at(win, $("s07-trade"), 0.5, 0.5, y5);
+            tl.to(cam, Object.assign(SQ.frame(1.5, c2.x, c2.y, 980, 560), { duration: 0.5, ease: "power3.inOut" }), 3.85);
+            SQ.ring(tl, $("s07-ring1"), 4.36);
+            SQ.ringOut(tl, $("s07-ring1"), 6.6);
+
+            // "every agent's take" 7.31: the thread panel slides over the right side; the agents' lines pop in
+            var th = $("s07-thread"),
+              tlist = $("s07-tlist"),
+              ts = $("s07-tscroll");
+            gsap.set(th, { x: 420 });
+            tl.set(th, { x: 420 }, 0);
+            tl.to(th, { x: 0, duration: 0.3, ease: "power3.out" }, 6.7);
+            var thc = DC.at(win, th, 0.5, 0.5); // layout position = in place (the slide is a transform)
+            tl.to(cam, Object.assign(SQ.frame(1.5, thc.x, thc.y, 1000, 560), { duration: 0.6, ease: "power3.inOut" }), 6.7);
+            var posts = [0, 1, 2, 3, 4].map(function (i) {
+              return $("s07-t" + i);
+            });
+            hideAt0(posts);
+            var ty0 = DC.bottomY(ts, posts[0]);
+            gsap.set(tlist, { y: ty0 });
+            tl.set(tlist, { y: ty0 }, 0);
+            [6.95, 7.31, 7.6, 7.89, 8.18].forEach(function (t, i) {
+              tl.to(tlist, { y: DC.bottomY(ts, posts[i]), duration: 0.2, ease: "power3.out" }, t);
+              tl.set(posts[i], { opacity: 1 }, t);
+              DC.arrive(tl, posts[i].querySelector(".dc-text"), t);
+            });
+            tl.to(th, { x: 420, duration: 0.2, ease: "power3.in" }, 8.7);
+
+            // "there's a poll" 8.95: the poll posts below the card; camera onto the who line + poll
+            tl.to(list, { y: y6, duration: 0.25, ease: "power3.out" }, 8.95);
+            tl.set(m6, { opacity: 1 }, 8.95);
+            DC.arrive(tl, $("s07-poll"), 8.95);
+            var pc = DC.at(win, $("s07-poll"), 0.5, 0.5, y6);
+            var wc = DC.at(win, $("s07-who"), 0.5, 0, y6);
+            var pb = DC.at(win, $("s07-poll"), 0.5, 1, y6);
+            tl.to(cam, Object.assign(SQ.frame(1.4, pc.x, (wc.y + pb.y) / 2, 960, 560), { duration: 0.6, ease: "power3.inOut" }), 8.75);
+
+            // "Votes start rolling in" 9.54: Maya 9.54, Ash 10.34 (his cursor), Priya 11.14, Jordan 11.94
+            var w = [0, 1, 2, 3, 4].map(function (i) {
+              return $("s07-w" + i);
+            });
+            hideAt0(w.slice(1));
+            var n0 = $("s07-n0").children,
+              n2 = $("s07-n2").children,
+              foot = $("s07-foot").children;
+            hideAt0([].slice.call(n0).concat([].slice.call(n2), [].slice.call(foot, 1), [$("s07-n1")]));
+            hideAt0(n2[0]);
+            gsap.set([$("s07-f0"), $("s07-f1"), $("s07-f2")], { scaleX: 0 });
+            tl.set([$("s07-f0"), $("s07-f1"), $("s07-f2")], { scaleX: 0 }, 0);
+            var V = [9.54, 10.34, 11.14, 11.94];
+            V.forEach(function (t, k) {
+              DC.swap(tl, w[k], w[k + 1], t);
+              DC.swap(tl, foot[k], foot[k + 1], t);
+            });
+            // counts appear with the first vote, then swap
+            tl.to([n0[0], n2[0], $("s07-n1")], { opacity: 1, duration: 0.13 }, V[0] + 0.13);
+            DC.swap(tl, n0[0], n0[1], V[1]);
+            DC.swap(tl, n0[1], n0[2], V[2]);
+            DC.swap(tl, n0[2], n0[3], V[3]);
+            DC.swap(tl, n2[0], n2[1], V[3]);
+            tl.to($("s07-f0"), { scaleX: 1, duration: 0.4, ease: "power2.out" }, V[0]);
+            tl.to($("s07-f0"), { scaleX: 0.75, duration: 0.4, ease: "power2.out" }, V[3]);
+            tl.to($("s07-f2"), { scaleX: 0.25, duration: 0.4, ease: "power2.out" }, V[3]);
+
+            var yesRow = DC.at(win, $("s07-a0"), 0.7, 0.55, y6);
+            var off = { x: yesRow.x + 380, y: yesRow.y + 300 };
+            gsap.set(cur, { x: off.x, y: off.y, opacity: 0 });
+            tl.set(cur, { x: off.x, y: off.y, opacity: 0 }, 0);
+            tl.set(cur, { opacity: 1 }, 9.8);
+            DC.move(tl, cur, 9.8, off, yesRow);
+            DC.press(tl, cur, V[1]);
+            var away = { x: yesRow.x + 300, y: yesRow.y + 260 };
+            DC.move(tl, cur, 10.5, yesRow, away, 0.4);
+            tl.to(cur, { opacity: 0, duration: 0.15 }, 10.8);
+
+            // "only shows a count" 13.91: ring on the anonymous count; small push; then the "Can't make it" row
+            // blooms into the cream stage S08 lands on
+            tl.to(cam, Object.assign(SQ.frame(1.43, pc.x, (wc.y + pb.y) / 2, 960, 560), { duration: 1.4, ease: "sine.inOut" }), 12.4);
+            SQ.ring(tl, $("s07-ring2"), 13.91);
+            SQ.ringOut(tl, $("s07-ring2"), 14.6);
+            tl.to(cam, Object.assign(SQ.frame(1, 960, 540), { duration: 0.5, ease: "power2.inOut" }), 14.6);
+
+            var r = DC.rect(win, $("s07-a2"), y6); // camera is back at 1.0: world = screen
+            var grow = $("s07-grow");
+            var ins = function (t, rr, b, l, rad) {
+              return "inset(" + t + "px " + rr + "px " + b + "px " + l + "px round " + rad + "px)";
+            };
+            gsap.set(grow, { opacity: 0 });
+            tl.set(grow, { opacity: 0 }, 0);
+            tl.set(grow, { opacity: 1 }, 15.12);
+            tl.fromTo(
+              grow,
+              { clipPath: ins(r.y, 1920 - r.x - r.w, 1080 - r.y - r.h, r.x, 10) },
+              { clipPath: ins(0, 0, 0, 0, 0), duration: 0.6, ease: "power2.inOut", immediateRender: false },
+              15.12,
+            );
+            // the row's own colour (grey + its blurple share) blooms into the cream stage S08 lands on
+            tl.fromTo(grow, { backgroundColor: "#45487a" }, { backgroundColor: "#fff4e0", duration: 0.4, ease: "power1.in", immediateRender: false }, 15.12);
+            tl.to(cam, { opacity: 0, filter: "blur(15px)", duration: 0.3, ease: "power1.in" }, 15.12);
+            tl.to($("s07-chip"), { opacity: 0, duration: 0.2, ease: "power1.in" }, 15.12);
+            window.__timelines["s07"] = tl;
+          }
+          if (document.fonts && document.fonts.status !== "loaded") {
+            document.fonts.ready.then(build);
+          } else {
+            build();
+          }
+        })();
+      </script>
+    </template>
+  </body>
+</html>

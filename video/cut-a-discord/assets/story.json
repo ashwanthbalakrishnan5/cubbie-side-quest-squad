@@ -1,0 +1,1183 @@
+{
+  "_readme": "Every word the film shows. Both cuts read from this file. 'src' says where a string comes from: code:<file> is real product copy (do not edit), story is creative copy approved in SCRIPT.md, render is how Discord renders a code value (e.g. <t:unix:F>). Keys 'discord'/'imessage' hold the skin-specific version of a beat; 'both' is shared. Emoji are literal characters.",
+  "cast": {
+    "ash": {
+      "name": "Ash",
+      "color": "#8c1d40",
+      "initial": "A",
+      "role": "the real member (phone owner in iMessage, the user in Discord)",
+      "seats": 2
+    },
+    "maya": {
+      "name": "Maya",
+      "color": "#ff8fb1",
+      "initial": "M",
+      "into": [
+        "Live music",
+        "Arts & crafts",
+        "Food & free food"
+      ],
+      "free": [
+        "Friday night",
+        "Saturday night",
+        "Sunday daytime"
+      ],
+      "budget": "Up to $20",
+      "no_go": [
+        "Sports"
+      ],
+      "drive": "No car"
+    },
+    "jordan": {
+      "name": "Jordan",
+      "color": "#7cffb2",
+      "initial": "J",
+      "into": [
+        "Sports & games",
+        "Gaming & esports",
+        "Food & free food"
+      ],
+      "free": [
+        "Weekday evenings (Mon–Thu)",
+        "Saturday daytime",
+        "Friday night"
+      ],
+      "budget": "Up to $10",
+      "no_go": [
+        "Late nights (after 10pm)"
+      ],
+      "drive": "Car, 3 seats free"
+    },
+    "priya": {
+      "name": "Priya",
+      "color": "#8fd3ff",
+      "initial": "P",
+      "into": [
+        "Tech & hackathons",
+        "Food & free food",
+        "Chill hangouts"
+      ],
+      "free": [
+        "Weekday evenings (Mon–Thu)",
+        "Friday night",
+        "Saturday daytime",
+        "Saturday night",
+        "Sunday daytime",
+        "Sunday night"
+      ],
+      "budget": "Free only",
+      "no_go": [
+        "Parties & clubs",
+        "Alcohol"
+      ],
+      "drive": "No car"
+    },
+    "leo": {
+      "name": "Leo",
+      "color": "#ffc627",
+      "initial": "L",
+      "into": [
+        "Outdoors & hiking",
+        "Chill hangouts",
+        "Live music"
+      ],
+      "free": [
+        "Saturday daytime",
+        "Saturday night",
+        "Sunday daytime",
+        "Friday night"
+      ],
+      "budget": "Up to $40",
+      "no_go": [],
+      "drive": "Car, 1 seat free"
+    },
+    "bot": {
+      "name": "Side Quests Squad",
+      "avatar": "🗺️",
+      "avatar_bg": "#8c1d40",
+      "discord_badge": "APP",
+      "src": "code:bot.py (webhook name 'Squad Mode' is only for persona posts)"
+    }
+  },
+  "event": {
+    "title": "Open Mic Night",
+    "when_card": "🕖 Friday, October 30, 2026 7:00 PM · in 5 days",
+    "when_long": "Friday, October 30, 2026 7:00 PM",
+    "where_card": "📍 Memorial Union 202 · $5 · free food 🍕",
+    "src": "code:ui/cards.py _when/_where, rendered (<t:F> · <t:R>); event data is story (Sun Devil Central style)",
+    "end": "9:00 PM",
+    "event_page_url": null
+  },
+  "groups": {
+    "imessage_group": {
+      "name": "the squad 🌵",
+      "members": [
+        "Maya",
+        "Jordan",
+        "Priya",
+        "Leo",
+        "Ash"
+      ],
+      "src": "story"
+    },
+    "discord_server": {
+      "server": "ASU friends",
+      "channel": "#squad",
+      "channel_topic": "friends who keep saying \"we should hang out\"",
+      "src": "story (topic from docs/assets/chat-demo.svg)"
+    }
+  },
+  "scenes": {
+    "s01": {
+      "skin": "imessage (both cuts)",
+      "both": {
+        "phone_owner": "Ash",
+        "status_clock_start": "9:41",
+        "timestamp_1": {
+          "day": "Mon",
+          "time": "9:41 PM"
+        },
+        "messages_1": [
+          {
+            "from": "Priya",
+            "text": "we should actually hang out this week 😩"
+          },
+          {
+            "from": "Maya",
+            "text": "fr"
+          },
+          {
+            "from": "Jordan",
+            "text": "down"
+          },
+          {
+            "from": "Leo",
+            "text": "someone pick something"
+          },
+          {
+            "typing": "Maya",
+            "then": "stops, no message"
+          }
+        ],
+        "status_clock_end": "11:58",
+        "timestamp_2": {
+          "day": "Fri",
+          "time": "11:58 PM"
+        },
+        "messages_2": [
+          {
+            "from": "Maya",
+            "text": "ok next week for real",
+            "tapback": {
+              "by": "Jordan",
+              "emoji": "💯"
+            }
+          }
+        ],
+        "super": "\"WE SHOULD HANG OUT.\" ×52 WEEKS",
+        "src": "story"
+      }
+    },
+    "s02": {
+      "both": {
+        "title_line_1": "SIDE QUESTS:",
+        "title_sticker": "SQUAD MODE",
+        "sub": "Squad Mode picks the event, the time and the ride, so you actually go.",
+        "tag": "Cubbie Hackathon · Track 3 · ASU",
+        "src": "story (SCRIPT.md v2 S02; site hero style)"
+      }
+    },
+    "s03": {
+      "chip": "01 JOIN",
+      "discord": {
+        "slash_command": "/squad join",
+        "slash_description": "Join this channel's squad",
+        "modal_1": {
+          "title": "Join the squad (1/2)",
+          "fields": [
+            {
+              "label": "What are you into?",
+              "type": "checkbox",
+              "options": [
+                "Live music",
+                "Sports & games",
+                "Food & free food",
+                "Outdoors & hiking",
+                "Arts & crafts",
+                "Gaming & esports",
+                "Tech & hackathons",
+                "Movies & shows",
+                "Dance & parties",
+                "Chill hangouts"
+              ],
+              "ticked_by_cursor_in_order": [
+                "Live music",
+                "Food & free food",
+                "Chill hangouts"
+              ]
+            },
+            {
+              "label": "When are you usually free?",
+              "type": "checkbox",
+              "options": [
+                "Weekday evenings (Mon–Thu)",
+                "Friday night",
+                "Saturday daytime",
+                "Saturday night",
+                "Sunday daytime",
+                "Sunday night"
+              ],
+              "preticked": [
+                "Weekday evenings (Mon–Thu)",
+                "Friday night",
+                "Saturday daytime"
+              ]
+            },
+            {
+              "label": "Budget per hangout",
+              "type": "radio",
+              "options": [
+                "Free only",
+                "Up to $10",
+                "Up to $20",
+                "Up to $40"
+              ],
+              "selected": "Up to $20"
+            },
+            {
+              "label": "Hard no's",
+              "description": "Optional",
+              "type": "checkbox",
+              "options": [
+                "Parties & clubs",
+                "Late nights (after 10pm)",
+                "Big crowds",
+                "Sports",
+                "Religious events",
+                "Political events",
+                "Alcohol"
+              ],
+              "preticked": []
+            },
+            {
+              "label": "Do you drive?",
+              "type": "radio",
+              "options": [
+                "No car",
+                "Car, 1 seat free",
+                "Car, 2 seats free",
+                "Car, 3 seats free",
+                "Car, 4 seats free"
+              ],
+              "selected": "Car, 2 seats free"
+            }
+          ],
+          "buttons": [
+            "Cancel",
+            "Submit"
+          ],
+          "src": "code:ui/onboarding.py JoinModal + constants.py"
+        },
+        "reply_ephemeral": {
+          "lines": [
+            "You're in 🎉 One more step:"
+          ],
+          "buttons": [
+            "Calls & quiet hours",
+            "Connect Google Calendar"
+          ],
+          "after_buttons": "No calendar? I'll use the free times you ticked.",
+          "ephemeral_note": "Only you can see this • Dismiss message",
+          "src": "code:bot.py join_submitted, ui/cards.py Step2Button"
+        },
+        "modal_2": {
+          "title": "Join the squad (2/2)",
+          "fields": [
+            {
+              "label": "WhatsApp number",
+              "type": "text",
+              "placeholder": "+1 480 555 0123",
+              "value": ""
+            },
+            {
+              "label": "Voice nudge",
+              "description": "One friendly call if you miss a plan poll",
+              "type": "checkbox",
+              "ticked_by_cursor": true
+            },
+            {
+              "label": "Quiet hours",
+              "type": "radio",
+              "options": [
+                "10pm–9am",
+                "11pm–8am",
+                "Midnight–10am"
+              ],
+              "selected": "10pm–9am"
+            }
+          ],
+          "buttons": [
+            "Cancel",
+            "Submit"
+          ],
+          "src": "code:ui/onboarding.py CallsModal + constants.py"
+        },
+        "saved": {
+          "text": "Saved ✨",
+          "src": "code:bot.py calls_submitted"
+        }
+      },
+      "imessage": {
+        "dm_with": "Side Quests Squad",
+        "bot_link_card": {
+          "title": "Join the squad",
+          "domain": "squad.ashwanthbk.com",
+          "src": "story"
+        },
+        "sheet_page_1": "same title, labels, options and picks as discord.modal_1, as native iOS rows with toggles",
+        "sheet_page_2": "same as discord.modal_2 (Voice nudge toggle on, Quiet hours 10pm–9am)",
+        "bot_reply": [
+          "You're in 🎉 One more step:",
+          {
+            "link_card": "Calls & quiet hours",
+            "domain": "squad.ashwanthbk.com"
+          },
+          {
+            "link_card": "Connect Google Calendar",
+            "domain": "calendar.google.com"
+          },
+          "No calendar? I'll use the free times you ticked."
+        ],
+        "saved": "Saved ✨",
+        "bot_reply_src": "text code:bot.py; the two Discord buttons become link cards with the same labels (story)",
+        "sheet_nav": {
+          "left": "Cancel",
+          "right_page_1": "Next",
+          "right_page_2": "Done"
+        }
+      },
+      "both": {
+        "friend_cards": [
+          {
+            "who": "Maya",
+            "picks": [
+              "Live music",
+              "Arts & crafts",
+              "Food & free food"
+            ],
+            "locked": [
+              "🔒 budget",
+              "🔒 calendar"
+            ]
+          },
+          {
+            "who": "Jordan",
+            "picks": [
+              "Sports & games",
+              "Gaming & esports",
+              "Food & free food"
+            ],
+            "locked": [
+              "🔒 budget",
+              "🔒 calendar"
+            ]
+          },
+          {
+            "who": "Priya",
+            "picks": [
+              "Tech & hackathons",
+              "Food & free food",
+              "Chill hangouts"
+            ],
+            "locked": [
+              "🔒 budget",
+              "🔒 calendar"
+            ]
+          },
+          {
+            "who": "Leo",
+            "picks": [
+              "Outdoors & hiking",
+              "Chill hangouts",
+              "Live music"
+            ],
+            "locked": [
+              "🔒 budget",
+              "🔒 calendar"
+            ]
+          }
+        ],
+        "calendar_chip_detail": "busy / free only",
+        "super": "ONE AGENT PER FRIEND",
+        "src": "picks = code:personas.py + constants.py labels; chip words story"
+      }
+    },
+    "s04": {
+      "chip": "02 WATCHES",
+      "both": {
+        "board": {
+          "title": "Watching this week",
+          "columns": [
+            "Maya",
+            "Jordan",
+            "Priya",
+            "Leo",
+            "Ash"
+          ],
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat",
+            "Sun"
+          ],
+          "hours_shown": "9 AM – 11 PM",
+          "busy_blocks": {
+            "Maya": [
+              {
+                "day": "Mon",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Tue",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Wed",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Thu",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Fri",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Sat",
+                "start": "12:00 PM",
+                "end": "4:00 PM",
+                "label": "busy"
+              }
+            ],
+            "Jordan": [
+              {
+                "day": "Mon",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Tue",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Wed",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Thu",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Fri",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              }
+            ],
+            "Priya": [
+              {
+                "day": "Mon",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Tue",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Wed",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Thu",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Fri",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              }
+            ],
+            "Leo": [
+              {
+                "day": "Mon",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Tue",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Wed",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Thu",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Fri",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Thu",
+                "start": "6:00 PM",
+                "end": "9:00 PM",
+                "label": "busy"
+              }
+            ],
+            "Ash": [
+              {
+                "day": "Mon",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Tue",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Wed",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Thu",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              },
+              {
+                "day": "Fri",
+                "start": "9:00 AM",
+                "end": "4:00 PM",
+                "label": "class"
+              }
+            ]
+          },
+          "busy_note": "grey blocks show busy only, never what it is (free/busy is all the calendar shares)",
+          "src": "story; busy rule = code:availability.py is_free (busy blocks + 30 min travel, constants.TRAVEL_MIN)"
+        },
+        "feed_label": "Sun Devil Central",
+        "event_cards": [
+          {
+            "title": "Paint Your 3D Print",
+            "when": "Tue 4:30 PM",
+            "where": "Hayden Library Makerspace",
+            "price": "Free",
+            "icon": "paintbrush",
+            "day": "Tue",
+            "start": "4:30 PM",
+            "end": "6:30 PM"
+          },
+          {
+            "title": "Board Game Night",
+            "when": "Thu 7:00 PM",
+            "where": "Memorial Union, Pima Room",
+            "price": "Free",
+            "icon": "dice",
+            "day": "Thu",
+            "start": "7:00 PM",
+            "end": "10:00 PM"
+          },
+          {
+            "title": "Open Mic Night",
+            "when": "Fri 7:00 PM",
+            "where": "Memorial Union 202",
+            "price": "$5",
+            "extra": "free food 🍕",
+            "icon": "microphone",
+            "day": "Fri",
+            "start": "7:00 PM",
+            "end": "9:00 PM"
+          },
+          {
+            "title": "Desert Sunset Hike",
+            "when": "Sat 5:00 PM",
+            "where": "A Mountain trailhead",
+            "price": "Free",
+            "icon": "mountain and sun",
+            "day": "Sat",
+            "start": "5:00 PM",
+            "end": "7:00 PM"
+          }
+        ],
+        "more_card": "+100 more",
+        "try_order": [
+          "Paint Your 3D Print",
+          "Board Game Night",
+          "Desert Sunset Hike",
+          "Open Mic Night"
+        ],
+        "candidates": {
+          "Paint Your 3D Print": {
+            "calendar_clash": [],
+            "not_their_thing": [
+              "Jordan",
+              "Leo",
+              "Ash"
+            ],
+            "fits": false,
+            "note": "classes end at 4:00 and it starts 4:30, so the calendars are clear; it misses on likes (arts/tech: only Maya and Priya)"
+          },
+          "Board Game Night": {
+            "calendar_clash": [
+              "Leo"
+            ],
+            "not_their_thing": [
+              "Maya"
+            ],
+            "fits": false,
+            "note": "Leo is busy Thursday 6–9 PM (red flash on Leo's Thursday)"
+          },
+          "Desert Sunset Hike": {
+            "calendar_clash": [],
+            "not_their_thing": [
+              "Maya",
+              "Jordan",
+              "Priya",
+              "Ash"
+            ],
+            "fits": false,
+            "note": "Maya's Saturday block ends 4:00, before the 4:30 leave time, so no calendar clash; only Leo is into it"
+          },
+          "Open Mic Night": {
+            "calendar_clash": [],
+            "not_their_thing": [],
+            "fits": true,
+            "band": {
+              "day": "Fri",
+              "start": "7:00 PM",
+              "end": "9:00 PM"
+            },
+            "checks": [
+              "Maya",
+              "Jordan",
+              "Priya",
+              "Leo",
+              "Ash"
+            ]
+          }
+        },
+        "super": "IT WATCHES, SO NOBODY HAS TO ASK",
+        "src": "titles/times story (SCRIPT.md v2 S04); end times and locations story; fit rule mirrors code:planner.py find_match (no calendar/no-go/late clash + enough interest)"
+      },
+      "intro": {
+        "from": "Side Quests Squad",
+        "code": "👀 Spotted something that fits everyone's week: **{title}**, <t:{unix}:f>. Want to go?",
+        "text": "👀 Spotted something that fits everyone's week: **Open Mic Night**, October 30, 2026 7:00 PM. Want to go?",
+        "parts": [
+          {
+            "t": "👀 Spotted something that fits everyone's week: "
+          },
+          {
+            "t": "Open Mic Night",
+            "bold": true
+          },
+          {
+            "t": ", October 30, 2026 7:00 PM. Want to go?"
+          }
+        ],
+        "src": "code:flows/plan_flow.py SPOTTED_ALL; render: Discord <t:f> = 'October 30, 2026 7:00 PM'; nobody @-mentions the bot"
+      },
+      "discord": {
+        "time": "Today at 4:03 PM",
+        "channel": "#squad",
+        "composer_placeholder": "Message #squad",
+        "intro_render": "bold title via markdown"
+      },
+      "imessage": {
+        "group": "the squad 🌵",
+        "timestamp": {
+          "day": "Today",
+          "time": "4:03 PM"
+        },
+        "composer_placeholder": "iMessage",
+        "intro_render": "grey bubble from Side Quests Squad; iMessage has no markdown, so the title is plain text (no asterisks)"
+      }
+    },
+    "s05": {
+      "chip": "03 AGENTS",
+      "both": {
+        "events_scored": [
+          "Open Mic Night",
+          "Paint Your 3D Print",
+          "Desert Sunset Hike",
+          "Board Game Night"
+        ],
+        "agents": [
+          {
+            "who": "Maya",
+            "card_title": "Maya's agent",
+            "scores": {
+              "Open Mic Night": 9,
+              "Paint Your 3D Print": 7,
+              "Desert Sunset Hike": 3,
+              "Board Game Night": 4
+            },
+            "shared": "I'd love the open mic 🎤",
+            "private": [
+              "🔒 budget: up to $20",
+              "🔒 no sports"
+            ]
+          },
+          {
+            "who": "Jordan",
+            "card_title": "Jordan's agent",
+            "scores": {
+              "Open Mic Night": 7,
+              "Paint Your 3D Print": 4,
+              "Desert Sunset Hike": 4,
+              "Board Game Night": 8
+            },
+            "shared": "happy to drive if it's not a late one",
+            "private": [
+              "🔒 budget: up to $10",
+              "🔒 no late nights"
+            ]
+          },
+          {
+            "who": "Priya",
+            "card_title": "Priya's agent",
+            "scores": {
+              "Open Mic Night": 8,
+              "Paint Your 3D Print": 8,
+              "Desert Sunset Hike": 4,
+              "Board Game Night": 5
+            },
+            "shared": "free food and a chill crowd, yes",
+            "private": [
+              "🔒 budget: free only",
+              "🔒 no parties"
+            ]
+          },
+          {
+            "who": "Leo",
+            "card_title": "Leo's agent",
+            "scores": {
+              "Open Mic Night": 5,
+              "Paint Your 3D Print": 3,
+              "Desert Sunset Hike": 9,
+              "Board Game Night": 4
+            },
+            "shared": "I'd pick the hike, but I'm in for music",
+            "private": [
+              "🔒 budget: up to $40"
+            ]
+          }
+        ],
+        "score_format": "9/10",
+        "price_tag_on_open_mic": "$5",
+        "split_chip": {
+          "from": "🔒 budget: free only",
+          "public_half": "someone has a budget limit",
+          "private_half_stays_blurred": "budget: free only"
+        },
+        "coordinator": {
+          "title": "Coordinator",
+          "inbox_line": "someone has a budget limit",
+          "ranking": [
+            {
+              "rank": 1,
+              "title": "Open Mic Night",
+              "total": 29,
+              "tag": "best fit · 1 limit to check"
+            },
+            {
+              "rank": 2,
+              "title": "Paint Your 3D Print",
+              "total": 22
+            },
+            {
+              "rank": 3,
+              "title": "Board Game Night",
+              "total": 21
+            },
+            {
+              "rank": 4,
+              "title": "Desert Sunset Hike",
+              "total": 20
+            }
+          ]
+        },
+        "super": "SHARES THE VIBE. KEEPS THE DETAILS.",
+        "src": "shared lines, scores, chips and coordinator words story (SCRIPT.md); 'someone has a budget limit' mirrors code:agents.py 'Someone has {label_public}' + constraints.py 'a budget limit'"
+      }
+    },
+    "s06": {
+      "chip": "04 ASKS FIRST",
+      "both": {
+        "dm_to": "Priya",
+        "dm_text": "Quick check before I post this week's plan: Open Mic Night, Friday, October 30, 2026 7:00 PM. Heads up: it's $5 and your cap is $0. Still up for it?",
+        "buttons": [
+          {
+            "label": "Sure, count me in",
+            "style": "success"
+          },
+          {
+            "label": "Pass on this one",
+            "style": "secondary"
+          }
+        ],
+        "tapped": "Sure, count me in",
+        "after_tap": "Got it, thanks 🙏",
+        "group_after": "no new message about Priya",
+        "super": "ASKS BEFORE IT BENDS YOUR LIMIT",
+        "src": "code:flows/plan_flow.py _confirm + constraints.py detail_private + ui/cards.py ConfirmButton + NOTED; date rendered from <t:F>"
+      },
+      "discord": {
+        "window": "Direct Messages → Side Quests Squad",
+        "dm_header": "Side Quests Squad",
+        "time": "Today at 4:04 PM"
+      },
+      "imessage": {
+        "dm_with": "Side Quests Squad",
+        "phone_owner": "Priya",
+        "tap_becomes_bubble": "Sure, count me in",
+        "timestamp": {
+          "day": "Today",
+          "time": "4:04 PM"
+        }
+      }
+    },
+    "s07": {
+      "chip": "05 PLAN",
+      "both": {
+        "card": {
+          "kicker": "🗺️ This week's side quest",
+          "title": "Open Mic Night",
+          "when": "🕖 Friday, October 30, 2026 7:00 PM · in 5 days",
+          "where": "📍 Memorial Union 202 · $5 · free food 🍕",
+          "headline": "Live music, free pizza, and home by 9",
+          "why": "Maya and Leo both want music, Priya's in for the free food and a chill crowd, and it wraps up early enough for Jordan's Saturday.",
+          "tradeoffs_title": "Trade-offs",
+          "tradeoffs": [
+            "Someone has a budget limit",
+            "Leo would've picked the hike"
+          ],
+          "who_line_initial": "Nobody's voted yet, no pressure 🙂",
+          "buttons": [
+            "Event page",
+            "Close poll now",
+            "How did you pick this?"
+          ],
+          "src": "layout, kicker, who line, buttons, 'Someone has a budget limit' = code:ui/cards.py plan_card + agents.py; headline, why and 'Leo would've picked the hike' are model output in the product, so story"
+        },
+        "thread": {
+          "name": "🗺️ Open Mic Night",
+          "posts": [
+            {
+              "speaker": "Maya's agent",
+              "text": "I'd love the open mic 🎤"
+            },
+            {
+              "speaker": "Jordan's agent",
+              "text": "happy to drive if it's not a late one"
+            },
+            {
+              "speaker": "Priya's agent",
+              "text": "free food and a chill crowd, yes"
+            },
+            {
+              "speaker": "Leo's agent",
+              "text": "I'd pick the hike, but I'm in for music"
+            },
+            {
+              "speaker": "Coordinator",
+              "text": "Maya and Leo both want music, Priya's in for the free food and a chill crowd, and it wraps up early enough for Jordan's Saturday."
+            }
+          ],
+          "src": "speaker names code:planner.py; texts story (model output)"
+        },
+        "poll": {
+          "question": "Open Mic Night, you in?",
+          "answers": [
+            "I'm in ✅",
+            "Maybe 🤔",
+            "Can't make it ❌"
+          ],
+          "duration": "1h",
+          "src": "code:flows/plan_flow.py + constants.py VOTE_ANSWERS, models.py poll_hours=1"
+        },
+        "votes_in_order": [
+          {
+            "who": "Maya",
+            "answer": "I'm in ✅",
+            "who_line": "✅ Maya"
+          },
+          {
+            "who": "Ash",
+            "answer": "I'm in ✅",
+            "who_line": "✅ Maya, Ash"
+          },
+          {
+            "who": "Priya",
+            "answer": "I'm in ✅",
+            "who_line": "✅ Maya, Ash, Priya"
+          },
+          {
+            "who": "Jordan",
+            "answer": "Can't make it ❌",
+            "who_line": "✅ Maya, Ash, Priya  ❌ 1 can't make it"
+          }
+        ],
+        "poll_counts_after": {
+          "I'm in ✅": 3,
+          "Maybe 🤔": 0,
+          "Can't make it ❌": 1
+        },
+        "who_line_src": "code:ui/cards.py who_line (two spaces between parts)"
+      },
+      "discord": {
+        "time": "Today at 4:05 PM",
+        "poll_footer": "4 votes · 1h left"
+      },
+      "imessage": {
+        "link_bubble": "rich link bubble from Side Quests Squad with the same card fields (kicker, title, when, where, headline, why, Trade-offs) and a footer domain squad.ashwanthbk.com",
+        "poll": "iOS 26 Messages poll: title 'Open Mic Night, you in?', the same three answers, voter avatars on each row",
+        "agent_lines": "the five thread posts as inline replies to the link bubble, sender label = speaker"
+      }
+    },
+    "s08": {
+      "chip": "06 REMEMBERS",
+      "both": {
+        "dm_to": "Jordan",
+        "dm_text": "Mind sharing why? Totally optional, it just helps me pick better next time.",
+        "buttons": [
+          {
+            "label": "Tell you why",
+            "style": "primary"
+          },
+          {
+            "label": "Skip",
+            "style": "secondary"
+          }
+        ],
+        "tapped": "Tell you why",
+        "jordan_types": "8am shift Saturday, nothing late on Fridays for me",
+        "reply": "Got it, I'll keep that in mind 🙏",
+        "new_private_chip": "🔒 no events after 9pm on Fridays",
+        "super": "LEARNS WHAT YOU CAN'T SAY OUT LOUD",
+        "src": "dm_text, buttons = code:ui/cards.py why_no_view; reply = code:flows/vote_flow.py KEPT; chip words from code:flows/vote_flow.py JORDAN_LEARNED; typed reason story (SCRIPT.md)"
+      },
+      "discord": {
+        "modal": {
+          "title": "Why not this time?",
+          "label": "What got in the way?",
+          "description": "Only I see this",
+          "buttons": [
+            "Cancel",
+            "Submit"
+          ],
+          "src": "code:flows/vote_flow.py WhyNoModal"
+        },
+        "reply_ephemeral_note": "Only you can see this • Dismiss message",
+        "time": "Today at 4:07 PM"
+      },
+      "imessage": {
+        "dm_with": "Side Quests Squad",
+        "phone_owner": "Jordan",
+        "flow": "tap 'Tell you why' → Jordan types in the iMessage field → blue bubble → bot grey reply",
+        "timestamp": {
+          "day": "Today",
+          "time": "4:07 PM"
+        }
+      }
+    },
+    "s09": {
+      "chip": "07 NUDGE",
+      "both": {
+        "phone_owner": "Leo",
+        "incoming": {
+          "app": "WhatsApp",
+          "label": "WhatsApp audio call",
+          "caller": "Side Quests Squad",
+          "buttons": [
+            "Decline",
+            "Accept"
+          ]
+        },
+        "in_call_timer": [
+          "0:00",
+          "0:01",
+          "0:02",
+          "0:03",
+          "0:04",
+          "0:05",
+          "0:06"
+        ],
+        "captions": [
+          {
+            "speaker": "Side Quests Squad",
+            "text": "Hey Leo! The squad's doing Open Mic Night Friday at 7. Maya and Priya are in. You in?",
+            "audio": "vo/s09-bot.wav"
+          },
+          {
+            "speaker": "Leo",
+            "text": "yeah, I'm in",
+            "audio": "vo/s09-leo.wav"
+          }
+        ],
+        "after_call": {
+          "thread_or_group_post": "📞 Leo picked up and said yes",
+          "who_line": "✅ Maya, Ash, Priya, Leo  ❌ 1 can't make it",
+          "poll_counts": {
+            "I'm in ✅": 4,
+            "Maybe 🤔": 0,
+            "Can't make it ❌": 1
+          },
+          "src": "code:flows/nudge_flow.py (outcome.answer is the vote key 'yes'), ui/cards.py who_line"
+        },
+        "src": "call lines are Gemini Live output in the product, so story (SCRIPT.md); caption text uses '7' for the spoken 'seven'",
+        "quiet_hours_chip": {
+          "text": "🌙 quiet hours: 10pm–9am",
+          "src": "label code:constants.py QUIET_HOURS default 22-9; chip wording story"
+        }
+      }
+    },
+    "s10": {
+      "chip": "08 GO",
+      "both": {
+        "results": {
+          "heading": "🎉 It's on",
+          "title": "Open Mic Night",
+          "when": "🕖 Friday, October 30, 2026 7:00 PM · in 5 days",
+          "where": "📍 Memorial Union 202 · $5 · free food 🍕",
+          "going": "Going: Maya, Ash, Priya, Leo",
+          "rides_title": "Rides",
+          "rides": [
+            "🚗 Ash → Maya, Priya",
+            "🚗 Leo → driving solo"
+          ],
+          "event_link": "📅 Discord event",
+          "src": "code:ui/cards.py results_card + carpool.py plan_rides with the cast's seats (Ash 2, Leo 1, Maya 0, Priya 0; Jordan is not going)"
+        },
+        "script_variant_rides_not_code_true": [
+          "🚗 Ash → Maya, Priya",
+          "🚆 Leo: Valley Metro light rail or the free Orbit circulator should get you there."
+        ]
+      },
+      "imessage": {
+        "results_bubble": "same lines as both.results in one grey bubble from Side Quests Squad (Going / Rides in bold)",
+        "calendar_invite_bubble": {
+          "title": "Open Mic Night",
+          "when": "Fri, Oct 30 · 7:00 – 9:00 PM",
+          "where": "Memorial Union 202",
+          "buttons": [
+            "Add to Calendar"
+          ],
+          "src": "story (B stands in for the Discord event)"
+        }
+      },
+      "discord": {
+        "close_click": "Close poll now",
+        "sidebar_event_row": "📅 1 Event",
+        "src": "button code:ui/cards.py; sidebar row is Discord's own UI"
+      }
+    },
+    "s11": {
+      "skin": "imessage (both cuts)",
+      "both": {
+        "group": "the squad 🌵",
+        "status_clock": "7:02",
+        "timestamp": {
+          "day": "Fri",
+          "time": "7:02 PM"
+        },
+        "messages": [
+          {
+            "from": "Priya",
+            "photo": "illustration: the four of them under the Memorial Union string lights, backs or silhouettes, no faces",
+            "tapback": {
+              "by": "Maya",
+              "emoji": "❤️"
+            }
+          },
+          {
+            "from": "Priya",
+            "text": "we actually came 😭"
+          }
+        ],
+        "super": "YOU ACTUALLY WENT.",
+        "src": "story"
+      }
+    },
+    "s12": {
+      "both": {
+        "title_line_1": "SIDE QUESTS:",
+        "title_sticker": "SQUAD MODE",
+        "one_liner": "Squad Mode picks the event, the time and the ride, so you actually go.",
+        "buttons": [
+          {
+            "label": "Add to Discord →",
+            "style": "blurple"
+          },
+          {
+            "label": "See the code",
+            "style": "mint"
+          }
+        ],
+        "url": "squad.ashwanthbk.com",
+        "small": "Cubbie Hackathon · Track 3 · team NRK",
+        "src": "one-liner and buttons from squad/site/index.html; rest SCRIPT.md"
+      },
+      "imessage": {
+        "extra_chip": "Live now on Discord."
+      },
+      "discord": {}
+    }
+  }
+}

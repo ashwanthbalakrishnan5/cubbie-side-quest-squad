@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!-- S09 The nudge (film 123.900-138.100 s, both cuts; VO on the root: s09.wav @0.30, s09-bot.wav @6.80, s09-leo.wav @12.767). Leo's iPhone: incoming WhatsApp audio call, then the call.
+     Waveform heights and caption word timings are inlined from shared-assets/vo/env + vo/words (no fetches).
+     Hand-off to S10: the who-line sticker (#s09-who) ends mid-flight at left 180 / top 470 + translate(160px, -40px),
+     scale 0.92, blur 4 px; S10 continues its flight into the plan card / link bubble. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s09-slot {
+          position: absolute;
+          left: 949px;
+          top: 50px;
+        }
+        #s09-phone {
+          left: 0;
+          top: 0;
+          position: relative;
+        }
+        .s09-incall {
+          opacity: 0;
+        }
+        .call-timer {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: calc(342 * var(--pt));
+          text-align: center;
+          font-size: calc(17 * var(--pt));
+          line-height: calc(22 * var(--pt));
+          color: #aeaeb2;
+          font-variant-numeric: tabular-nums;
+        }
+        .call-btns.s09-row {
+          left: calc(36 * var(--pt));
+          right: calc(36 * var(--pt));
+        }
+        #s09-quiet {
+          position: absolute;
+          left: 330px;
+          top: 520px;
+          z-index: 40;
+        }
+        #s09-quiet .sq-lock {
+          box-shadow: 5px 5px 0 var(--ink);
+        }
+        #s09-cap {
+          left: 180px;
+          top: 300px;
+          height: 140px;
+          z-index: 40;
+        }
+        .s09-capblk {
+          position: absolute;
+          left: 26px;
+          right: 26px;
+          top: 22px;
+        }
+        #s09-cap-leo {
+          opacity: 0;
+        }
+        #s09-who {
+          position: absolute;
+          left: 180px;
+          top: 470px;
+          z-index: 40;
+        }
+      </style>
+      <div data-hf-id="hf-flqy" id="root" data-composition-id="s09" data-width="1920" data-height="1080" data-duration="14.2">
+        <div data-hf-id="hf-7p4v" class="sq-scene">
+          <div data-hf-id="hf-fkpk" class="sq-cam" id="s09-cam">
+            <div data-hf-id="hf-7vlo" class="sq-grid" data-layout-ignore=""></div>
+            <div data-hf-id="hf-3ucu" id="s09-slot">
+              <div data-hf-id="hf-29ea" class="ip" id="s09-phone">
+                <i data-hf-id="hf-k910" class="ip-btn l" style="top: 190px; height: 34px"></i>
+                <i data-hf-id="hf-5sae" class="ip-btn l" style="top: 250px; height: 62px"></i>
+                <i data-hf-id="hf-6eea" class="ip-btn l" style="top: 324px; height: 62px"></i>
+                <i data-hf-id="hf-dd7e" class="ip-btn r" style="top: 280px; height: 96px"></i>
+                <div data-hf-id="hf-w10k" class="ip-screen dark">
+                  <div data-hf-id="hf-s3rk" class="call">
+                    <div data-hf-id="hf-0mio" class="call-av" id="s09-av">🗺️</div>
+                    <div data-hf-id="hf-6qzc" class="call-name">Side Quests Squad</div>
+                    <div data-hf-id="hf-mb1u" class="call-label" id="s09-label">WhatsApp audio call</div>
+                    <div data-hf-id="hf-l5ps" class="call-timer s09-incall" id="s09-timer">0:00</div>
+                    <div data-hf-id="hf-ww9a" class="call-wave s09-incall" id="s09-wave">
+                      <i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i><i data-hf-id="hf-ylp6"></i><i data-hf-id="hf-0l8b"></i><i data-hf-id="hf-0zjc"></i><i data-hf-id="hf-zsm9"></i><i data-hf-id="hf-06xa"></i><i data-hf-id="hf-26gf"></i><i data-hf-id="hf-2krg"></i><i data-hf-id="hf-oz7w"></i><i data-hf-id="hf-okwv"></i>
+                      <i data-hf-id="hf-o6lu"></i><i data-hf-id="hf-jqbp"></i><i data-hf-id="hf-qkg0"></i><i data-hf-id="hf-q64z"></i><i data-hf-id="hf-prty"></i><i data-hf-id="hf-pdix"></i><i data-hf-id="hf-hqsk"></i><i data-hf-id="hf-hchj"></i><i data-hf-id="hf-8d0n"></i><i data-hf-id="hf-8rbo"></i><i data-hf-id="hf-7kel"></i><i data-hf-id="hf-7ypm"></i>
+                    </div>
+                    <div data-hf-id="hf-8xth" class="call-btns" id="s09-ring-btns">
+                      <div data-hf-id="hf-yqhf" class="call-b decline"><span data-hf-id="hf-odcy" class="disc" data-ico="hangup"></span>Decline</div>
+                      <div data-hf-id="hf-e7kn" class="call-b accept"><span data-hf-id="hf-3atr" class="disc" data-ico="phone"></span>Accept</div>
+                    </div>
+                    <div data-hf-id="hf-iigk" class="call-btns s09-row s09-incall" id="s09-call-btns">
+                      <div data-hf-id="hf-t4e3" class="call-b grey"><span data-hf-id="hf-8xrg" class="disc" data-ico="speaker"></span>Speaker</div>
+                      <div data-hf-id="hf-btab" class="call-b grey"><span data-hf-id="hf-eewq" class="disc" data-ico="mute"></span>Mute</div>
+                      <div data-hf-id="hf-x337" class="call-b end"><span data-hf-id="hf-rsli" class="disc" data-ico="hangup"></span>End</div>
+                    </div>
+                    <div data-hf-id="hf-8y7m" class="touch" id="s09-touch" style="left: calc(311 * var(--pt)); top: calc(720 * var(--pt))"></div>
+                  </div>
+                  <div data-hf-id="hf-vmoj" class="ip-island"></div>
+                  <div data-hf-id="hf-tox6" class="ip-status">
+                    <div data-hf-id="hf-shcr" class="ip-clock">4:52</div>
+                    <div data-hf-id="hf-ux6i" class="ip-icons" data-sq="status"></div>
+                  </div>
+                  <div data-hf-id="hf-sncx" class="ip-home"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div data-hf-id="hf-b6k3" class="sq-chip-slot" id="s09-chip"><span data-hf-id="hf-vjyn" class="sq-chip"><b data-hf-id="hf-8n3c">07</b>Nudge</span></div>
+          <div data-hf-id="hf-huou" id="s09-quiet"><span data-hf-id="hf-p9ds" class="sq-lock" style="position: relative">🌙 quiet hours: 10pm–9am<i data-hf-id="hf-capg" data-sq="ring" id="hl-s09-1"></i></span></div>
+          <div data-hf-id="hf-l1qo" class="sq-caption" id="s09-cap">
+            <div data-hf-id="hf-8i2t" class="s09-capblk" id="s09-cap-bot">
+              <div data-hf-id="hf-hlmp" class="who bot">Side Quests Squad</div>
+              <div data-hf-id="hf-chd8" class="txt" id="s09-bot-txt">Hey Leo! The squad's doing Open Mic Night Friday at 7. Maya and Priya are in. You in?</div>
+            </div>
+            <div data-hf-id="hf-ckpa" class="s09-capblk" id="s09-cap-leo">
+              <div data-hf-id="hf-mn2o" class="who leo">Leo</div>
+              <div data-hf-id="hf-slip" class="txt" id="s09-leo-txt">yeah, I'm in</div>
+            </div>
+          </div>
+          <div data-hf-id="hf-rx52" id="s09-who"><span data-hf-id="hf-592p" class="sq-sticker-line">✅ Maya, Ash, Priya, Leo  ❌ 1 can't make it</span></div>
+        </div>
+        <audio data-hf-id="hf-isj6" id="s09-sfx-1" class="clip" data-hf-media-start-basis="local" data-start="2.683" data-duration="0.21" data-track-index="20" data-volume="0.4" src="assets/audio/sfx/impact/impactGlass_light_001.ogg"></audio>
+        <audio data-hf-id="hf-egu9" id="s09-sfx-2" class="clip" data-hf-media-start-basis="local" data-start="3.283" data-duration="0.21" data-track-index="21" data-volume="0.4" src="assets/audio/sfx/impact/impactGlass_light_001.ogg"></audio>
+        <audio data-hf-id="hf-lbna" id="s09-sfx-3" class="clip" data-hf-media-start-basis="local" data-start="6.621" data-duration="0.056" data-track-index="20" data-volume="0.45" src="assets/audio/sfx/ui/click2.ogg"></audio>
+        <audio data-hf-id="hf-qvrj" id="s09-sfx-4" class="clip" data-hf-media-start-basis="local" data-start="13.4" data-duration="0.459" data-track-index="21" data-volume="0.4" src="assets/audio/sfx/casino/card-place-2.ogg"></audio>
+      </div>
+      <script>
+        (function () {
+          var root = document.querySelector('[data-composition-id="s09"]');
+          SQ.mount(root);
+          var $ = function (id) {
+            return document.getElementById(id);
+          };
+          // shared-assets/vo/env/*.json rms01 per frame (30 fps) and vo/words/*.json start times (s)
+          var ENV_BOT = [0,0.237,0.91,0.941,0.878,0.865,0.783,0.818,0.885,0.923,0.878,0.881,0.851,0.915,0.888,0.841,0.785,0.704,0.488,0.533,0.802,0.705,0.778,0.704,0,0.73,0.949,0.947,0.893,0.846,0.832,0.832,0.586,0.582,0.642,0.111,0.699,0.899,0.871,0.891,0.846,0.822,0.656,0.138,0.612,0.909,0.935,0.785,0.174,0.249,0.872,0.812,0.769,0.82,0.848,0.816,0.844,0.808,0.644,0,0,0.652,0.833,0.882,0.856,0.811,0.688,0.332,0.274,0.326,0.327,0.367,0.887,0.84,0.807,0.793,0.812,0.531,0.784,0.806,0.738,0.711,0.759,0.608,0,0.637,0.772,0.763,0.728,0.89,0.889,0.786,0.36,0.423,0.631,0.488,0.32,0.256,0.089,0,0,0,0,0,0,0,0,0,0,0,0.61,0.889,0.924,0.881,0.854,0.837,0.832,0.825,0.867,0.898,0.899,0.802,0.761,0.481,0.162,0.423,0.759,0.916,0.8,0.785,0.838,0.883,0.86,0.826,0.819,0.855,0.771,0.615,0.746,0.834,0.853,0.795,0.647,0.559,0.437,0.273,0,0,0,0.452,0.712,0.817,0.828,0.758,0.854,0.782,0.717,0.641,0.512,0.371,0.239,0.005,0,0];
+          var ENV_LEO = [0,0,0.496,0.573,0.808,0.954,0.918,0.742,0.541,0.515,0.613,0.749,0.76,0.75,0.725,0.696,0.671,0.717,0.75,0.763,0.732,0.61,0.387,0.327,0.275,0.159,0.055,0,0,0,0,0];
+          var W_BOT = [0.07,0.24,0.66,0.87,1.41,1.8,2.12,2.4,2.75,3.19,3.68,3.81,4.03,4.2,4.48,4.65,4.87,5.04];
+          var W_LEO = [0.07,0.23,0.46];
+          var BOT_AT = 6.8;
+          var LEO_AT = 12.767;
+
+          var tl = gsap.timeline({ paused: true });
+          function build() {
+          var cam = $("s09-cam");
+          SQ.camSet(tl, cam, SQ.frame(1.1, 1180, 540, 1180, 540));
+          tl.to(cam, Object.assign(SQ.frame(1.13, 1180, 540, 1180, 540), { duration: 4.5, ease: "sine.inOut" }), 1.4);
+
+          // whip in from below: lands blurred, sharpens in 0.13 s
+          var slot = $("s09-slot");
+          tl.fromTo(slot, { y: 1150, filter: "blur(18px)" }, { y: 0, filter: "blur(6px)", duration: 0.25, ease: "power3.out" }, 0);
+          tl.to(slot, { filter: "blur(0px)", duration: 0.13, ease: "power1.out" }, 0.25);
+          SQ.land(tl, $("s09-chip"), 0.3);
+
+          // two ring pulses, tied to the two ring sounds
+          [2.65, 3.25].forEach(function (t) {
+            tl.fromTo($("s09-av"), { scale: 1 }, { scale: 1.08, duration: 0.15, ease: "sine.out" }, t);
+            tl.to($("s09-av"), { scale: 1, duration: 0.15, ease: "sine.in" }, t + 0.15);
+          });
+
+          SQ.land(tl, $("s09-quiet"), 5.1);
+          SQ.ring(tl, $("hl-s09-1"), 5.42); // "quiet hours"
+
+          // Accept (touch), then the in-call screen
+          var touch = $("s09-touch");
+          tl.fromTo(touch, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.12, ease: "power2.out" }, 6.6);
+          tl.to(touch, { opacity: 0, duration: 0.15, ease: "power1.in" }, 6.76);
+          tl.to(["#s09-ring-btns", "#s09-label"], { opacity: 0, duration: 0.12, ease: "power1.in" }, 6.7);
+          tl.fromTo(root.querySelectorAll(".s09-incall"), { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "power1.out" }, 6.7);
+
+          // call timer counts each second from 6.10
+          var timer = $("s09-timer");
+          var clock = { t: 0 };
+          tl.fromTo(
+            clock,
+            { t: 0 },
+            {
+              t: 7.5,
+              duration: 7.5,
+              ease: "none",
+              onUpdate: function () {
+                timer.textContent = "0:0" + Math.min(9, Math.floor(clock.t));
+              },
+            },
+            6.7,
+          );
+
+          // 24-bar waveform: centre bar is the current frame, outer bars trail by a frame each
+          var bars = Array.prototype.slice.call($("s09-wave").children);
+          var shape = bars.map(function (_, i) {
+            var d = Math.abs(i - 11.5) / 11.5;
+            return 1 - 0.55 * Math.pow(d, 1.4);
+          });
+          function rmsAt(t, i) {
+            var lag = Math.round(Math.abs(i - 11.5));
+            var fb = Math.round((t - BOT_AT) * 30) - lag;
+            var fl = Math.round((t - LEO_AT) * 30) - lag;
+            var v = 0;
+            if (fb >= 0 && fb < ENV_BOT.length) v = ENV_BOT[fb];
+            if (fl >= 0 && fl < ENV_LEO.length) v = ENV_LEO[fl];
+            return v;
+          }
+          var wave = { t: 6.7 };
+          function drawWave() {
+            bars.forEach(function (b, i) {
+              var h = 6 + 54 * rmsAt(wave.t, i) * shape[i];
+              b.style.transform = "scaleY(" + (h / 60).toFixed(4) + ")";
+            });
+          }
+          bars.forEach(function (b) {
+            b.style.transform = "scaleY(0.1)";
+          });
+          tl.fromTo(wave, { t: 6.7 }, { t: 14.2, duration: 7.5, ease: "none", onUpdate: drawWave }, 6.7);
+
+          // quiet-hours chip leaves, caption card lands
+          SQ.exit(tl, $("s09-quiet"), 6.7, 0.15);
+          SQ.land(tl, $("s09-cap"), 6.7);
+          // the card fits the bot line, then shrinks to Leo's line
+          var cap = $("s09-cap");
+          var botH = $("s09-cap-bot").offsetHeight + 22 + 26 + 6;
+          gsap.set(cap, { height: botH });
+          tl.set(cap, { height: botH }, 0);
+          tl.to(cap, { height: 140, duration: 0.25, ease: "power3.inOut" }, LEO_AT - 0.13);
+          var bw = SQ.words($("s09-bot-txt"));
+          bw.forEach(function (w, i) {
+            var t = BOT_AT + (W_BOT[i] !== undefined ? W_BOT[i] : W_BOT[W_BOT.length - 1]);
+            tl.fromTo(w, { color: "rgba(17,17,17,0.35)" }, { color: "rgba(17,17,17,1)", duration: 0.06, ease: "none" }, t);
+          });
+          // swap to Leo's line
+          tl.to($("s09-cap-bot"), { opacity: 0, filter: "blur(8px)", duration: 0.13, ease: "power2.in" }, LEO_AT - 0.13);
+          tl.fromTo($("s09-cap-leo"), { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power2.out" }, LEO_AT);
+          var lw = SQ.words($("s09-leo-txt"));
+          lw.forEach(function (w, i) {
+            var t = LEO_AT + (W_LEO[i] !== undefined ? W_LEO[i] : 0);
+            tl.fromTo(w, { color: "rgba(17,17,17,0.35)" }, { color: "rgba(17,17,17,1)", duration: 0.06, ease: "none" }, t);
+          });
+
+          // who-line sticker, then it starts its carry across into S10
+          SQ.land(tl, $("s09-who"), 13.4); // poll gains Leo after "I'm in."
+          tl.to($("s09-who"), { x: 160, y: -40, scale: 0.92, filter: "blur(4px)", duration: 0.3, ease: "power2.in" }, 13.88);
+          window.__timelines["s09"] = tl;
+          }
+          if (document.fonts && document.fonts.status !== "loaded") {
+            document.fonts.ready.then(build);
+          } else {
+            build();
+          }
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,232 @@
+{
+  "version": 2,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "music": null,
+  "notes": "v2 (SCRIPT.md v2): no music. Each scene = 0.3 s head + its VO + 0.4 s tail (S01: 1.0 s beat after 'Sound familiar?'; S09: narrator, then bot call line, then Leo, 0.5 s apart). start/duration/vo_start in film seconds; segments[].offset is seconds from scene start; media_start/duration are data-media-start/data-duration for the <audio> clip. Word timings per file: segments[].words (whisper small.en; times relative to the wav start, so film time = vo_start + word.start; spellings are wrong for names).",
+  "scenes": [
+    {
+      "scene": "s01",
+      "start": 0.0,
+      "duration": 13.433,
+      "vo_file": "vo/s01.wav",
+      "vo_start": 0.3,
+      "segments": [
+        {
+          "vo_file": "vo/s01.wav",
+          "media_start": 0,
+          "duration": 12.139,
+          "offset": 0.3,
+          "vo_start": 0.3,
+          "words": "vo/words/s01.json"
+        }
+      ]
+    },
+    {
+      "scene": "s02",
+      "start": 13.433,
+      "duration": 6.833,
+      "vo_file": "vo/s02.wav",
+      "vo_start": 13.733,
+      "segments": [
+        {
+          "vo_file": "vo/s02.wav",
+          "media_start": 0,
+          "duration": 6.144,
+          "offset": 0.3,
+          "vo_start": 13.733,
+          "words": "vo/words/s02.json"
+        }
+      ]
+    },
+    {
+      "scene": "s03",
+      "start": 20.267,
+      "duration": 18.533,
+      "vo_file": "vo/s03.wav",
+      "vo_start": 20.567,
+      "segments": [
+        {
+          "vo_file": "vo/s03.wav",
+          "media_start": 0,
+          "duration": 17.835,
+          "offset": 0.3,
+          "vo_start": 20.567,
+          "words": "vo/words/s03.json"
+        }
+      ]
+    },
+    {
+      "scene": "s04",
+      "start": 38.8,
+      "duration": 21.933,
+      "vo_file": "vo/s04.wav",
+      "vo_start": 39.1,
+      "segments": [
+        {
+          "vo_file": "vo/s04.wav",
+          "media_start": 0,
+          "duration": 21.227,
+          "offset": 0.3,
+          "vo_start": 39.1,
+          "words": "vo/words/s04.json"
+        }
+      ]
+    },
+    {
+      "scene": "s05",
+      "start": 60.733,
+      "duration": 19.7,
+      "vo_file": "vo/s05.wav",
+      "vo_start": 61.033,
+      "segments": [
+        {
+          "vo_file": "vo/s05.wav",
+          "media_start": 0,
+          "duration": 18.987,
+          "offset": 0.3,
+          "vo_start": 61.033,
+          "words": "vo/words/s05.json"
+        }
+      ]
+    },
+    {
+      "scene": "s06",
+      "start": 80.433,
+      "duration": 14.7,
+      "vo_file": "vo/s06.wav",
+      "vo_start": 80.733,
+      "segments": [
+        {
+          "vo_file": "vo/s06.wav",
+          "media_start": 0,
+          "duration": 13.995,
+          "offset": 0.3,
+          "vo_start": 80.733,
+          "words": "vo/words/s06.json"
+        }
+      ]
+    },
+    {
+      "scene": "s07",
+      "start": 95.133,
+      "duration": 15.767,
+      "vo_file": "vo/s07.wav",
+      "vo_start": 95.433,
+      "segments": [
+        {
+          "vo_file": "vo/s07.wav",
+          "media_start": 0,
+          "duration": 15.083,
+          "offset": 0.3,
+          "vo_start": 95.433,
+          "words": "vo/words/s07.json"
+        }
+      ]
+    },
+    {
+      "scene": "s08",
+      "start": 110.9,
+      "duration": 13.0,
+      "vo_file": "vo/s08.wav",
+      "vo_start": 111.2,
+      "segments": [
+        {
+          "vo_file": "vo/s08.wav",
+          "media_start": 0,
+          "duration": 12.309,
+          "offset": 0.3,
+          "vo_start": 111.2,
+          "words": "vo/words/s08.json"
+        }
+      ]
+    },
+    {
+      "scene": "s09",
+      "start": 123.9,
+      "duration": 14.2,
+      "vo_file": "vo/s09.wav",
+      "vo_start": 124.2,
+      "segments": [
+        {
+          "vo_file": "vo/s09.wav",
+          "media_start": 0,
+          "duration": 5.995,
+          "offset": 0.3,
+          "vo_start": 124.2,
+          "words": "vo/words/s09.json"
+        },
+        {
+          "vo_file": "vo/s09-bot.wav",
+          "media_start": 0,
+          "duration": 5.461,
+          "offset": 6.8,
+          "vo_start": 130.7,
+          "words": "vo/words/s09-bot.json"
+        },
+        {
+          "vo_file": "vo/s09-leo.wav",
+          "media_start": 0,
+          "duration": 1.045,
+          "offset": 12.767,
+          "vo_start": 136.667,
+          "words": "vo/words/s09-leo.json"
+        }
+      ]
+    },
+    {
+      "scene": "s10",
+      "start": 138.1,
+      "duration": 5.7,
+      "vo_file": "vo/s10.wav",
+      "vo_start": 138.4,
+      "segments": [
+        {
+          "vo_file": "vo/s10.wav",
+          "media_start": 0,
+          "duration": 5.013,
+          "offset": 0.3,
+          "vo_start": 138.4,
+          "words": "vo/words/s10.json"
+        }
+      ]
+    },
+    {
+      "scene": "s11",
+      "start": 143.8,
+      "duration": 2.733,
+      "vo_file": "vo/s11.wav",
+      "vo_start": 144.1,
+      "segments": [
+        {
+          "vo_file": "vo/s11.wav",
+          "media_start": 0,
+          "duration": 2.027,
+          "offset": 0.3,
+          "vo_start": 144.1,
+          "words": "vo/words/s11.json"
+        }
+      ]
+    },
+    {
+      "scene": "s12",
+      "start": 146.533,
+      "duration": 4.233,
+      "vo_file": "vo/s12.wav",
+      "vo_start": 146.833,
+      "segments": [
+        {
+          "vo_file": "vo/s12.wav",
+          "media_start": 0,
+          "duration": 3.541,
+          "offset": 0.3,
+          "vo_start": 146.833,
+          "words": "vo/words/s12.json"
+        }
+      ]
+    }
+  ],
+  "total": 150.767,
+  "total_frames": 4523
+}

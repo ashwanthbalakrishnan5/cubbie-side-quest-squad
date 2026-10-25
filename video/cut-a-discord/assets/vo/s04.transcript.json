@@ -1,0 +1,366 @@
+{
+  "audio": "assets/vo/s04.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "And",
+      "start": 0.06,
+      "end": 0.14,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "here's",
+      "start": 0.2,
+      "end": 0.46,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "my",
+      "start": 0.5,
+      "end": 0.68,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "favorite",
+      "start": 0.74,
+      "end": 1.02,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "part.",
+      "start": 1.14,
+      "end": 1.4,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Nobody",
+      "start": 1.76,
+      "end": 2.12,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "has",
+      "start": 2.16,
+      "end": 2.3,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "to",
+      "start": 2.34,
+      "end": 2.44,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "ask.",
+      "start": 2.56,
+      "end": 2.86,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "In",
+      "start": 3.34,
+      "end": 3.4,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "the",
+      "start": 3.44,
+      "end": 3.5,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "background,",
+      "start": 3.54,
+      "end": 4.12,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "it",
+      "start": 4.26,
+      "end": 4.36,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "keeps",
+      "start": 4.4,
+      "end": 4.66,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "checking",
+      "start": 4.7,
+      "end": 5,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "real",
+      "start": 5.12,
+      "end": 5.3,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "campus",
+      "start": 5.44,
+      "end": 5.76,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "events",
+      "start": 5.82,
+      "end": 6.16,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "from",
+      "start": 6.2,
+      "end": 6.38,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Sun",
+      "start": 6.44,
+      "end": 6.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Devil",
+      "start": 6.68,
+      "end": 6.9,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Central",
+      "start": 7.04,
+      "end": 7.42,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "against",
+      "start": 7.56,
+      "end": 7.9,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "everyone's",
+      "start": 7.98,
+      "end": 8.36,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "calendars",
+      "start": 8.42,
+      "end": 9,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 9.02,
+      "end": 9.14,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "what",
+      "start": 9.18,
+      "end": 9.32,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "they",
+      "start": 9.36,
+      "end": 9.48,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "like.",
+      "start": 9.52,
+      "end": 9.8,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Most",
+      "start": 11.38,
+      "end": 11.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "things",
+      "start": 11.62,
+      "end": 11.9,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "clash",
+      "start": 11.94,
+      "end": 12.24,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "with",
+      "start": 12.28,
+      "end": 12.38,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "somebody,",
+      "start": 12.42,
+      "end": 12.86,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "but",
+      "start": 13.28,
+      "end": 13.38,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "the",
+      "start": 13.4,
+      "end": 13.5,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "second",
+      "start": 13.56,
+      "end": 13.8,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "it",
+      "start": 13.82,
+      "end": 13.92,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "finds",
+      "start": 13.96,
+      "end": 14.2,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "something",
+      "start": 14.24,
+      "end": 14.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "that",
+      "start": 14.66,
+      "end": 14.8,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "fits",
+      "start": 14.88,
+      "end": 15.1,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "the",
+      "start": 15.14,
+      "end": 15.22,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "whole",
+      "start": 15.26,
+      "end": 15.42,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "squad,",
+      "start": 15.54,
+      "end": 15.96,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "it",
+      "start": 16.28,
+      "end": 16.379,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "posts",
+      "start": 16.42,
+      "end": 16.7,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "it",
+      "start": 16.76,
+      "end": 16.84,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "right",
+      "start": 16.96,
+      "end": 17.16,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "in",
+      "start": 17.18,
+      "end": 17.24,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "the",
+      "start": 17.28,
+      "end": 17.34,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "group.",
+      "start": 17.38,
+      "end": 17.66,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Like",
+      "start": 18.24,
+      "end": 18.44,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "this:",
+      "start": 18.5,
+      "end": 18.78,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Open",
+      "start": 19.4,
+      "end": 19.64,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "mic",
+      "start": 19.72,
+      "end": 19.96,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "night,",
+      "start": 20,
+      "end": 20.18,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Friday",
+      "start": 20.5,
+      "end": 20.86,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "at",
+      "start": 20.9,
+      "end": 21,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "7:00",
+      "start": 21.42,
+      "end": 21.44,
+      "speaker": "speaker_0"
+    }
+  ]
+}

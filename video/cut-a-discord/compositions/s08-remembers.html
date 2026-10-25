@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!-- S08 "Why no?" memory (v2: film 110.900-123.900 s; beats on the s08.wav words per SPEC 10.3), Cut A: Discord. Jordan's DM: why_no_view (ui/cards.py), the
+     WhyNoModal "Why not this time?" (flows/vote_flow.py), his private reason, KEPT reply, and the new private chip
+     (JORDAN_LEARNED) landing on his agent card. Hand-in from S07: bare cream. Hand-off to S09: vertical whip up. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        /* chip on the cream stage, bottom-right: the app window covers the top-left corner in this scene */
+        #s08-chip { left: auto; top: auto; right: 96px; bottom: 72px; }
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s08-modal {
+          top: 120px;
+        }
+        /* at camera 0.90 the card is shown at 1.12 so its 28 px chips still read at 28 px */
+        #s08-card {
+          left: 60px;
+          top: 184px;
+          z-index: 20;
+          transform-origin: 0 0;
+        }
+        #s08-card .ag-card {
+          height: auto;
+          padding-bottom: 18px;
+        }
+        #s08-card .ag-chips {
+          position: static;
+          padding: 18px 18px 0;
+        }
+        #s08-new.sq-lock {
+          position: relative;
+          white-space: normal;
+          max-width: 340px;
+          align-items: flex-start;
+          box-shadow: 5px 5px 0 var(--ink);
+        }
+        #s08-new .sq-lockglyph {
+          margin-top: 2px;
+        }
+      </style>
+      <div data-hf-id="hf-30yr" id="root" data-composition-id="s08" data-width="1920" data-height="1080" data-duration="13">
+        <div data-hf-id="hf-7p4v" class="sq-scene">
+          <div data-hf-id="hf-r101" class="sq-cam" id="s08-cam">
+            <div data-hf-id="hf-7vlo" class="sq-grid" data-layout-ignore=""></div>
+            <div data-hf-id="hf-7nrs" class="dc-win" id="s08-win" data-layout-allow-overlap="">
+              <div data-hf-id="hf-8lnq" class="dc-ui">
+                <div data-hf-id="hf-2bka" class="dc-title"><div data-hf-id="hf-7jrb" class="dc-lights"><i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i></div></div>
+                <div data-hf-id="hf-ous8" class="dc-rail">
+                  <div data-hf-id="hf-se9c" class="dc-srv home on" data-dci="home"></div>
+                  <div data-hf-id="hf-09lw" class="dc-railsep"></div>
+                  <div data-hf-id="hf-jyr2" class="dc-srv squad">🌵</div>
+                  <div data-hf-id="hf-40rc" class="dc-srv add" data-dci="plus"></div>
+                </div>
+                <div data-hf-id="hf-irux" class="dc-side">
+                  <div data-hf-id="hf-ms6y" class="dc-search">Find or start a conversation</div>
+                  <div data-hf-id="hf-ma4v" class="dc-side-body dm">
+                    <div data-hf-id="hf-ysvy" class="dc-ch"><span data-hf-id="hf-2sxp" data-dci="friends"></span>Friends</div>
+                    <div data-hf-id="hf-wfsn" class="dc-cat">Direct Messages<span data-hf-id="hf-955y" class="plus">+</span></div>
+                    <div data-hf-id="hf-o28r" class="dc-ch dmrow on"><span data-hf-id="hf-q24j" class="dc-av bot">🗺️</span>Side Quests Squad</div>
+                    <div data-hf-id="hf-r98y" class="dc-ch dmrow"><span data-hf-id="hf-r9vj" class="dc-av" style="--c: var(--gold)">L</span>Leo</div>
+                    <div data-hf-id="hf-ua7q" class="dc-ch dmrow"><span data-hf-id="hf-kvvt" class="dc-av ash">A</span>Ash</div>
+                  </div>
+                  <div data-hf-id="hf-3p7l" class="dc-user">
+                    <span data-hf-id="hf-x6jj" class="dc-av" style="--c: var(--mint)">J</span>
+                    <div data-hf-id="hf-yeow"><div data-hf-id="hf-oclp" class="dc-user-name">Jordan</div><div data-hf-id="hf-4bnc" class="dc-user-st">Online</div></div>
+                    <div data-hf-id="hf-aiwh" class="dc-user-ico"><span data-hf-id="hf-gvtj" data-dci="mic"></span><span data-hf-id="hf-h4ux" data-dci="phones"></span><span data-hf-id="hf-i29j" data-dci="gear"></span></div>
+                  </div>
+                </div>
+                <div data-hf-id="hf-da9m" class="dc-chat">
+                  <div data-hf-id="hf-eo72" class="dc-head">
+                    <span data-hf-id="hf-66yr" class="dc-av bot">🗺️</span><span data-hf-id="hf-h15l" class="dc-head-name">Side Quests Squad</span><span data-hf-id="hf-giy3" class="dc-app">APP</span>
+                  </div>
+                  <div data-hf-id="hf-0ycm" class="dc-scroller" id="s08-scroller">
+                    <div data-hf-id="hf-sdwy" class="dc-list" id="s08-list">
+                      <div data-hf-id="hf-bipm" class="dc-start" id="s08-start">
+                        <span data-hf-id="hf-x0yl" class="dc-av bot big">🗺️</span>
+                        <div data-hf-id="hf-6rk4" class="dc-start-h dm">Side Quests Squad</div>
+                        <div data-hf-id="hf-79b9" class="dc-start-p">This is the beginning of your direct message history with <b data-hf-id="hf-7agr">Side Quests Squad</b>.</div>
+                      </div>
+                      <div data-hf-id="hf-o6ar" class="dc-msg" id="s08-m1">
+                        <span data-hf-id="hf-5snq" class="dc-av bot">🗺️</span>
+                        <div data-hf-id="hf-7ttz" class="dc-meta"><span data-hf-id="hf-c7pg" class="dc-name" style="--nc: #fff">Side Quests Squad</span><span data-hf-id="hf-tznv" class="dc-app">APP</span><span data-hf-id="hf-v5xc" class="dc-time">Today at 4:07 PM</span></div>
+                        <div data-hf-id="hf-e3pk" class="dc-ctr" id="s08-ctr">
+                          <p data-hf-id="hf-aeqn">Mind sharing why? Totally optional, it just helps me pick better next time.</p>
+                          <div data-hf-id="hf-ydx7" class="dc-btns">
+                            <span data-hf-id="hf-gpms" class="dc-btn pri" id="s08-why">Tell you why<i data-hf-id="hf-domm" class="dc-dim"></i></span>
+                            <span data-hf-id="hf-3hpq" class="dc-btn">Skip<i data-hf-id="hf-s0a9" data-sq="ring" id="hl-s08-1"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div data-hf-id="hf-fblu" class="dc-msg cont" id="s08-m2">
+                        <div data-hf-id="hf-a81t" class="dc-text" id="s08-kept">Got it, I'll keep that in mind 🙏</div>
+                        <div data-hf-id="hf-4v5x" class="dc-eph"><span data-hf-id="hf-nta1" data-dci="eye"></span>Only you can see this •&#160;<a data-hf-id="hf-4zyf">Dismiss message</a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-hf-id="hf-8pzw" class="dc-compose"><span data-hf-id="hf-qdhs" class="dc-plus">+</span><div data-hf-id="hf-kk4s" class="dc-field"><span data-hf-id="hf-jfbm" class="dc-ph">Message @Side Quests Squad</span></div></div>
+                </div>
+                <div data-hf-id="hf-o8bm" class="dc-backdrop" id="s08-bd"></div>
+                <div data-hf-id="hf-e67c" class="dc-modal" id="s08-modal" data-layout-allow-overlap="">
+                  <div data-hf-id="hf-b81k" class="dc-mhead">Why not this time?<span data-hf-id="hf-zv02" data-dci="x"></span></div>
+                  <div data-hf-id="hf-sh9x" class="dc-mbody" style="height: auto">
+                    <div data-hf-id="hf-fd1s" class="dc-mlist" style="position: relative">
+                      <div data-hf-id="hf-v952" class="dc-field-blk">
+                        <div data-hf-id="hf-y949" class="dc-lab">What got in the way?</div>
+                        <div data-hf-id="hf-y6aj" class="dc-desc"><span data-hf-id="hf-uudy" class="dc-tgt" id="s08-only">Only I see this<i data-hf-id="hf-ion5" data-sq="ring" id="s08-ring"></i></span></div>
+                        <div data-hf-id="hf-1na4" class="dc-input para" id="s08-input"><span data-hf-id="hf-l2t2" id="s08-typed"></span><i data-hf-id="hf-w7r0" class="dc-caret" id="s08-caret"></i></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-hf-id="hf-z7t9" class="dc-mfoot"><span data-hf-id="hf-4gxz" class="dc-btn txt">Cancel</span><span data-hf-id="hf-bdp8" class="dc-btn pri" id="s08-submit">Submit<i data-hf-id="hf-5muq" class="dc-dim"></i></span></div>
+                </div>
+              </div>
+            </div>
+            <div data-hf-id="hf-geil" class="ag-slot" id="s08-card">
+              <div data-hf-id="hf-aegw" class="ag-card" style="--c: var(--mint); transform: rotate(1deg)">
+                <div data-hf-id="hf-5llf" class="ag-head"><span data-hf-id="hf-nfob" class="ag-av">J</span><span data-hf-id="hf-5ohe" class="ag-name">Jordan's agent</span></div>
+                <div data-hf-id="hf-bb4y" class="ag-chips">
+                  <span data-hf-id="hf-l9yj" class="sq-lock"><i data-hf-id="hf-n6ju" data-sq="lock"></i>budget: up to $10</span>
+                  <span data-hf-id="hf-ix83" class="sq-lock"><i data-hf-id="hf-uqb2" data-sq="lock"></i>no late nights</span>
+                  <span data-hf-id="hf-ml9e" class="sq-lock" id="s08-new"><i data-hf-id="hf-xuuf" data-sq="lock" id="s08-newlock"></i>no events after 9pm on Fridays<i data-hf-id="hf-vyea" data-sq="ring" id="hl-s08-2"></i></span>
+                </div>
+              </div>
+            </div>
+            <div data-hf-id="hf-3u66" class="dc-cursor" id="s08-cur" data-dci="cursor"></div>
+          </div>
+          <div data-hf-id="hf-odt6" class="sq-chip-slot" id="s08-chip" data-layout-allow-overlap=""><span data-hf-id="hf-vsx4" class="sq-chip"><b data-hf-id="hf-46t7">06</b>Remembers</span></div>
+          <div data-hf-id="hf-dxu0" class="sq-super" id="s08-super" data-hold=""><span data-hf-id="hf-fooz">Learns what you</span><span data-hf-id="hf-2vzv">can't say out loud</span></div>
+        </div>
+        <audio data-hf-id="hf-aays" id="s08-sfx-1" class="clip" data-hf-media-start-basis="local" data-start="2.25" data-duration="0.11" data-track-index="20" data-volume="0.35" src="assets/audio/sfx/interface/drop_001.ogg"></audio>
+        <audio data-hf-id="hf-qq6o" id="s08-sfx-2" class="clip" data-hf-media-start-basis="local" data-start="5.6" data-duration="0.056" data-track-index="21" data-volume="0.3" src="assets/audio/sfx/ui/click2.ogg"></audio>
+        <audio data-hf-id="hf-7gms" id="s08-sfx-3" class="clip" data-hf-media-start-basis="local" data-start="5.98" data-duration="0.25" data-track-index="20" data-volume="0.12" src="assets/audio/sfx/keyboard/keypress-001.wav"></audio>
+        <audio data-hf-id="hf-vi1z" id="s08-sfx-4" class="clip" data-hf-media-start-basis="local" data-start="6.2" data-duration="0.25" data-track-index="21" data-volume="0.12" src="assets/audio/sfx/keyboard/keypress-002.wav"></audio>
+        <audio data-hf-id="hf-2z5t" id="s08-sfx-5" class="clip" data-hf-media-start-basis="local" data-start="6.42" data-duration="0.25" data-track-index="20" data-volume="0.12" src="assets/audio/sfx/keyboard/keypress-003.wav"></audio>
+        <audio data-hf-id="hf-epsw" id="s08-sfx-6" class="clip" data-hf-media-start-basis="local" data-start="6.64" data-duration="0.25" data-track-index="21" data-volume="0.12" src="assets/audio/sfx/keyboard/keypress-004.wav"></audio>
+        <audio data-hf-id="hf-x5gx" id="s08-sfx-7" class="clip" data-hf-media-start-basis="local" data-start="6.86" data-duration="0.25" data-track-index="20" data-volume="0.12" src="assets/audio/sfx/keyboard/keypress-005.wav"></audio>
+        <audio data-hf-id="hf-6ctp" id="s08-sfx-8" class="clip" data-hf-media-start-basis="local" data-start="7.08" data-duration="0.25" data-track-index="21" data-volume="0.12" src="assets/audio/sfx/keyboard/keypress-006.wav"></audio>
+        <audio data-hf-id="hf-k2p1" id="s08-sfx-9" class="clip" data-hf-media-start-basis="local" data-start="8.4" data-duration="0.086" data-track-index="20" data-volume="0.3" src="assets/audio/sfx/ui/click3.ogg"></audio>
+        <audio data-hf-id="hf-g4r9" id="s08-sfx-10" class="clip" data-hf-media-start-basis="local" data-start="8.78" data-duration="0.191" data-track-index="21" data-volume="0.35" src="assets/audio/sfx/interface/drop_002.ogg"></audio>
+        <audio data-hf-id="hf-7owm" id="s08-sfx-11" class="clip" data-hf-media-start-basis="local" data-start="10.2" data-duration="0.611" data-track-index="20" data-volume="0.35" src="assets/audio/sfx/interface/switch_002.ogg"></audio>
+      </div>
+      <script>
+        (function () {
+          var root = document.querySelector('[data-composition-id="s08"]');
+          SQ.mount(root);
+          DC.mount(root);
+          var $ = function (id) {
+            return document.getElementById(id);
+          };
+          var tl = gsap.timeline({ paused: true });
+
+          function build() {
+            var cam = $("s08-cam"),
+              win = $("s08-win"),
+              cur = $("s08-cur");
+            var scroller = $("s08-scroller"),
+              list = $("s08-list"),
+              m1 = $("s08-m1"),
+              m2 = $("s08-m2");
+            var y0 = DC.bottomY(scroller, $("s08-start"));
+            var y1 = DC.bottomY(scroller, m1);
+            var y2 = DC.bottomY(scroller, m2);
+            gsap.set(list, { y: y0 });
+            tl.set(list, { y: y0 }, 0);
+            gsap.set([m1, m2], { opacity: 0 });
+            tl.set([m1, m2], { opacity: 0 }, 0);
+
+            SQ.camSet(tl, cam, SQ.frame(1, 960, 540));
+            tl.fromTo(win, { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.35, ease: "power3.out" }, 0);
+            SQ.land(tl, $("s08-chip"), 0.3);
+
+            // "a private message" 2.25: the bot's DM; camera onto it
+            tl.to(list, { y: y1, duration: 0.2, ease: "power3.out" }, 2.25);
+            tl.set(m1, { opacity: 1 }, 2.25);
+            DC.arrive(tl, $("s08-ctr"), 2.25);
+            var mc = DC.at(win, $("s08-ctr"), 0.5, 0.5, y1);
+            tl.to(cam, Object.assign(SQ.frame(1.45, mc.x, mc.y, 960, 560), { duration: 0.6, ease: "power3.inOut" }), 2.25);
+            // "Totally optional" 4.97: ring on [Skip]
+            SQ.ring(tl, $("hl-s08-1"), 4.97);
+            SQ.ringOut(tl, $("hl-s08-1"), 5.5);
+
+            // 5.10 cursor; 5.60 "Tell you why"; 5.70 the private modal
+            var why = DC.at(win, $("s08-why"), 0.5, 0.55, y1);
+            var off = { x: why.x + 420, y: why.y + 360 };
+            gsap.set(cur, { x: off.x, y: off.y, opacity: 0 });
+            tl.set(cur, { x: off.x, y: off.y, opacity: 0 }, 0);
+            tl.set(cur, { opacity: 1 }, 5.1);
+            DC.move(tl, cur, 5.1, off, why, 0.4);
+            DC.press(tl, cur, 5.6);
+            DC.btnPress(tl, $("s08-why"), 5.6);
+            var bd = $("s08-bd"),
+              mod = $("s08-modal");
+            gsap.set([bd, mod], { opacity: 0 });
+            tl.set([bd, mod], { opacity: 0 }, 0);
+            tl.fromTo(bd, { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none", immediateRender: false }, 5.7);
+            tl.fromTo(mod, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out", immediateRender: false }, 5.7);
+            var mdc = DC.at(win, mod, 0.5, 0.5);
+            tl.to(cam, Object.assign(SQ.frame(1.45, mdc.x, mdc.y, 960, 540), { duration: 0.5, ease: "power3.inOut" }), 5.7);
+            SQ.ring(tl, $("s08-ring"), 7.3);
+            SQ.ringOut(tl, $("s08-ring"), 8.35);
+
+            // "early shift Saturday" 6.48: Jordan types his reason (only the bot sees it), 5.95-7.20
+            var caret = $("s08-caret");
+            gsap.set(caret, { opacity: 0 });
+            tl.set(caret, { opacity: 1 }, 5.9);
+            tl.set(caret, { opacity: 0 }, 0);
+            DC.type(tl, $("s08-typed"), "8am shift Saturday, nothing late on Fridays for me", 5.95, 0.025);
+            var sb = DC.at(win, $("s08-submit"), 0.5, 0.55);
+            DC.move(tl, cur, 7.7, why, sb, 0.5);
+            DC.press(tl, cur, 8.4);
+            DC.btnPress(tl, $("s08-submit"), 8.4);
+            tl.to(mod, { opacity: 0, scale: 0.96, duration: 0.15, ease: "power2.in" }, 8.45);
+            tl.to(bd, { opacity: 0, duration: 0.15, ease: "none" }, 8.45);
+            tl.to(cur, { opacity: 0, duration: 0.15 }, 8.6);
+
+            // "remembers" 8.78: ephemeral KEPT reply
+            tl.to(list, { y: y2, duration: 0.2, ease: "power3.out" }, 8.78);
+            tl.set(m2, { opacity: 1 }, 8.78);
+            DC.arrive(tl, $("s08-kept"), 8.78);
+
+            // 9.05 pull back to 0.90; the window slides right; Jordan's agent card lands left
+            tl.to(cam, Object.assign(SQ.frame(0.9, 960, 540), { duration: 0.55, ease: "power2.inOut" }), 9.05);
+            tl.to(win, { x: 260, duration: 0.55, ease: "power2.inOut" }, 9.05);
+            var card = $("s08-card"),
+              chip = $("s08-new");
+            var K = 1.12;
+            SQ.land(tl, card, 9.15, { to: { scale: K } });
+
+            // 9.40 the learned chip flies from the reply into the card, lock open; "Nothing late on Fridays" 9.96
+            // it lands + ring; 10.20 the lock snaps shut
+            var kept = DC.at(win, $("s08-kept"), 0.15, 0.5, y2, 0);
+            kept.x += 260;
+            var inCard = SQ.offset(chip, card);
+            var c = { x: card.offsetLeft + inCard.x * K, y: card.offsetTop + inCard.y * K };
+            var a = { x: (kept.x - c.x - 40) / K, y: (kept.y - c.y - 20) / K };
+            gsap.set(chip, { opacity: 0 });
+            tl.set(chip, { opacity: 0 }, 0);
+            tl.set(chip, { opacity: 1 }, 9.4);
+            SQ.lockSetOpen($("s08-newlock"));
+            tl.set($("s08-newlock").querySelector(".shackle"), { y: -6, rotation: 30, svgOrigin: "6 13" }, 0);
+            SQ.arc(tl, chip, 9.4, 0.55, a, { x: 0, y: 0 }, undefined, "power2.inOut");
+            tl.fromTo(chip, { scale: 0.8 }, { scale: 1, duration: 0.55, ease: "power2.inOut", immediateRender: false }, 9.4);
+            SQ.ring(tl, $("hl-s08-2"), 9.96);
+            SQ.lockClose(tl, $("s08-newlock"), 10.2);
+            SQ.ringOut(tl, $("hl-s08-2"), 12.4);
+
+            SQ.fitSuper($("s08-super"));
+            SQ.slam(tl, $("s08-super"), 10.5);
+            SQ.exit(tl, $("s08-super"), 12.55, 0.15);
+
+            // 12.75 whip: the world leaves upward (Leo's phone arrives from below in S09)
+            tl.to(cam, { y: SQ.frame(0.9, 960, 540).y - 1150, duration: 0.25, ease: "power3.in" }, 12.75);
+            tl.to(cam, { filter: "blur(18px)", duration: 0.25, ease: "power2.in" }, 12.75);
+            tl.to($("s08-chip"), { opacity: 0, duration: 0.2, ease: "power1.in" }, 5.6); // the push brings the window over the chip at 5.9
+            window.__timelines["s08"] = tl;
+          }
+          if (document.fonts && document.fonts.status !== "loaded") {
+            document.fonts.ready.then(build);
+          } else {
+            build();
+          }
+        })();
+      </script>
+    </template>
+  </body>
+</html>

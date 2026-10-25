@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- S04 It watches, Cut A chat part (film 55.900-60.733 s = scene 17.10-21.933; SPEC 10.2). Mounted right after the
+     shared board (compositions/s04-watch-board.html, film 38.800-55.900), which ends on the bare stage with only the
+     chip and the Open Mic card centred (world 960, 540, scale 1.4). Here the card flies into #squad and the bot posts
+     the watcher intro on its own (flows/plan_flow.py SPOTTED_ALL; Discord renders <t:f> as "October 30, 2026 7:00 PM").
+     Nobody types. Rings on "Open Mic Night" (VO 19.70) and the date (VO 20.80, regenerated s04.wav), scene times minus 17.10.
+     Hand-off to S05: hard cut to the four candidate cards on the stage. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s04c-card {
+          position: absolute;
+          left: 790px;
+          top: 497px;
+          width: 340px;
+          height: 86px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding-right: 10px;
+          background: #fff;
+          border: 3px solid var(--ink);
+          border-radius: 12px;
+          box-shadow: 5px 5px 0 var(--ink);
+          z-index: 20;
+        }
+        #s04c-card .wb-ico {
+          width: 70px;
+          height: 80px;
+          flex: none;
+          display: grid;
+          place-items: center;
+          background: var(--pink);
+          border-right: 3px solid var(--ink);
+          border-radius: 9px 0 0 9px;
+        }
+        #s04c-card .wb-ico svg {
+          width: 48px;
+          height: 48px;
+        }
+        #s04c-card .wb-evt {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          font-family: var(--f-body);
+          white-space: nowrap;
+        }
+        #s04c-card .wb-evt b {
+          font-weight: 700;
+          font-size: 25px;
+          line-height: 1.1;
+        }
+        #s04c-card .wb-evt span {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 1.2;
+          color: #333;
+        }
+        #s04c-card .wb-st {
+          position: absolute;
+          right: -14px;
+          top: -18px;
+          padding: 2px 10px;
+          border: 3px solid var(--ink);
+          border-radius: 8px;
+          font-family: var(--f-body);
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 1.2;
+          white-space: nowrap;
+          background: var(--gold);
+          transform: rotate(3deg);
+        }
+      </style>
+      <div data-hf-id="hf-3l0c" id="root" data-composition-id="s04chat" data-width="1920" data-height="1080" data-duration="4.833">
+        <div data-hf-id="hf-7p4v" class="sq-scene">
+          <div data-hf-id="hf-78oc" class="sq-cam" id="s04c-cam">
+            <div data-hf-id="hf-7vlo" class="sq-grid" data-layout-ignore=""></div>
+            <div data-hf-id="hf-nxsl" class="dc-win" id="s04c-win" data-layout-allow-overlap="">
+              <div data-hf-id="hf-8lnq" class="dc-ui">
+                <div data-hf-id="hf-2bka" class="dc-title"><div data-hf-id="hf-7jrb" class="dc-lights"><i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i></div></div>
+                <div data-hf-id="hf-ous8" class="dc-rail">
+                  <div data-hf-id="hf-nn03" class="dc-srv home" data-dci="home"></div>
+                  <div data-hf-id="hf-09lw" class="dc-railsep"></div>
+                  <div data-hf-id="hf-87vz" class="dc-srv squad on">🌵</div>
+                  <div data-hf-id="hf-40rc" class="dc-srv add" data-dci="plus"></div>
+                </div>
+                <div data-hf-id="hf-irux" class="dc-side">
+                  <div data-hf-id="hf-vyxi" class="dc-side-head">ASU friends<span data-hf-id="hf-puui" data-dci="chev"></span></div>
+                  <div data-hf-id="hf-ojhu" class="dc-side-body">
+                    <div data-hf-id="hf-ervl" class="dc-cat"><span data-hf-id="hf-jt4e" data-dci="chev"></span>Text Channels<span data-hf-id="hf-955y" class="plus">+</span></div>
+                    <div data-hf-id="hf-qthj" class="dc-ch"><span data-hf-id="hf-wlj6" data-dci="hash"></span>general</div>
+                    <div data-hf-id="hf-mlla" class="dc-ch on"><span data-hf-id="hf-fx46" data-dci="hash"></span>squad</div>
+                  </div>
+                  <div data-hf-id="hf-3p7l" class="dc-user">
+                    <span data-hf-id="hf-kvvt" class="dc-av ash">A</span>
+                    <div data-hf-id="hf-yeow"><div data-hf-id="hf-frlh" class="dc-user-name">Ash</div><div data-hf-id="hf-4bnc" class="dc-user-st">Online</div></div>
+                    <div data-hf-id="hf-aiwh" class="dc-user-ico"><span data-hf-id="hf-gvtj" data-dci="mic"></span><span data-hf-id="hf-h4ux" data-dci="phones"></span><span data-hf-id="hf-i29j" data-dci="gear"></span></div>
+                  </div>
+                </div>
+                <div data-hf-id="hf-da9m" class="dc-chat">
+                  <div data-hf-id="hf-eo72" class="dc-head">
+                    <span data-hf-id="hf-gbf7" data-dci="hash"></span><span data-hf-id="hf-aws3" class="dc-head-name">squad</span><span data-hf-id="hf-q0hv" class="dc-head-div"></span>
+                    <span data-hf-id="hf-fnhl" class="dc-head-topic">friends who keep saying "we should hang out"</span>
+                  </div>
+                  <div data-hf-id="hf-k6el" class="dc-scroller" id="s04c-scroller">
+                    <div data-hf-id="hf-09c9" class="dc-list" id="s04c-list">
+                      <div data-hf-id="hf-eeho" class="dc-start">
+                        <div data-hf-id="hf-yc56" class="dc-start-ico" data-dci="hash"></div>
+                        <div data-hf-id="hf-b55e" class="dc-start-h">Welcome to #squad!</div>
+                        <div data-hf-id="hf-ccpw" class="dc-start-p">This is the start of the #squad channel.</div>
+                      </div>
+                      <div data-hf-id="hf-bw8n" class="dc-msg reply">
+                        <div data-hf-id="hf-fi7n" class="dc-replyline"><span data-hf-id="hf-uel9" class="dc-av ash">A</span><b data-hf-id="hf-v43j">Ash</b> used <span data-hf-id="hf-spgi" class="dc-link">/squad join</span></div>
+                        <span data-hf-id="hf-q24j" class="dc-av bot">🗺️</span>
+                        <div data-hf-id="hf-7ttz" class="dc-meta"><span data-hf-id="hf-c7pg" class="dc-name" style="--nc: #fff">Side Quests Squad</span><span data-hf-id="hf-giy3" class="dc-app">APP</span><span data-hf-id="hf-eq6q" class="dc-time">Today at 4:01 PM</span></div>
+                        <div data-hf-id="hf-l7kd" class="dc-ctr">
+                          <p data-hf-id="hf-r4g1">You're in 🎉 One more step:</p>
+                          <div data-hf-id="hf-ydx7" class="dc-btns">
+                            <span data-hf-id="hf-g3qi" class="dc-btn pri">Calls &amp; quiet hours</span>
+                            <span data-hf-id="hf-l81i" class="dc-btn">Connect Google Calendar<span data-hf-id="hf-ppwb" data-dci="ext"></span></span>
+                          </div>
+                          <p data-hf-id="hf-44ya">No calendar? I'll use the free times you ticked.</p>
+                        </div>
+                        <div data-hf-id="hf-4v5x" class="dc-eph"><span data-hf-id="hf-nta1" data-dci="eye"></span>Only you can see this •&#160;<a data-hf-id="hf-4zyf">Dismiss message</a></div>
+                      </div>
+                      <div data-hf-id="hf-miu3" class="dc-msg cont" id="s04c-m2">
+                        <div data-hf-id="hf-9zms" class="dc-text">Saved ✨</div>
+                        <div data-hf-id="hf-n4m1" class="dc-eph"><span data-hf-id="hf-rjd9" data-dci="eye"></span>Only you can see this •&#160;<a data-hf-id="hf-kduv">Dismiss message</a></div>
+                      </div>
+                      <div data-hf-id="hf-v67d" class="dc-msg" id="s04c-m">
+                        <span data-hf-id="hf-66yr" class="dc-av bot">🗺️</span>
+                        <div data-hf-id="hf-r6jr" class="dc-meta"><span data-hf-id="hf-vxh8" class="dc-name" style="--nc: #fff">Side Quests Squad</span><span data-hf-id="hf-tznv" class="dc-app">APP</span><span data-hf-id="hf-gb44" class="dc-time">Today at 4:03 PM</span></div>
+                        <div data-hf-id="hf-fe6n" class="dc-text" id="s04c-text">👀 Spotted something that fits everyone's week: <b data-hf-id="hf-md7p" class="dc-tgt">Open Mic Night<i data-hf-id="hf-k9cg" data-sq="ring" id="hl-s04-4"></i></b>, <span data-hf-id="hf-6x85" class="dc-tgt">October 30, 2026 7:00 PM<i data-hf-id="hf-l109" data-sq="ring" id="hl-s04-5"></i></span>. Want to go?</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-hf-id="hf-8pzw" class="dc-compose">
+                    <span data-hf-id="hf-qdhs" class="dc-plus">+</span>
+                    <div data-hf-id="hf-kk4s" class="dc-field"><span data-hf-id="hf-mp6z" class="dc-ph">Message #squad</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-hf-id="hf-r6fa" id="s04c-card">
+              <span data-hf-id="hf-y8ii" class="wb-ico" data-ico="mic"></span>
+              <span data-hf-id="hf-ccgy" class="wb-evt"><b data-hf-id="hf-4k04">Open Mic Night</b><span data-hf-id="hf-3bqo">Fri 7:00 PM · $5</span></span>
+              <span data-hf-id="hf-xit1" class="wb-st">✓ fits all 5</span>
+            </div>
+          </div>
+          <div data-hf-id="hf-vc2t" class="sq-chip-slot" id="s04c-chip" data-layout-allow-overlap=""><span data-hf-id="hf-06sn" class="sq-chip"><b data-hf-id="hf-2ll3">02</b>Watches</span></div>
+        </div>
+        <audio data-hf-id="hf-36s1" id="s04c-sfx-1" class="clip" data-hf-media-start-basis="local" data-start="0.72" data-duration="0.191" data-track-index="20" data-volume="0.4" src="assets/audio/sfx/interface/drop_002.ogg"></audio>
+      </div>
+      <script>
+        (function () {
+          var root = document.querySelector('[data-composition-id="s04chat"]');
+          SQ.mount(root);
+          DC.mount(root);
+          var $ = function (id) {
+            return document.getElementById(id);
+          };
+          var tl = gsap.timeline({ paused: true });
+
+          function build() {
+            var cam = $("s04c-cam");
+            var win = $("s04c-win");
+            var scroller = $("s04c-scroller");
+            var list = $("s04c-list");
+            var m = $("s04c-m");
+            var y2 = DC.bottomY(scroller, $("s04c-m2"));
+            var yM = DC.bottomY(scroller, m);
+            gsap.set(list, { y: y2 });
+            tl.set(list, { y: y2 }, 0);
+            gsap.set(m, { opacity: 0 });
+            tl.set(m, { opacity: 0 }, 0);
+
+            // the board's last frame: bare stage, chip landed, Open Mic card centred at 1.4
+            SQ.camSet(tl, cam, SQ.frame(1, 960, 540));
+            gsap.set($("s04c-chip"), { opacity: 1 });
+            var card = $("s04c-card");
+            gsap.set(card, { scale: 1.4, x: 0, y: 0, opacity: 1 });
+            tl.set(card, { scale: 1.4, x: 0, y: 0, opacity: 1 }, 0);
+
+            // 0.00 the #squad window lands behind the card; camera settles on the bottom of the chat
+            tl.fromTo(win, { scale: 0.96, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+            var mc = DC.at(win, m, 0.5, 0.5, yM);
+            var F = SQ.frame(1.35, mc.x, mc.y, 900, 700);
+            tl.to(cam, Object.assign({}, F, { duration: 0.7, ease: "power3.inOut" }), 0.1);
+            // the chip would sit over the Discord sidebar once the camera pushes in
+            tl.to($("s04c-chip"), { opacity: 0, duration: 0.25, ease: "power1.in" }, 0.1);
+            // 0.10-0.75 the card flies to where the post will land and shrinks away into it
+            tl.to(card, { x: mc.x - 960, y: mc.y - 540, scale: 0.35, duration: 0.65, ease: "power3.inOut" }, 0.1);
+            tl.to(card, { opacity: 0, duration: 0.15, ease: "power1.in" }, 0.62);
+
+            // 0.72 ("group" 17.68-17.95) the bot posts the watcher intro
+            tl.to(list, { y: yM, duration: 0.2, ease: "power3.out" }, 0.72);
+            tl.set(m, { opacity: 1 }, 0.72);
+            DC.arrive(tl, $("s04c-text"), 0.72);
+
+            // 2.60 "Open Mic Night", 3.70 "Friday at seven"; push +3 % to the end
+            SQ.ring(tl, $("hl-s04-4"), 2.6);
+            SQ.ringOut(tl, $("hl-s04-4"), 3.62);
+            SQ.ring(tl, $("hl-s04-5"), 3.7);
+            tl.to(cam, Object.assign(SQ.frame(1.39, mc.x, mc.y, 900, 700), { duration: 1.1, ease: "sine.inOut" }), 3.7);
+            window.__timelines["s04chat"] = tl;
+          }
+          if (document.fonts && document.fonts.status !== "loaded") {
+            document.fonts.ready.then(build);
+          } else {
+            build();
+          }
+        })();
+      </script>
+    </template>
+  </body>
+</html>

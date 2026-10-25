@@ -1,0 +1,180 @@
+{
+  "audio": "assets/vo/s01.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "We",
+      "start": 0.08,
+      "end": 0.16,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "should",
+      "start": 0.18,
+      "end": 0.3,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "hang",
+      "start": 0.34,
+      "end": 0.5,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "out.",
+      "start": 0.6,
+      "end": 0.8,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "The",
+      "start": 1.38,
+      "end": 1.46,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "most",
+      "start": 1.5,
+      "end": 1.8,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "sent,",
+      "start": 1.9,
+      "end": 2.16,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "least",
+      "start": 2.34,
+      "end": 2.62,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "done",
+      "start": 2.66,
+      "end": 2.86,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "text",
+      "start": 2.92,
+      "end": 3.2,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "in",
+      "start": 3.22,
+      "end": 3.32,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "college.",
+      "start": 3.36,
+      "end": 3.78,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Every",
+      "start": 4.28,
+      "end": 4.52,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "week",
+      "start": 4.56,
+      "end": 4.84,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "somebody",
+      "start": 4.88,
+      "end": 5.18,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "says",
+      "start": 5.3,
+      "end": 5.48,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "it,",
+      "start": 5.52,
+      "end": 5.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "everybody",
+      "start": 5.74,
+      "end": 6.18,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "agrees,",
+      "start": 6.24,
+      "end": 6.7,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "someone",
+      "start": 7.02,
+      "end": 7.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "says",
+      "start": 7.38,
+      "end": 7.62,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "pick",
+      "start": 7.68,
+      "end": 7.82,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "something,",
+      "start": 7.9,
+      "end": 8.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 8.5,
+      "end": 8.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "nobody",
+      "start": 8.66,
+      "end": 8.98,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "ever",
+      "start": 9.1,
+      "end": 9.3,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "picks.",
+      "start": 9.34,
+      "end": 9.68,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Sound",
+      "start": 11.2,
+      "end": 11.46,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "familiar?",
+      "start": 11.56,
+      "end": 12,
+      "speaker": "speaker_0"
+    }
+  ]
+}

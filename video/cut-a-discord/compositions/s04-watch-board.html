@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<!-- S04 It watches, shared part (film 38.800 s, scene f0-513; both cuts identical up to here). SPEC 10.2.
+     The watching board: five free/busy calendars (busy blocks only, never what they are), the Sun Devil Central rail,
+     each candidate tried against the calendars and likes, then Open Mic Night lands on Fri 7-9 PM for all five.
+     Ends at 17.10 on the bare stage with only the chip and the Open Mic card, lifted and centred (world 960, 540,
+     scale 1.4); the cut projects mount their chat part at 16.49+ (the card flies into the device, the bot intro
+     pops at 17.94, rings at 19.42 / 20.46, scene ends 21.933). VO s04.wav @0.30 lives on the root (film 39.1).
+     Markup generated from shared-assets/story.json scenes.s04. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s04-board {
+          position: absolute;
+          left: 210px;
+          top: 150px;
+          width: 1500px;
+          height: 650px;
+          background: #fffdf7;
+          border: 3px solid var(--ink);
+          border-radius: 14px;
+          box-shadow: 8px 8px 0 var(--ink);
+        }
+        .wb-head {
+          position: absolute;
+          left: 24px;
+          top: 16px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          font-family: var(--f-body);
+          font-weight: 700;
+          font-size: 30px;
+          line-height: 1.1;
+        }
+        .wb-dot {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: var(--maroon);
+          border: 2px solid var(--ink);
+        }
+        .wb-day {
+          position: absolute;
+          left: 24px;
+          width: 56px;
+          height: 62px;
+          display: flex;
+          align-items: center;
+          font-family: var(--f-body);
+          font-weight: 700;
+          font-size: 22px;
+        }
+        .wb-col {
+          position: absolute;
+          top: 0;
+          width: 196px;
+          height: 640px;
+        }
+        .wb-name {
+          position: absolute;
+          left: 0;
+          top: 72px;
+          width: 196px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--c);
+          border: 3px solid var(--ink);
+          border-radius: 10px;
+          font-family: var(--f-body);
+          font-weight: 700;
+          font-size: 22px;
+        }
+        .wb-ruler {
+          position: absolute;
+          left: 0;
+          top: 120px;
+          width: 196px;
+          height: 22px;
+          font-family: var(--f-ui);
+          font-size: 14px;
+          line-height: 22px;
+          color: #555;
+        }
+        .wb-ruler span {
+          position: absolute;
+          top: 0;
+        }
+        .wb-ruler span.end {
+          right: 0;
+        }
+        .wb-cell {
+          position: absolute;
+          left: 0;
+          width: 196px;
+          height: 62px;
+          background: #f3eee3;
+          border: 1.5px solid #d8d0c0;
+          border-radius: 6px;
+        }
+        .wb-busy {
+          position: absolute;
+          top: 7px;
+          height: 46px;
+          background: #c9c2b4;
+          border: 2px solid var(--ink);
+          border-radius: 6px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: var(--f-ui);
+          font-weight: 600;
+          font-size: 14px;
+          color: #3a3a3a;
+          overflow: hidden;
+        }
+        .wb-probe {
+          position: absolute;
+          height: 54px;
+          margin-top: 0;
+          background: var(--ec);
+          border: 3px solid var(--ink);
+          border-radius: 5px;
+          transform-origin: 0 50%;
+          z-index: 3;
+        }
+        .wb-band {
+          position: absolute;
+          height: 68px;
+          background: rgba(255, 198, 39, 0.38);
+          border: 3px solid var(--ink);
+          border-radius: 8px;
+          transform-origin: 0 50%;
+          z-index: 2;
+        }
+        .wb-check {
+          position: absolute;
+          width: 34px;
+          height: 34px;
+          border-radius: 50%;
+          background: var(--gold);
+          border: 3px solid var(--ink);
+          display: grid;
+          place-items: center;
+          font-family: var(--f-body);
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 1;
+          z-index: 4;
+        }
+        .wb-scan {
+          position: absolute;
+          left: 88px;
+          top: 66px;
+          width: 6px;
+          height: 560px;
+          background: var(--gold);
+          border-left: 2px solid var(--ink);
+          border-right: 2px solid var(--ink);
+          z-index: 5;
+        }
+        .wb-feed {
+          position: absolute;
+          left: 1132px;
+          top: 72px;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 4px 14px;
+          background: var(--maroon);
+          border: 3px solid var(--ink);
+          border-radius: 10px;
+          font-family: var(--f-body);
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 1.2;
+          color: #fff;
+          white-space: nowrap;
+        }
+        .wb-ev {
+          position: absolute;
+          left: 1132px;
+          width: 340px;
+          height: 86px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding-right: 10px;
+          background: #fff;
+          border: 3px solid var(--ink);
+          border-radius: 12px;
+          box-shadow: 5px 5px 0 var(--ink);
+          z-index: 6;
+        }
+        .wb-ev.more {
+          height: 60px;
+          justify-content: center;
+          background: var(--gold);
+          font-family: var(--f-display);
+          font-size: 28px;
+        }
+        .wb-ico {
+          width: 70px;
+          height: 80px;
+          flex: none;
+          display: grid;
+          place-items: center;
+          background: var(--ec);
+          border-right: 3px solid var(--ink);
+          border-radius: 9px 0 0 9px;
+        }
+        .wb-ico svg {
+          width: 48px;
+          height: 48px;
+        }
+        .wb-evt {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          font-family: var(--f-body);
+          white-space: nowrap;
+        }
+        .wb-evt b {
+          font-weight: 700;
+          font-size: 25px;
+          line-height: 1.1;
+        }
+        .wb-evt span {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 1.2;
+          color: #333;
+        }
+        .wb-st {
+          position: absolute;
+          right: -14px;
+          top: -18px;
+          padding: 2px 10px;
+          border: 3px solid var(--ink);
+          border-radius: 8px;
+          font-family: var(--f-body);
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 1.2;
+          white-space: nowrap;
+          background: #e9e4da;
+          transform: rotate(3deg);
+        }
+        .wb-st.yes {
+          background: var(--gold);
+        }
+      </style>
+      <div data-hf-id="hf-c053" id="root" data-composition-id="s04" data-width="1920" data-height="1080" data-duration="17.1">
+        <div data-hf-id="hf-7p4v" class="sq-scene">
+          <div data-hf-id="hf-lb71" class="sq-cam" id="s04-cam">
+            <div data-hf-id="hf-7vlo" class="sq-grid" data-layout-ignore=""></div>
+            <div data-hf-id="hf-9xwz" id="s04-board" data-layout-allow-overlap="">
+              <div data-hf-id="hf-qs6r" class="wb-head" id="s04-head"><i data-hf-id="hf-zxdc" class="wb-dot" id="s04-dot"></i>Watching this week</div>
+              <div data-hf-id="hf-a1j9" class="wb-day" style="top: 150px">Mon</div>
+              <div data-hf-id="hf-339g" class="wb-day" style="top: 218px">Tue</div>
+              <div data-hf-id="hf-6zhl" class="wb-day" style="top: 286px">Wed</div>
+              <div data-hf-id="hf-e5g6" class="wb-day" style="top: 354px">Thu</div>
+              <div data-hf-id="hf-r0na" class="wb-day" style="top: 422px">Fri</div>
+              <div data-hf-id="hf-54k0" class="wb-day" style="top: 490px">Sat</div>
+              <div data-hf-id="hf-k8yh" class="wb-day" style="top: 558px">Sun</div>
+              <div data-hf-id="hf-q60r" class="wb-col" id="s04-col0" style="left: 88px">
+                <div data-hf-id="hf-73mw" class="wb-name" style="--c: var(--pink); color: var(--ink)">Maya</div>
+                <div data-hf-id="hf-drpg" class="wb-ruler"><span data-hf-id="hf-g4mp" style="left: 0px">9a</span><span data-hf-id="hf-eo8u" style="left: 98px">4p</span><span data-hf-id="hf-rupx" style="left: 140px">7p</span><span data-hf-id="hf-9psm" class="end">11p</span></div>
+                <div data-hf-id="hf-jxvz" class="wb-cell" style="top: 150px">
+                  <div data-hf-id="hf-5qqb" class="wb-busy s04-busy0" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-fxu8" class="wb-cell" style="top: 218px">
+                  <div data-hf-id="hf-47oz" class="wb-busy s04-busy0" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-0ab9" class="wb-cell" style="top: 286px">
+                  <div data-hf-id="hf-3tdy" class="wb-busy s04-busy0" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-oe1x" class="wb-cell" style="top: 354px">
+                  <div data-hf-id="hf-3f2x" class="wb-busy s04-busy0" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-dmj9" class="wb-cell" style="top: 422px">
+                  <div data-hf-id="hf-30rw" class="wb-busy s04-busy0" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-ka2q" class="wb-cell" style="top: 490px">
+                  <div data-hf-id="hf-w0ne" class="wb-busy s04-busy0" style="left: 42px; width: 56px">busy</div>
+                </div>
+                <div data-hf-id="hf-trz7" class="wb-cell" style="top: 558px">
+                </div>
+              </div>
+              <div data-hf-id="hf-5kvd" class="wb-col" id="s04-col1" style="left: 294px">
+                <div data-hf-id="hf-inz2" class="wb-name" style="--c: var(--mint); color: var(--ink)">Jordan</div>
+                <div data-hf-id="hf-b4cc" class="wb-ruler"><span data-hf-id="hf-ib1h" style="left: 0px">9a</span><span data-hf-id="hf-epsy" style="left: 98px">4p</span><span data-hf-id="hf-f0k9" style="left: 140px">7p</span><span data-hf-id="hf-3hru" class="end">11p</span></div>
+                <div data-hf-id="hf-pje7" class="wb-cell" style="top: 150px">
+                  <div data-hf-id="hf-qefi" class="wb-busy s04-busy1" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-3kdk" class="wb-cell" style="top: 218px">
+                  <div data-hf-id="hf-832q" class="wb-busy s04-busy1" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-v0q1" class="wb-cell" style="top: 286px">
+                  <div data-hf-id="hf-8hdr" class="wb-busy s04-busy1" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-gad5" class="wb-cell" style="top: 354px">
+                  <div data-hf-id="hf-cxnw" class="wb-busy s04-busy1" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-2xe1" class="wb-cell" style="top: 422px">
+                  <div data-hf-id="hf-dbyx" class="wb-busy s04-busy1" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-sxgm" class="wb-cell" style="top: 490px">
+                </div>
+                <div data-hf-id="hf-dzab" class="wb-cell" style="top: 558px">
+                </div>
+              </div>
+              <div data-hf-id="hf-pkam" class="wb-col" id="s04-col2" style="left: 500px">
+                <div data-hf-id="hf-o8oc" class="wb-name" style="--c: var(--sky); color: var(--ink)">Priya</div>
+                <div data-hf-id="hf-9xf9" class="wb-ruler"><span data-hf-id="hf-jhyk" style="left: 0px">9a</span><span data-hf-id="hf-f43z" style="left: 98px">4p</span><span data-hf-id="hf-g7hc" style="left: 140px">7p</span><span data-hf-id="hf-3w2v" class="end">11p</span></div>
+                <div data-hf-id="hf-p536" class="wb-cell" style="top: 150px">
+                  <div data-hf-id="hf-p6nx" class="wb-busy s04-busy2" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-2dgh" class="wb-cell" style="top: 218px">
+                  <div data-hf-id="hf-s26p" class="wb-busy s04-busy2" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-w7n4" class="wb-cell" style="top: 286px">
+                  <div data-hf-id="hf-t93s" class="wb-busy s04-busy2" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-hha8" class="wb-cell" style="top: 354px">
+                  <div data-hf-id="hf-susr" class="wb-busy s04-busy2" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-44b4" class="wb-cell" style="top: 422px">
+                  <div data-hf-id="hf-qv9m" class="wb-busy s04-busy2" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-tbrn" class="wb-cell" style="top: 490px">
+                </div>
+                <div data-hf-id="hf-dkza" class="wb-cell" style="top: 558px">
+                </div>
+              </div>
+              <div data-hf-id="hf-3r0z" class="wb-col" id="s04-col3" style="left: 706px">
+                <div data-hf-id="hf-bz12" class="wb-name" style="--c: var(--gold); color: var(--ink)">Leo</div>
+                <div data-hf-id="hf-abqa" class="wb-ruler"><span data-hf-id="hf-j3nj" style="left: 0px">9a</span><span data-hf-id="hf-fif0" style="left: 98px">4p</span><span data-hf-id="hf-ft6b" style="left: 140px">7p</span><span data-hf-id="hf-4adw" class="end">11p</span></div>
+                <div data-hf-id="hf-oqs5" class="wb-cell" style="top: 150px">
+                  <div data-hf-id="hf-iyrc" class="wb-busy s04-busy3" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-2rri" class="wb-cell" style="top: 218px">
+                  <div data-hf-id="hf-hjkg" class="wb-busy s04-busy3" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-vtc3" class="wb-cell" style="top: 286px">
+                  <div data-hf-id="hf-gcnd" class="wb-busy s04-busy3" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-h2z7" class="wb-cell" style="top: 354px">
+                  <div data-hf-id="hf-gqye" class="wb-busy s04-busy3" style="left: 0px; width: 98px">class</div>
+                  <div data-hf-id="hf-o6vx" class="wb-busy s04-busy3" id="s04-leo-thu" style="left: 126px; width: 42px">busy</div>
+                </div>
+                <div data-hf-id="hf-3q03" class="wb-cell" style="top: 422px">
+                  <div data-hf-id="hf-fk1b" class="wb-busy s04-busy3" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-tq2o" class="wb-cell" style="top: 490px">
+                </div>
+                <div data-hf-id="hf-d6o9" class="wb-cell" style="top: 558px">
+                </div>
+              </div>
+              <div data-hf-id="hf-2k3x" class="wb-col" id="s04-col4" style="left: 912px">
+                <div data-hf-id="hf-87ub" class="wb-name" style="--c: var(--maroon); color: #fff">Ash</div>
+                <div data-hf-id="hf-cb9f" class="wb-ruler"><span data-hf-id="hf-kakm" style="left: 0px">9a</span><span data-hf-id="hf-fwq1" style="left: 98px">4p</span><span data-hf-id="hf-dtn6" style="left: 140px">7p</span><span data-hf-id="hf-4oox" class="end">11p</span></div>
+                <div data-hf-id="hf-rixc" class="wb-cell" style="top: 150px">
+                  <div data-hf-id="hf-9y8v" class="wb-busy s04-busy4" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-1kuf" class="wb-cell" style="top: 218px">
+                  <div data-hf-id="hf-fmlb" class="wb-busy s04-busy4" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-ttsy" class="wb-cell" style="top: 286px">
+                  <div data-hf-id="hf-f8aa" class="wb-busy s04-busy4" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-f3g2" class="wb-cell" style="top: 354px">
+                  <div data-hf-id="hf-etz9" class="wb-busy s04-busy4" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-1qgy" class="wb-cell" style="top: 422px">
+                  <div data-hf-id="hf-hm4g" class="wb-busy s04-busy4" style="left: 0px; width: 98px">class</div>
+                </div>
+                <div data-hf-id="hf-qxxh" class="wb-cell" style="top: 490px">
+                </div>
+                <div data-hf-id="hf-csd8" class="wb-cell" style="top: 558px">
+                </div>
+              </div>
+              <div data-hf-id="hf-wtb4" class="wb-band" id="s04-band" style="left: 82px; top: 419px; width: 1032px"></div>
+              <div data-hf-id="hf-uytn" class="wb-probe s04-p-paint" id="s04-p-paint0" style="left: 193px; top: 222px; width: 28px; --ec: var(--sky)"></div>
+              <div data-hf-id="hf-uzfg" class="wb-probe s04-p-paint" id="s04-p-paint1" style="left: 399px; top: 222px; width: 28px; --ec: var(--sky)"></div>
+              <div data-hf-id="hf-2wwr" class="wb-probe s04-p-paint" id="s04-p-paint2" style="left: 605px; top: 222px; width: 28px; --ec: var(--sky)"></div>
+              <div data-hf-id="hf-r1z3" class="wb-probe s04-p-paint" id="s04-p-paint3" style="left: 811px; top: 222px; width: 28px; --ec: var(--sky)"></div>
+              <div data-hf-id="hf-shv7" class="wb-probe s04-p-paint" id="s04-p-paint4" style="left: 1017px; top: 222px; width: 28px; --ec: var(--sky)"></div>
+              <div data-hf-id="hf-l9ar" class="wb-probe s04-p-board" id="s04-p-board0" style="left: 228px; top: 358px; width: 42px; --ec: var(--mint)"></div>
+              <div data-hf-id="hf-if57" class="wb-probe s04-p-board" id="s04-p-board1" style="left: 434px; top: 358px; width: 42px; --ec: var(--mint)"></div>
+              <div data-hf-id="hf-gnpn" class="wb-probe s04-p-board" id="s04-p-board2" style="left: 640px; top: 358px; width: 42px; --ec: var(--mint)"></div>
+              <div data-hf-id="hf-imuq" class="wb-probe s04-p-board" id="s04-p-board3" style="left: 846px; top: 358px; width: 42px; --ec: var(--mint)"></div>
+              <div data-hf-id="hf-83vv" class="wb-probe s04-p-board" id="s04-p-board4" style="left: 1052px; top: 358px; width: 42px; --ec: var(--mint)"></div>
+              <div data-hf-id="hf-yewj" class="wb-probe gold s04-p-mic" id="s04-p-mic0" style="left: 228px; top: 426px; width: 28px; --ec: var(--pink)"></div>
+              <div data-hf-id="hf-46x7" class="wb-probe gold s04-p-mic" id="s04-p-mic1" style="left: 434px; top: 426px; width: 28px; --ec: var(--pink)"></div>
+              <div data-hf-id="hf-tmqz" class="wb-probe gold s04-p-mic" id="s04-p-mic2" style="left: 640px; top: 426px; width: 28px; --ec: var(--pink)"></div>
+              <div data-hf-id="hf-a6la" class="wb-probe gold s04-p-mic" id="s04-p-mic3" style="left: 846px; top: 426px; width: 28px; --ec: var(--pink)"></div>
+              <div data-hf-id="hf-w0gb" class="wb-probe gold s04-p-mic" id="s04-p-mic4" style="left: 1052px; top: 426px; width: 28px; --ec: var(--pink)"></div>
+              <div data-hf-id="hf-moru" class="wb-probe s04-p-hike" id="s04-p-hike0" style="left: 200px; top: 494px; width: 28px; --ec: var(--gold)"></div>
+              <div data-hf-id="hf-mtrf" class="wb-probe s04-p-hike" id="s04-p-hike1" style="left: 406px; top: 494px; width: 28px; --ec: var(--gold)"></div>
+              <div data-hf-id="hf-e7xt" class="wb-probe s04-p-hike" id="s04-p-hike2" style="left: 612px; top: 494px; width: 28px; --ec: var(--gold)"></div>
+              <div data-hf-id="hf-k2kk" class="wb-probe s04-p-hike" id="s04-p-hike3" style="left: 818px; top: 494px; width: 28px; --ec: var(--gold)"></div>
+              <div data-hf-id="hf-yu4r" class="wb-probe s04-p-hike" id="s04-p-hike4" style="left: 1024px; top: 494px; width: 28px; --ec: var(--gold)"></div>
+              <div data-hf-id="hf-aonf" class="wb-check" id="s04-ok0" style="left: 225px; top: 400px">✓</div>
+              <div data-hf-id="hf-6gvb" class="wb-check" id="s04-ok1" style="left: 431px; top: 400px">✓</div>
+              <div data-hf-id="hf-jooa" class="wb-check" id="s04-ok2" style="left: 637px; top: 400px">✓</div>
+              <div data-hf-id="hf-78nc" class="wb-check" id="s04-ok3" style="left: 843px; top: 400px">✓</div>
+              <div data-hf-id="hf-w0js" class="wb-check" id="s04-ok4" style="left: 1049px; top: 400px">✓</div>
+              <div data-hf-id="hf-xlcj" class="wb-scan" id="s04-scan" data-layout-ignore=""></div>
+              <div data-hf-id="hf-e867" class="wb-feed" id="s04-feed">Sun Devil Central<i data-hf-id="hf-67el" data-sq="ring" id="hl-s04-1"></i></div>
+              <div data-hf-id="hf-3x18" class="wb-ev" id="s04-ev-paint" style="top: 132px">
+                <span data-hf-id="hf-m7ai" class="wb-ico" style="--ec: var(--sky)" data-ico="brush"></span>
+                <span data-hf-id="hf-ccgy" class="wb-evt"><b data-hf-id="hf-xe7i">Paint Your 3D Print</b><span data-hf-id="hf-eooy">Tue 4:30 PM · Free</span></span>
+                <span data-hf-id="hf-g3hd" class="wb-st no" id="s04-st-paint">✕ 3 not into it</span>
+              </div>
+              <div data-hf-id="hf-tjr5" class="wb-ev" id="s04-ev-board" style="top: 238px">
+                <span data-hf-id="hf-w1qo" class="wb-ico" style="--ec: var(--mint)" data-ico="dice"></span>
+                <span data-hf-id="hf-io06" class="wb-evt"><b data-hf-id="hf-zawd">Board Game Night</b><span data-hf-id="hf-qcul">Thu 7:00 PM · Free</span></span>
+                <span data-hf-id="hf-5iad" class="wb-st no" id="s04-st-board">✕ Leo's busy</span>
+              </div>
+              <div data-hf-id="hf-uhva" class="wb-ev" id="s04-ev-mic" style="top: 344px">
+                <span data-hf-id="hf-i2ea" class="wb-ico" style="--ec: var(--pink)" data-ico="mic"></span>
+                <span data-hf-id="hf-j2b7" class="wb-evt"><b data-hf-id="hf-4k04">Open Mic Night</b><span data-hf-id="hf-3bqo">Fri 7:00 PM · $5</span></span>
+                <span data-hf-id="hf-fp3h" class="wb-st yes" id="s04-st-mic">✓ fits all 5</span>
+              </div>
+              <div data-hf-id="hf-hyd4" class="wb-ev" id="s04-ev-hike" style="top: 450px">
+                <span data-hf-id="hf-ad4e" class="wb-ico" style="--ec: var(--gold)" data-ico="hike"></span>
+                <span data-hf-id="hf-jgm8" class="wb-evt"><b data-hf-id="hf-wbcx">Desert Sunset Hike</b><span data-hf-id="hf-dfmu">Sat 5:00 PM · Free</span></span>
+                <span data-hf-id="hf-3ert" class="wb-st no" id="s04-st-hike">✕ 4 not into it</span>
+              </div>
+              <div data-hf-id="hf-doex" class="wb-ev more" id="s04-ev-more" style="top: 556px">+100 more</div>
+            </div>
+          </div>
+          <div data-hf-id="hf-w5hk" class="sq-chip-slot" id="s04-chip"><span data-hf-id="hf-06sn" class="sq-chip"><b data-hf-id="hf-2ll3">02</b>Watches</span></div>
+          <div data-hf-id="hf-4jks" class="sq-super" id="s04-super" data-hold=""><span data-hf-id="hf-1zsd">It watches, so</span><span data-hf-id="hf-m8xm">nobody has to ask</span></div>
+        </div>
+        <audio data-hf-id="hf-3rho" id="s04-sfx-1" class="clip" data-hf-media-start-basis="local" data-start="0.0" data-duration="0.459" data-track-index="20" data-volume="0.4" src="assets/audio/sfx/casino/card-place-2.ogg"></audio>
+        <audio data-hf-id="hf-cuh5" id="s04-sfx-2" class="clip" data-hf-media-start-basis="local" data-start="15.06" data-duration="0.191" data-track-index="21" data-volume="0.3" src="assets/audio/sfx/interface/drop_002.ogg"></audio>
+        <audio data-hf-id="hf-i78v" id="s04-sfx-3" class="clip" data-hf-media-start-basis="local" data-start="10.9" data-duration="0.883" data-track-index="22" data-volume="0.3" src="assets/audio/sfx/casino/card-place-3.ogg"></audio>
+      </div>
+      <script>
+        (function () {
+          var root = document.querySelector('[data-composition-id="s04"]');
+          SQ.mount(root);
+          var $ = function (id) {
+            return document.getElementById(id);
+          };
+          var q = function (sel) {
+            return root.querySelectorAll(sel);
+          };
+          var tl = gsap.timeline({ paused: true });
+          function build() {
+            var cam = $("s04-cam");
+            SQ.camSet(tl, cam, SQ.frame(1, 960, 540));
+            SQ.land(tl, $("s04-chip"), 0.3);
+
+            // 0.00 the board lands under the maroon wipe reveal; columns build left -> right 0.08 s apart, busy blocks fade in per column
+            SQ.land(tl, $("s04-board"), 0.0, { from: { scale: 0.85 } });
+            tl.fromTo(q(".wb-day"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.6);
+            for (var i = 0; i < 5; i++) {
+              tl.fromTo($("s04-col" + i), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 0.6 + i * 0.08);
+              tl.fromTo(q(".s04-busy" + i), { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, 0.9 + i * 0.08);
+            }
+            tl.fromTo($("s04-feed"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 1.2);
+            // "watching" dot: a finite pulse every 0.9 s
+            tl.fromTo($("s04-dot"), { scale: 1, opacity: 1 }, { scale: 1.35, opacity: 0.5, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 35 }, 0.6);
+
+            // "nobody has to ask" 1.98: super slams, holds to 3.6
+            SQ.fitSuper($("s04-super"));
+            SQ.slam(tl, $("s04-super"), 1.98);
+            SQ.exit(tl, $("s04-super"), 3.6, 0.2);
+
+            // "background" 3.75: one gold scan line sweeps the calendars
+            gsap.set($("s04-scan"), { opacity: 0 });
+            tl.set($("s04-scan"), { opacity: 0 }, 0);
+            tl.set($("s04-scan"), { opacity: 1 }, 3.75);
+            tl.fromTo($("s04-scan"), { x: 0 }, { x: 1012, duration: 1.2, ease: "sine.inOut", immediateRender: false }, 3.75);
+            tl.set($("s04-scan"), { opacity: 0 }, 4.95);
+
+            // "Sun Devil Central" 6.74 (regenerated s04.wav): ring the feed, cards stream down the rail 0.3 s apart
+            SQ.ring(tl, $("hl-s04-1"), 6.74);
+            SQ.ringOut(tl, $("hl-s04-1"), 8.4);
+            ["paint", "board", "mic", "hike", "more"].forEach(function (k, n) {
+              tl.fromTo($("s04-ev-" + k), { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 6.8 + n * 0.3);
+            });
+            q(".wb-st").forEach(function (el) {
+              gsap.set(el, { opacity: 0 });
+              tl.set(el, { opacity: 0 }, 0);
+            });
+            q(".wb-probe, .wb-check").forEach(function (el) {
+              gsap.set(el, { opacity: 0 });
+              tl.set(el, { opacity: 0 }, 0);
+            });
+            gsap.set($("s04-band"), { scaleX: 0 });
+            tl.set($("s04-band"), { scaleX: 0 }, 0);
+
+            // "everyone's calendars" 8.72: push into the columns
+            tl.to(cam, Object.assign(SQ.frame(1.08, 900, 500), { duration: 0.7, ease: "power2.inOut" }), 8.72);
+
+            // try a candidate: the rail card steps left, its slot shows in all five columns, then the verdict
+            function tryEv(k, at, misses, verdictAt, back) {
+              var card = $("s04-ev-" + k);
+              tl.to(card, { x: -18, duration: 0.2, ease: "power2.out" }, at);
+              q(".s04-p-" + k).forEach(function (p, i) {
+                tl.fromTo(p, { opacity: 0, scaleX: 0 }, { opacity: 0.9, scaleX: 1, duration: 0.2, ease: "power2.out" }, at + 0.08 + i * 0.04);
+              });
+              misses.forEach(function (i) {
+                tl.to($("s04-p-" + k + i), { backgroundColor: "#8e8e93", duration: 0.12 }, verdictAt);
+              });
+              SQ.land(tl, $("s04-st-" + k), verdictAt + 0.05, { from: { rotation: 3 }, to: { rotation: 3 } });
+              if (back) {
+                tl.to(card, { keyframes: [{ x: -26, duration: 0.06 }, { x: -10, duration: 0.06 }, { x: -24, duration: 0.06 }, { x: -18, duration: 0.06 }] }, verdictAt + 0.2);
+                tl.to(card, { x: 0, opacity: 0.55, duration: 0.25, ease: "power2.inOut" }, back);
+                tl.to(q(".s04-p-" + k), { opacity: 0, duration: 0.2 }, back);
+              }
+            }
+            // "what they like" 9.48: Paint Your 3D Print, calendars clear, but not Jordan / Leo / Ash's thing
+            tryEv("paint", 9.4, [1, 3, 4], 9.8, 10.9);
+            // "clash" 12.34: Board Game Night hits Leo's Thu 6-9 PM block, which flashes red twice
+            tryEv("board", 12.0, [], 12.34, 13.0);
+            tl.to($("s04-p-board3"), { backgroundColor: "#e5484d", duration: 0.05 }, 12.34);
+            [12.34, 12.64].forEach(function (t) {
+              tl.to($("s04-leo-thu"), { backgroundColor: "#e5484d", color: "#fff", duration: 0.04 }, t);
+              tl.to($("s04-leo-thu"), { backgroundColor: "#c9c2b4", color: "#3a3a3a", duration: 0.04 }, t + 0.15);
+            });
+            // "somebody… but" 13.10: Desert Sunset Hike, only Leo's thing
+            tryEv("hike", 13.05, [0, 1, 2, 4], 13.3, 14.0);
+
+            // "fits" 15.06: Open Mic Night lands on Fri 7-9 PM, the gold band sweeps all five columns
+            tryEv("mic", 14.75, [], 15.06, null);
+            tl.to($("s04-band"), { scaleX: 1, duration: 0.45, ease: "power3.out" }, 15.06);
+            tl.to(q(".s04-p-mic"), { backgroundColor: "#ffc627", duration: 0.2 }, 15.06);
+            // "the whole squad" 15.55: a check per friend, Maya -> Ash
+            for (var c = 0; c < 5; c++) {
+              SQ.land(tl, $("s04-ok" + c), 15.55 + c * 0.08);
+            }
+
+            // "posts" 16.49: the Open Mic card lifts off, the board blurs out, the card ends centred for the chat
+            var mic = $("s04-ev-mic");
+            var m0 = SQ.offset(mic, cam);
+            tl.to(mic, { x: 960 - 170 - m0.x, y: 540 - 43 - m0.y, scale: 1.4, duration: 0.6, ease: "power3.inOut" }, 16.49);
+            tl.to(cam, Object.assign(SQ.frame(1, 960, 540), { duration: 0.6, ease: "power3.inOut" }), 16.49);
+            tl.to(q("#s04-board > :not(#s04-ev-mic)"), { opacity: 0, filter: "blur(6px)", duration: 0.5, ease: "power2.in" }, 16.49);
+            tl.to($("s04-board"), { backgroundColor: "rgba(255,253,247,0)", borderColor: "rgba(17,17,17,0)", boxShadow: "8px 8px 0 rgba(17,17,17,0)", duration: 0.5, ease: "power2.in" }, 16.49);
+            window.__timelines["s04"] = tl;
+          }
+          if (document.fonts && document.fonts.status !== "loaded") {
+            document.fonts.ready.then(build);
+          } else {
+            build();
+          }
+        })();
+      </script>
+    </template>
+  </body>
+</html>

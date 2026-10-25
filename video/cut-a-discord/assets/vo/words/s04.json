@@ -1,0 +1,362 @@
+[
+  {
+    "text": "And",
+    "start": 0.06,
+    "end": 0.14,
+    "id": "w0"
+  },
+  {
+    "text": "here's",
+    "start": 0.2,
+    "end": 0.46,
+    "id": "w1"
+  },
+  {
+    "text": "my",
+    "start": 0.5,
+    "end": 0.68,
+    "id": "w2"
+  },
+  {
+    "text": "favorite",
+    "start": 0.74,
+    "end": 1.02,
+    "id": "w3"
+  },
+  {
+    "text": "part.",
+    "start": 1.14,
+    "end": 1.4,
+    "id": "w4"
+  },
+  {
+    "text": "Nobody",
+    "start": 1.76,
+    "end": 2.12,
+    "id": "w5"
+  },
+  {
+    "text": "has",
+    "start": 2.16,
+    "end": 2.3,
+    "id": "w6"
+  },
+  {
+    "text": "to",
+    "start": 2.34,
+    "end": 2.44,
+    "id": "w7"
+  },
+  {
+    "text": "ask.",
+    "start": 2.56,
+    "end": 2.86,
+    "id": "w8"
+  },
+  {
+    "text": "In",
+    "start": 3.34,
+    "end": 3.4,
+    "id": "w9"
+  },
+  {
+    "text": "the",
+    "start": 3.44,
+    "end": 3.5,
+    "id": "w10"
+  },
+  {
+    "text": "background,",
+    "start": 3.54,
+    "end": 4.12,
+    "id": "w11"
+  },
+  {
+    "text": "it",
+    "start": 4.26,
+    "end": 4.36,
+    "id": "w12"
+  },
+  {
+    "text": "keeps",
+    "start": 4.4,
+    "end": 4.66,
+    "id": "w13"
+  },
+  {
+    "text": "checking",
+    "start": 4.7,
+    "end": 5,
+    "id": "w14"
+  },
+  {
+    "text": "real",
+    "start": 5.12,
+    "end": 5.3,
+    "id": "w15"
+  },
+  {
+    "text": "campus",
+    "start": 5.44,
+    "end": 5.76,
+    "id": "w16"
+  },
+  {
+    "text": "events",
+    "start": 5.82,
+    "end": 6.16,
+    "id": "w17"
+  },
+  {
+    "text": "from",
+    "start": 6.2,
+    "end": 6.38,
+    "id": "w18"
+  },
+  {
+    "text": "Sun",
+    "start": 6.44,
+    "end": 6.6,
+    "id": "w19"
+  },
+  {
+    "text": "Devil",
+    "start": 6.68,
+    "end": 6.9,
+    "id": "w20"
+  },
+  {
+    "text": "Central",
+    "start": 7.04,
+    "end": 7.42,
+    "id": "w21"
+  },
+  {
+    "text": "against",
+    "start": 7.56,
+    "end": 7.9,
+    "id": "w22"
+  },
+  {
+    "text": "everyone's",
+    "start": 7.98,
+    "end": 8.36,
+    "id": "w23"
+  },
+  {
+    "text": "calendars",
+    "start": 8.42,
+    "end": 9,
+    "id": "w24"
+  },
+  {
+    "text": "and",
+    "start": 9.02,
+    "end": 9.14,
+    "id": "w25"
+  },
+  {
+    "text": "what",
+    "start": 9.18,
+    "end": 9.32,
+    "id": "w26"
+  },
+  {
+    "text": "they",
+    "start": 9.36,
+    "end": 9.48,
+    "id": "w27"
+  },
+  {
+    "text": "like.",
+    "start": 9.52,
+    "end": 9.8,
+    "id": "w28"
+  },
+  {
+    "text": "Most",
+    "start": 11.38,
+    "end": 11.6,
+    "id": "w29"
+  },
+  {
+    "text": "things",
+    "start": 11.62,
+    "end": 11.9,
+    "id": "w30"
+  },
+  {
+    "text": "clash",
+    "start": 11.94,
+    "end": 12.24,
+    "id": "w31"
+  },
+  {
+    "text": "with",
+    "start": 12.28,
+    "end": 12.38,
+    "id": "w32"
+  },
+  {
+    "text": "somebody,",
+    "start": 12.42,
+    "end": 12.86,
+    "id": "w33"
+  },
+  {
+    "text": "but",
+    "start": 13.28,
+    "end": 13.38,
+    "id": "w34"
+  },
+  {
+    "text": "the",
+    "start": 13.4,
+    "end": 13.5,
+    "id": "w35"
+  },
+  {
+    "text": "second",
+    "start": 13.56,
+    "end": 13.8,
+    "id": "w36"
+  },
+  {
+    "text": "it",
+    "start": 13.82,
+    "end": 13.92,
+    "id": "w37"
+  },
+  {
+    "text": "finds",
+    "start": 13.96,
+    "end": 14.2,
+    "id": "w38"
+  },
+  {
+    "text": "something",
+    "start": 14.24,
+    "end": 14.6,
+    "id": "w39"
+  },
+  {
+    "text": "that",
+    "start": 14.66,
+    "end": 14.8,
+    "id": "w40"
+  },
+  {
+    "text": "fits",
+    "start": 14.88,
+    "end": 15.1,
+    "id": "w41"
+  },
+  {
+    "text": "the",
+    "start": 15.14,
+    "end": 15.22,
+    "id": "w42"
+  },
+  {
+    "text": "whole",
+    "start": 15.26,
+    "end": 15.42,
+    "id": "w43"
+  },
+  {
+    "text": "squad,",
+    "start": 15.54,
+    "end": 15.96,
+    "id": "w44"
+  },
+  {
+    "text": "it",
+    "start": 16.28,
+    "end": 16.379,
+    "id": "w45"
+  },
+  {
+    "text": "posts",
+    "start": 16.42,
+    "end": 16.7,
+    "id": "w46"
+  },
+  {
+    "text": "it",
+    "start": 16.76,
+    "end": 16.84,
+    "id": "w47"
+  },
+  {
+    "text": "right",
+    "start": 16.96,
+    "end": 17.16,
+    "id": "w48"
+  },
+  {
+    "text": "in",
+    "start": 17.18,
+    "end": 17.24,
+    "id": "w49"
+  },
+  {
+    "text": "the",
+    "start": 17.28,
+    "end": 17.34,
+    "id": "w50"
+  },
+  {
+    "text": "group.",
+    "start": 17.38,
+    "end": 17.66,
+    "id": "w51"
+  },
+  {
+    "text": "Like",
+    "start": 18.24,
+    "end": 18.44,
+    "id": "w52"
+  },
+  {
+    "text": "this:",
+    "start": 18.5,
+    "end": 18.78,
+    "id": "w53"
+  },
+  {
+    "text": "Open",
+    "start": 19.4,
+    "end": 19.64,
+    "id": "w54"
+  },
+  {
+    "text": "mic",
+    "start": 19.72,
+    "end": 19.96,
+    "id": "w55"
+  },
+  {
+    "text": "night,",
+    "start": 20,
+    "end": 20.18,
+    "id": "w56"
+  },
+  {
+    "text": "Friday",
+    "start": 20.5,
+    "end": 20.86,
+    "id": "w57"
+  },
+  {
+    "text": "at",
+    "start": 20.9,
+    "end": 21,
+    "id": "w58"
+  },
+  {
+    "text": "7:00",
+    "start": 21.42,
+    "end": 21.44,
+    "id": "w59"
+  }
+]

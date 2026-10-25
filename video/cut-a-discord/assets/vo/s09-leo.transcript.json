@@ -1,0 +1,24 @@
+{
+  "audio": "assets/vo/s09-leo.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "Yeah,",
+      "start": 0.14,
+      "end": 0.32,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "I'm",
+      "start": 0.42,
+      "end": 0.56,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "in",
+      "start": 0.64,
+      "end": 0.84,
+      "speaker": "speaker_0"
+    }
+  ]
+}

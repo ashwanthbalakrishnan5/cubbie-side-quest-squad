@@ -1,0 +1,264 @@
+{
+  "audio": "assets/vo/s06.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "That",
+      "start": 0.08,
+      "end": 0.22,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "someone",
+      "start": 0.28,
+      "end": 0.5,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "is",
+      "start": 0.54,
+      "end": 0.68,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Priya.",
+      "start": 0.72,
+      "end": 1.04,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "It's",
+      "start": 1.54,
+      "end": 1.7,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "five",
+      "start": 1.74,
+      "end": 1.96,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "dollars,",
+      "start": 2.02,
+      "end": 2.46,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 2.54,
+      "end": 2.64,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "she",
+      "start": 2.68,
+      "end": 2.8,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "said",
+      "start": 2.84,
+      "end": 3.06,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "free",
+      "start": 3.1,
+      "end": 3.36,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "only.",
+      "start": 3.42,
+      "end": 3.74,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "So",
+      "start": 4.34,
+      "end": 4.42,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "before",
+      "start": 4.46,
+      "end": 4.72,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "anything",
+      "start": 4.76,
+      "end": 5.06,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "goes",
+      "start": 5.1,
+      "end": 5.3,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "out,",
+      "start": 5.38,
+      "end": 5.56,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "her",
+      "start": 5.72,
+      "end": 5.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "agent",
+      "start": 5.94,
+      "end": 6.26,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "checks",
+      "start": 6.32,
+      "end": 6.58,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "with",
+      "start": 6.6,
+      "end": 6.7,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "her",
+      "start": 6.72,
+      "end": 6.9,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "privately.",
+      "start": 6.94,
+      "end": 7.44,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "She's",
+      "start": 8.06,
+      "end": 8.3,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "in,",
+      "start": 8.38,
+      "end": 8.56,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 9.12,
+      "end": 9.18,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "if",
+      "start": 9.22,
+      "end": 9.3,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "she'd",
+      "start": 9.34,
+      "end": 9.52,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "said",
+      "start": 9.56,
+      "end": 9.76,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "no,",
+      "start": 9.82,
+      "end": 10.04,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "it",
+      "start": 10.24,
+      "end": 10.3,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "would",
+      "start": 10.32,
+      "end": 10.42,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "just",
+      "start": 10.5,
+      "end": 10.7,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "quietly",
+      "start": 10.78,
+      "end": 11.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "pick",
+      "start": 11.32,
+      "end": 11.5,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "something",
+      "start": 11.54,
+      "end": 11.82,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "else,",
+      "start": 11.9,
+      "end": 12.2,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 12.36,
+      "end": 12.48,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "nobody",
+      "start": 12.56,
+      "end": 12.9,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "would",
+      "start": 12.96,
+      "end": 13.08,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "ever",
+      "start": 13.14,
+      "end": 13.32,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "know",
+      "start": 13.36,
+      "end": 13.54,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "why",
+      "start": 13.58,
+      "end": 13.88,
+      "speaker": "speaker_0"
+    }
+  ]
+}

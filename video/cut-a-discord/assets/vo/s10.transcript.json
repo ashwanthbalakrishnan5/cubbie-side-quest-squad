@@ -1,0 +1,102 @@
+{
+  "audio": "assets/vo/s10.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "When",
+      "start": 0.04,
+      "end": 0.12,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "the",
+      "start": 0.16,
+      "end": 0.24,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "poll",
+      "start": 0.28,
+      "end": 0.44,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "closes,",
+      "start": 0.54,
+      "end": 1.04,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "you",
+      "start": 1.24,
+      "end": 1.32,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "get",
+      "start": 1.36,
+      "end": 1.48,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "who's",
+      "start": 1.52,
+      "end": 1.72,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "going,",
+      "start": 1.76,
+      "end": 2.14,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "who's",
+      "start": 2.38,
+      "end": 2.58,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "driving",
+      "start": 2.62,
+      "end": 3,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "who,",
+      "start": 3.06,
+      "end": 3.22,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 3.6,
+      "end": 3.66,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "a",
+      "start": 3.7,
+      "end": 3.74,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "reminder",
+      "start": 3.78,
+      "end": 4.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "for",
+      "start": 4.3,
+      "end": 4.42,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "everyone.",
+      "start": 4.48,
+      "end": 4.92,
+      "speaker": "speaker_0"
+    }
+  ]
+}

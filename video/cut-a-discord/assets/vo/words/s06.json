@@ -1,0 +1,254 @@
+[
+  {
+    "text": "That",
+    "start": 0.06,
+    "end": 0.15,
+    "id": "w0"
+  },
+  {
+    "text": "someone",
+    "start": 0.29,
+    "end": 0.61,
+    "id": "w1"
+  },
+  {
+    "text": "is",
+    "start": 0.74,
+    "end": 0.87,
+    "id": "w2"
+  },
+  {
+    "text": "Priya.",
+    "start": 0.87,
+    "end": 1.44,
+    "id": "w3"
+  },
+  {
+    "text": "It's",
+    "start": 1.5,
+    "end": 1.82,
+    "id": "w4"
+  },
+  {
+    "text": "$5",
+    "start": 1.82,
+    "end": 2.05,
+    "id": "w5"
+  },
+  {
+    "text": "and",
+    "start": 2.18,
+    "end": 2.47,
+    "id": "w6"
+  },
+  {
+    "text": "she",
+    "start": 2.47,
+    "end": 2.5,
+    "id": "w7"
+  },
+  {
+    "text": "said",
+    "start": 2.94,
+    "end": 3.1,
+    "id": "w8"
+  },
+  {
+    "text": "free",
+    "start": 3.18,
+    "end": 3.51,
+    "id": "w9"
+  },
+  {
+    "text": "only.",
+    "start": 3.51,
+    "end": 4.22,
+    "id": "w10"
+  },
+  {
+    "text": "So",
+    "start": 4.28,
+    "end": 4.34,
+    "id": "w11"
+  },
+  {
+    "text": "before",
+    "start": 4.34,
+    "end": 4.71,
+    "id": "w12"
+  },
+  {
+    "text": "anything",
+    "start": 4.71,
+    "end": 5.18,
+    "id": "w13"
+  },
+  {
+    "text": "goes",
+    "start": 5.19,
+    "end": 5.28,
+    "id": "w14"
+  },
+  {
+    "text": "out,",
+    "start": 5.28,
+    "end": 5.7,
+    "id": "w15"
+  },
+  {
+    "text": "her",
+    "start": 5.7,
+    "end": 5.8,
+    "id": "w16"
+  },
+  {
+    "text": "agent",
+    "start": 5.93,
+    "end": 6.18,
+    "id": "w17"
+  },
+  {
+    "text": "checks",
+    "start": 6.18,
+    "end": 6.59,
+    "id": "w18"
+  },
+  {
+    "text": "with",
+    "start": 6.59,
+    "end": 6.69,
+    "id": "w19"
+  },
+  {
+    "text": "her",
+    "start": 6.69,
+    "end": 7.14,
+    "id": "w20"
+  },
+  {
+    "text": "privately.",
+    "start": 7.14,
+    "end": 7.92,
+    "id": "w21"
+  },
+  {
+    "text": "She's",
+    "start": 7.98,
+    "end": 8.47,
+    "id": "w22"
+  },
+  {
+    "text": "in.",
+    "start": 8.47,
+    "end": 8.97,
+    "id": "w23"
+  },
+  {
+    "text": "And",
+    "start": 9.1,
+    "end": 9.2,
+    "id": "w24"
+  },
+  {
+    "text": "if",
+    "start": 9.33,
+    "end": 9.39,
+    "id": "w25"
+  },
+  {
+    "text": "she'd",
+    "start": 9.39,
+    "end": 9.65,
+    "id": "w26"
+  },
+  {
+    "text": "said",
+    "start": 9.74,
+    "end": 9.99,
+    "id": "w27"
+  },
+  {
+    "text": "no,",
+    "start": 9.99,
+    "end": 10.16,
+    "id": "w28"
+  },
+  {
+    "text": "it",
+    "start": 10.22,
+    "end": 10.28,
+    "id": "w29"
+  },
+  {
+    "text": "would",
+    "start": 10.28,
+    "end": 10.58,
+    "id": "w30"
+  },
+  {
+    "text": "just",
+    "start": 10.58,
+    "end": 10.77,
+    "id": "w31"
+  },
+  {
+    "text": "quietly",
+    "start": 10.86,
+    "end": 11.2,
+    "id": "w32"
+  },
+  {
+    "text": "pick",
+    "start": 11.2,
+    "end": 11.24,
+    "id": "w33"
+  },
+  {
+    "text": "something",
+    "start": 11.66,
+    "end": 12.02,
+    "id": "w34"
+  },
+  {
+    "text": "else",
+    "start": 12.02,
+    "end": 12.28,
+    "id": "w35"
+  },
+  {
+    "text": "and",
+    "start": 12.34,
+    "end": 12.44,
+    "id": "w36"
+  },
+  {
+    "text": "nobody",
+    "start": 12.57,
+    "end": 12.85,
+    "id": "w37"
+  },
+  {
+    "text": "would",
+    "start": 12.85,
+    "end": 13.17,
+    "id": "w38"
+  },
+  {
+    "text": "ever",
+    "start": 13.17,
+    "end": 13.32,
+    "id": "w39"
+  },
+  {
+    "text": "know",
+    "start": 13.32,
+    "end": 13.78,
+    "id": "w40"
+  },
+  {
+    "text": "why.",
+    "start": 13.78,
+    "end": 14.08,
+    "id": "w41"
+  }
+]

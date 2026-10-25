@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Side Quests: Squad Mode, Cut A "Hook + Discord" (v2, 150.767 s). Root holds only the scene hosts (S04 = the shared watch board
+     + the Discord chat part), the act wipes, one narrator VO clip per WAV and the two S09 call lines (phone EQ), all at
+     assets/timing.json v2. No music anywhere (SCRIPT.md v2 decision 1); quiet SFX live in each scene on visible actions.
+     Contract: ../SCRIPT.md (v2 wins) + ../SPEC.md section 10; words from assets/story.json. -->
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Squad Mode, Cut A (Discord)</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<!-- Paste into each cut project's root index.html <head>, after the GSAP script.
+     Fonts are declared here (root-relative); the component library styles and helpers load once for every scene. -->
+<style>
+  @font-face { font-family: "Archivo Black"; font-weight: 400; font-style: normal; font-display: block; src: url("assets/fonts/ArchivoBlack-Regular.ttf") format("truetype"); }
+  @font-face { font-family: "Space Grotesk"; font-weight: 500; font-style: normal; font-display: block; src: url("assets/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+  @font-face { font-family: "Space Grotesk"; font-weight: 700; font-style: normal; font-display: block; src: url("assets/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+  @font-face { font-family: "Inter"; font-weight: 400; font-style: normal; font-display: block; src: url("assets/fonts/Inter-Regular.ttf") format("truetype"); }
+  @font-face { font-family: "Inter"; font-weight: 600; font-style: normal; font-display: block; src: url("assets/fonts/Inter-SemiBold.ttf") format("truetype"); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #fff4e0; }
+</style>
+<link rel="stylesheet" href="assets/lib/squad.css">
+<script src="assets/lib/squad.js"></script>
+    <link rel="stylesheet" href="assets/lib/discord.css">
+    <script src="assets/lib/discord.js"></script>
+  </head>
+  <body>
+    <div data-hf-id="hf-7ad4" id="root" data-composition-id="main" data-start="0" data-duration="150.767" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-kns5" id="s01" data-composition-id="s01" data-composition-src="compositions/s01-cold-open.html" data-start="0.000" data-duration="13.433" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-elp1" id="s02" data-composition-id="s02" data-composition-src="compositions/s02-title.html" data-start="13.433" data-duration="6.833" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-txyd" id="s03" data-composition-id="s03" data-composition-src="compositions/s03-join.html" data-start="20.267" data-duration="18.533" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-qqjb" id="s04" data-composition-id="s04" data-composition-src="compositions/s04-watch-board.html" data-start="38.800" data-duration="17.100" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-nbze" id="s04chat" data-composition-id="s04chat" data-composition-src="compositions/s04-chat.html" data-start="55.900" data-duration="4.833" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-6w3g" id="s05" data-composition-id="s05" data-composition-src="compositions/s05-agents.html" data-start="60.733" data-duration="19.700" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-g6u0" id="s06" data-composition-id="s06" data-composition-src="compositions/s06-asks-first.html" data-start="80.433" data-duration="14.700" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-y73a" id="s07" data-composition-id="s07" data-composition-src="compositions/s07-plan.html" data-start="95.133" data-duration="15.767" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-78l8" id="s08" data-composition-id="s08" data-composition-src="compositions/s08-remembers.html" data-start="110.900" data-duration="13.000" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-cknd" id="s09" data-composition-id="s09" data-composition-src="compositions/s09-nudge.html" data-start="123.900" data-duration="14.200" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-02m9" id="s10" data-composition-id="s10" data-composition-src="compositions/s10-go.html" data-start="138.100" data-duration="5.700" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-0opd" id="s11" data-composition-id="s11" data-composition-src="compositions/s11-payoff.html" data-start="143.800" data-duration="2.733" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-fbnp" id="s12" data-composition-id="s12" data-composition-src="compositions/s12-end.html" data-start="146.533" data-duration="4.233" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-1r5w" id="wipes" data-composition-id="wipes" data-composition-src="compositions/wipes.html" data-start="0" data-duration="150.767" data-track-index="2" data-track-kind="graphics" data-width="1920" data-height="1080" data-variable-values="{&quot;w1&quot;: 13.233, &quot;w2&quot;: 143.6, &quot;w3&quot;: 146.333, &quot;w4&quot;: 38.6, &quot;w5&quot;: 60.533}" style="z-index: 10"></div>
+      <audio data-hf-id="hf-qnw9" id="vo-s01" class="clip" data-start="0.300" data-media-start="0" data-duration="12.129" data-track-index="4" data-volume="1" src="assets/vo/s01.wav"></audio>
+      <audio data-hf-id="hf-2qsh" id="vo-s02" class="clip" data-start="13.733" data-media-start="0" data-duration="6.144" data-track-index="3" data-volume="1" src="assets/vo/s02.wav"></audio>
+      <audio data-hf-id="hf-g8ty" id="vo-s03" class="clip" data-start="20.567" data-media-start="0" data-duration="17.835" data-track-index="4" data-volume="1" src="assets/vo/s03.wav"></audio>
+      <audio data-hf-id="hf-mgss" id="vo-s04" class="clip" data-start="39.100" data-media-start="0" data-duration="21.528" data-track-index="3" data-volume="1" src="assets/vo/s04.wav"></audio>
+      <audio data-hf-id="hf-cmua" id="vo-s05" class="clip" data-start="61.033" data-media-start="0" data-duration="18.987" data-track-index="4" data-volume="1" src="assets/vo/s05.wav"></audio>
+      <audio data-hf-id="hf-f603" id="vo-s06" class="clip" data-start="80.733" data-media-start="0" data-duration="13.995" data-track-index="3" data-volume="1" src="assets/vo/s06.wav"></audio>
+      <audio data-hf-id="hf-vqmt" id="vo-s07" class="clip" data-start="95.433" data-media-start="0" data-duration="15.083" data-track-index="4" data-volume="1" src="assets/vo/s07.wav"></audio>
+      <audio data-hf-id="hf-zm1x" id="vo-s08" class="clip" data-start="111.200" data-media-start="0" data-duration="12.309" data-track-index="3" data-volume="1" src="assets/vo/s08.wav"></audio>
+      <audio data-hf-id="hf-cn9f" id="vo-s09" class="clip" data-start="124.200" data-media-start="0" data-duration="5.995" data-track-index="4" data-volume="1" src="assets/vo/s09.wav"></audio>
+      <audio data-hf-id="hf-2asz" id="vo-s09-bot" class="clip" data-start="130.700" data-media-start="0" data-duration="5.461" data-track-index="3" data-volume="0.75" data-fx-chain="{&quot;version&quot;: 1, &quot;nodes&quot;: [{&quot;type&quot;: &quot;highpass&quot;, &quot;id&quot;: &quot;hp&quot;, &quot;label&quot;: &quot;Phone low cut&quot;, &quot;params&quot;: {&quot;frequency&quot;: 300, &quot;q&quot;: 0.707, &quot;poles&quot;: &quot;2&quot;}}, {&quot;type&quot;: &quot;lowpass&quot;, &quot;id&quot;: &quot;lp&quot;, &quot;label&quot;: &quot;Phone high cut&quot;, &quot;params&quot;: {&quot;frequency&quot;: 3400, &quot;q&quot;: 0.707, &quot;poles&quot;: &quot;2&quot;}}]}" src="assets/vo/s09-bot.wav"></audio>
+      <audio data-hf-id="hf-j8b1" id="vo-s09-leo" class="clip" data-start="136.667" data-media-start="0" data-duration="1.045" data-track-index="4" data-volume="0.9" data-fx-chain="{&quot;version&quot;: 1, &quot;nodes&quot;: [{&quot;type&quot;: &quot;highpass&quot;, &quot;id&quot;: &quot;hp&quot;, &quot;label&quot;: &quot;Phone low cut&quot;, &quot;params&quot;: {&quot;frequency&quot;: 300, &quot;q&quot;: 0.707, &quot;poles&quot;: &quot;2&quot;}}, {&quot;type&quot;: &quot;lowpass&quot;, &quot;id&quot;: &quot;lp&quot;, &quot;label&quot;: &quot;Phone high cut&quot;, &quot;params&quot;: {&quot;frequency&quot;: 3400, &quot;q&quot;: 0.707, &quot;poles&quot;: &quot;2&quot;}}]}" src="assets/vo/s09-leo.wav"></audio>
+      <audio data-hf-id="hf-wa06" id="vo-s10" class="clip" data-start="138.400" data-media-start="0" data-duration="5.013" data-track-index="3" data-volume="1" src="assets/vo/s10.wav"></audio>
+      <audio data-hf-id="hf-8wvn" id="vo-s11" class="clip" data-start="144.100" data-media-start="0" data-duration="2.027" data-track-index="4" data-volume="1" src="assets/vo/s11.wav"></audio>
+      <audio data-hf-id="hf-8tlf" id="vo-s12" class="clip" data-start="146.833" data-media-start="0" data-duration="3.541" data-track-index="3" data-volume="1" src="assets/vo/s12.wav"></audio>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

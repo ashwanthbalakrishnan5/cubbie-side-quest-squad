@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!-- S03 Join (film 20.267-38.800 s, v2 timing; highlights on the VO words per SPEC 10.3), Cut A: Discord. Ash runs /squad join; the real two-step sign-up modals from
+     squad/ui/onboarding.py (JoinModal, CallsModal; labels and options from constants.py), the ephemeral
+     "You're in 🎉 One more step:" reply from bot.py join_submitted, then four friend cards around the window.
+     Hand-in: S02 ends on the bare cream stage. Hand-off to S04: bare cream stage (window, cards and super leave), camera 1.0; the S04 board lands on it. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        /* chip on the cream stage, bottom-right: the app window covers the top-left corner in this scene */
+        #s03-chip { left: auto; top: auto; right: 96px; bottom: 72px; }
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        /* the "What are you into?" list fits the body without a scroll, so all three ticks read at once */
+        #s03-modal1 .dc-opt {
+          height: 31px;
+        }
+        #s03-ml1 {
+          padding-top: 10px;
+        }
+        #s03-modal1 .dc-lab,
+        #s03-modal1 .dc-opt,
+        #s03-typed {
+          position: relative;
+        }
+        #s03-modal1 .dc-mbody {
+          height: 340px;
+        }
+        #s03-modal1 {
+          top: 38px;
+        }
+        #s03-modal2 {
+          top: 56px;
+        }
+        #s03-modal2 .dc-mbody {
+          height: auto;
+        }
+        #s03-modal2 .dc-mlist {
+          position: relative;
+        }
+        .s03-fr {
+          position: absolute;
+          width: 340px;
+          z-index: 30;
+        }
+        .s03-fr .sq-lock.wrap {
+          white-space: normal;
+          max-width: 300px;
+          align-items: flex-start;
+        }
+        .s03-fr .sq-lock.wrap .sq-lockglyph {
+          margin-top: 2px;
+        }
+      </style>
+      <div data-hf-id="hf-gdio" id="root" data-composition-id="s03" data-width="1920" data-height="1080" data-duration="18.533">
+        <div data-hf-id="hf-7p4v" class="sq-scene">
+          <div data-hf-id="hf-yh16" class="sq-cam" id="s03-cam">
+            <div data-hf-id="hf-7vlo" class="sq-grid" data-layout-ignore=""></div>
+            <div data-hf-id="hf-d78j" class="dc-win" id="s03-win" data-layout-allow-overlap="">
+              <div data-hf-id="hf-8lnq" class="dc-ui">
+                <div data-hf-id="hf-2bka" class="dc-title"><div data-hf-id="hf-7jrb" class="dc-lights"><i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i></div></div>
+                <div data-hf-id="hf-ous8" class="dc-rail">
+                  <div data-hf-id="hf-nn03" class="dc-srv home" data-dci="home"></div>
+                  <div data-hf-id="hf-09lw" class="dc-railsep"></div>
+                  <div data-hf-id="hf-87vz" class="dc-srv squad on">🌵</div>
+                  <div data-hf-id="hf-40rc" class="dc-srv add" data-dci="plus"></div>
+                </div>
+                <div data-hf-id="hf-irux" class="dc-side">
+                  <div data-hf-id="hf-vyxi" class="dc-side-head">ASU friends<span data-hf-id="hf-puui" data-dci="chev"></span></div>
+                  <div data-hf-id="hf-ojhu" class="dc-side-body">
+                    <div data-hf-id="hf-ervl" class="dc-cat"><span data-hf-id="hf-jt4e" data-dci="chev"></span>Text Channels<span data-hf-id="hf-955y" class="plus">+</span></div>
+                    <div data-hf-id="hf-qthj" class="dc-ch"><span data-hf-id="hf-wlj6" data-dci="hash"></span>general</div>
+                    <div data-hf-id="hf-mlla" class="dc-ch on"><span data-hf-id="hf-fx46" data-dci="hash"></span>squad</div>
+                  </div>
+                  <div data-hf-id="hf-3p7l" class="dc-user">
+                    <span data-hf-id="hf-kvvt" class="dc-av ash">A</span>
+                    <div data-hf-id="hf-yeow"><div data-hf-id="hf-frlh" class="dc-user-name">Ash</div><div data-hf-id="hf-4bnc" class="dc-user-st">Online</div></div>
+                    <div data-hf-id="hf-aiwh" class="dc-user-ico"><span data-hf-id="hf-gvtj" data-dci="mic"></span><span data-hf-id="hf-h4ux" data-dci="phones"></span><span data-hf-id="hf-i29j" data-dci="gear"></span></div>
+                  </div>
+                </div>
+                <div data-hf-id="hf-da9m" class="dc-chat">
+                  <div data-hf-id="hf-eo72" class="dc-head">
+                    <span data-hf-id="hf-gbf7" data-dci="hash"></span><span data-hf-id="hf-aws3" class="dc-head-name">squad</span><span data-hf-id="hf-q0hv" class="dc-head-div"></span>
+                    <span data-hf-id="hf-fnhl" class="dc-head-topic">friends who keep saying "we should hang out"</span>
+                  </div>
+                  <div data-hf-id="hf-ib5z" class="dc-scroller" id="s03-scroller">
+                    <div data-hf-id="hf-2uxb" class="dc-list" id="s03-list">
+                      <div data-hf-id="hf-t7at" class="dc-start" id="s03-start">
+                        <div data-hf-id="hf-yc56" class="dc-start-ico" data-dci="hash"></div>
+                        <div data-hf-id="hf-b55e" class="dc-start-h">Welcome to #squad!</div>
+                        <div data-hf-id="hf-ccpw" class="dc-start-p">This is the start of the #squad channel.</div>
+                      </div>
+                      <div data-hf-id="hf-louq" class="dc-msg reply" id="s03-m1">
+                        <div data-hf-id="hf-fi7n" class="dc-replyline"><span data-hf-id="hf-uel9" class="dc-av ash">A</span><b data-hf-id="hf-v43j">Ash</b> used <span data-hf-id="hf-spgi" class="dc-link">/squad join</span></div>
+                        <span data-hf-id="hf-q24j" class="dc-av bot">🗺️</span>
+                        <div data-hf-id="hf-7ttz" class="dc-meta"><span data-hf-id="hf-c7pg" class="dc-name" style="--nc: #fff">Side Quests Squad</span><span data-hf-id="hf-giy3" class="dc-app">APP</span><span data-hf-id="hf-eq6q" class="dc-time">Today at 4:01 PM</span></div>
+                        <div data-hf-id="hf-8vrn" class="dc-ctr" id="s03-ctr">
+                          <p data-hf-id="hf-r4g1">You're in 🎉 One more step:</p>
+                          <div data-hf-id="hf-ydx7" class="dc-btns">
+                            <span data-hf-id="hf-119j" class="dc-btn pri" id="s03-b-calls">Calls &amp; quiet hours<i data-hf-id="hf-domm" class="dc-dim"></i></span>
+                            <span data-hf-id="hf-eskc" class="dc-btn" id="s03-b-cal">Connect Google Calendar<span data-hf-id="hf-ppwb" data-dci="ext"></span><i data-hf-id="hf-dmv3" data-sq="ring" id="s03-ring-cal"></i></span>
+                          </div>
+                          <p data-hf-id="hf-44ya">No calendar? I'll use the free times you ticked.</p>
+                        </div>
+                        <div data-hf-id="hf-4v5x" class="dc-eph"><span data-hf-id="hf-nta1" data-dci="eye"></span>Only you can see this •&#160;<a data-hf-id="hf-4zyf">Dismiss message</a></div>
+                      </div>
+                      <div data-hf-id="hf-d5aj" class="dc-msg cont" id="s03-m2">
+                        <div data-hf-id="hf-9zms" class="dc-text">Saved ✨</div>
+                        <div data-hf-id="hf-n4m1" class="dc-eph"><span data-hf-id="hf-rjd9" data-dci="eye"></span>Only you can see this •&#160;<a data-hf-id="hf-kduv">Dismiss message</a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-hf-id="hf-jxjb" class="dc-pop" id="s03-pop">
+                    <div data-hf-id="hf-miae" class="dc-pop-h"><span data-hf-id="hf-66yr" class="dc-av bot">🗺️</span>Side Quests Squad</div>
+                    <div data-hf-id="hf-9os6" class="dc-pop-row" style="position: relative"><span data-hf-id="hf-5snq" class="dc-av bot">🗺️</span><span data-hf-id="hf-pjb2" class="dc-pop-cmd">/squad join</span><span data-hf-id="hf-56ql" class="dc-pop-desc">Join this channel's squad</span><i data-hf-id="hf-69zq" data-sq="ring" id="hl-s03-1"></i></div>
+                  </div>
+                  <div data-hf-id="hf-ro49" class="dc-compose" id="s03-compose">
+                    <span data-hf-id="hf-qdhs" class="dc-plus">+</span>
+                    <div data-hf-id="hf-kk4s" class="dc-field">
+                      <span data-hf-id="hf-2sfg" class="dc-ph" id="s03-ph">Message #squad</span>
+                      <span data-hf-id="hf-yo25" id="s03-typed"></span><i data-hf-id="hf-4g7z" class="dc-caret" id="s03-caret"></i>
+                    </div>
+                  </div>
+                </div>
+                <div data-hf-id="hf-qp6n" class="dc-backdrop" id="s03-bd"></div>
+                <div data-hf-id="hf-iel8" class="dc-modal" id="s03-modal1" data-layout-allow-overlap="">
+                  <div data-hf-id="hf-45yv" class="dc-mhead">Join the squad (1/2)<span data-hf-id="hf-zv02" data-dci="x"></span></div>
+                  <div data-hf-id="hf-cq71" class="dc-mbody">
+                    <div data-hf-id="hf-u7qu" class="dc-mlist" id="s03-ml1">
+                      <div data-hf-id="hf-yxm6" class="dc-field-blk" id="s03-f1">
+                        <div data-hf-id="hf-fex5" class="dc-lab">What are you into?<i data-hf-id="hf-pug1" data-sq="ring" id="hl-s03-2"></i></div>
+                        <div data-hf-id="hf-ylbu" class="dc-opts">
+                          <div data-hf-id="hf-vy9y" class="dc-opt"><span data-hf-id="hf-1k5y" class="dc-cb" id="s03-cb-music"><span data-hf-id="hf-qgfs" class="on" data-dci="check"></span></span>Live music</div>
+                          <div data-hf-id="hf-ibyl" class="dc-opt"><span data-hf-id="hf-h8pg" class="dc-cb"><span data-hf-id="hf-b05s" class="on" data-dci="check"></span></span>Sports &amp; games</div>
+                          <div data-hf-id="hf-9x3b" class="dc-opt"><span data-hf-id="hf-2pol" class="dc-cb" id="s03-cb-food"><span data-hf-id="hf-9t8p" class="on" data-dci="check"></span></span>Food &amp; free food</div>
+                          <div data-hf-id="hf-betw" class="dc-opt"><span data-hf-id="hf-sodo" class="dc-cb"><span data-hf-id="hf-a7jq" class="on" data-dci="check"></span></span>Outdoors &amp; hiking</div>
+                          <div data-hf-id="hf-5m4m" class="dc-opt"><span data-hf-id="hf-rhgl" class="dc-cb"><span data-hf-id="hf-90mn" class="on" data-dci="check"></span></span>Arts &amp; crafts</div>
+                          <div data-hf-id="hf-pjak" class="dc-opt"><span data-hf-id="hf-rvrm" class="dc-cb"><span data-hf-id="hf-9exo" class="on" data-dci="check"></span></span>Gaming &amp; esports</div>
+                          <div data-hf-id="hf-ep29" class="dc-opt"><span data-hf-id="hf-tvar" class="dc-cb"><span data-hf-id="hf-880l" class="on" data-dci="check"></span></span>Tech &amp; hackathons</div>
+                          <div data-hf-id="hf-qrga" class="dc-opt"><span data-hf-id="hf-u9ls" class="dc-cb"><span data-hf-id="hf-8mbm" class="on" data-dci="check"></span></span>Movies &amp; shows</div>
+                          <div data-hf-id="hf-3cng" class="dc-opt"><span data-hf-id="hf-t2op" class="dc-cb"><span data-hf-id="hf-7fej" class="on" data-dci="check"></span></span>Dance &amp; parties</div>
+                          <div data-hf-id="hf-omdg" class="dc-opt"><span data-hf-id="hf-iwt9" class="dc-cb" id="s03-cb-chill"><span data-hf-id="hf-7tpk" class="on" data-dci="check"></span></span>Chill hangouts</div>
+                        </div>
+                      </div>
+                      <div data-hf-id="hf-uzi5" class="dc-field-blk" id="s03-f2">
+                        <div data-hf-id="hf-2ad2" class="dc-lab">When are you usually free?<i data-hf-id="hf-p2s8" data-sq="ring" id="hl-s03-3"></i></div>
+                        <div data-hf-id="hf-bu3i" class="dc-opts">
+                          <div data-hf-id="hf-m4jl" class="dc-opt"><span data-hf-id="hf-b5vs" class="dc-cb ticked"><span data-hf-id="hf-xqzk" class="on" data-dci="check"></span></span>Weekday evenings (Mon–Thu)</div>
+                          <div data-hf-id="hf-2l1i" class="dc-opt"><span data-hf-id="hf-33sw" class="dc-cb ticked"><span data-hf-id="hf-xcoj" class="on" data-dci="check"></span></span>Friday night</div>
+                          <div data-hf-id="hf-7vrr" class="dc-opt"><span data-hf-id="hf-1wvt" class="dc-cb ticked"><span data-hf-id="hf-wydi" class="on" data-dci="check"></span></span>Saturday daytime</div>
+                          <div data-hf-id="hf-q2ju" class="dc-opt"><span data-hf-id="hf-tgzq" class="dc-cb"><span data-hf-id="hf-wk2h" class="on" data-dci="check"></span></span>Saturday night</div>
+                          <div data-hf-id="hf-ih6k" class="dc-opt"><span data-hf-id="hf-p3mf" class="dc-cb"><span data-hf-id="hf-w5rg" class="on" data-dci="check"></span></span>Sunday daytime</div>
+                          <div data-hf-id="hf-rda9" class="dc-opt"><span data-hf-id="hf-phxg" class="dc-cb"><span data-hf-id="hf-vrgf" class="on" data-dci="check"></span></span>Sunday night</div>
+                        </div>
+                      </div>
+                      <div data-hf-id="hf-u7uc" class="dc-field-blk" id="s03-f3">
+                        <div data-hf-id="hf-hxjf" class="dc-lab">Budget per hangout</div>
+                        <div data-hf-id="hf-c8ej" class="dc-opts">
+                          <div data-hf-id="hf-zaa5" class="dc-opt"><span data-hf-id="hf-p325" class="dc-rd"><span data-hf-id="hf-nury" class="on"></span></span>Free only</div>
+                          <div data-hf-id="hf-kbsa" class="dc-opt"><span data-hf-id="hf-nw7l" class="dc-rd"><span data-hf-id="hf-lcwi" class="on"></span></span>Up to $10</div>
+                          <div data-hf-id="hf-jk4h" class="dc-opt"><span data-hf-id="hf-n3rr" class="dc-rd" id="s03-rd-20"><span data-hf-id="hf-lr7j" class="on"></span></span>Up to $20<i data-hf-id="hf-l4o7" data-sq="ring" id="hl-s03-4"></i></div>
+                          <div data-hf-id="hf-hypj" class="dc-opt"><span data-hf-id="hf-p34o" class="dc-rd"><span data-hf-id="hf-m5ik" class="on"></span></span>Up to $40</div>
+                        </div>
+                      </div>
+                      <div data-hf-id="hf-hpbv" class="dc-field-blk" id="s03-f4">
+                        <div data-hf-id="hf-oevx" class="dc-lab">Hard no's<i data-hf-id="hf-h6k6" data-sq="ring" id="hl-s03-5"></i></div>
+                        <div data-hf-id="hf-3swr" class="dc-desc">Optional</div>
+                        <div data-hf-id="hf-cmpk" class="dc-opts">
+                          <div data-hf-id="hf-737m" class="dc-opt"><span data-hf-id="hf-lhp0" class="dc-cb"><span data-hf-id="hf-vd5e" class="on" data-dci="check"></span></span>Parties &amp; clubs</div>
+                          <div data-hf-id="hf-91b1" class="dc-opt"><span data-hf-id="hf-l3dz" class="dc-cb"><span data-hf-id="hf-uyud" class="on" data-dci="check"></span></span>Late nights (after 10pm)</div>
+                          <div data-hf-id="hf-gawj" class="dc-opt"><span data-hf-id="hf-kp2y" class="dc-cb"><span data-hf-id="hf-ukjc" class="on" data-dci="check"></span></span>Big crowds</div>
+                          <div data-hf-id="hf-c0mo" class="dc-opt"><span data-hf-id="hf-karx" class="dc-cb"><span data-hf-id="hf-u68b" class="on" data-dci="check"></span></span>Sports</div>
+                          <div data-hf-id="hf-9gwb" class="dc-opt"><span data-hf-id="hf-n2x4" class="dc-cb"><span data-hf-id="hf-l6rf" class="on" data-dci="check"></span></span>Religious events</div>
+                          <div data-hf-id="hf-zo4v" class="dc-opt"><span data-hf-id="hf-mom3" class="dc-cb"><span data-hf-id="hf-ll2g" class="on" data-dci="check"></span></span>Political events</div>
+                          <div data-hf-id="hf-ywp7" class="dc-opt"><span data-hf-id="hf-mab2" class="dc-cb"><span data-hf-id="hf-ke5d" class="on" data-dci="check"></span></span>Alcohol</div>
+                        </div>
+                      </div>
+                      <div data-hf-id="hf-bjm2" class="dc-field-blk" id="s03-f5">
+                        <div data-hf-id="hf-38ps" class="dc-lab">Do you drive?<i data-hf-id="hf-b0ud" data-sq="ring" id="hl-s03-6"></i></div>
+                        <div data-hf-id="hf-9ukd" class="dc-opts">
+                          <div data-hf-id="hf-m2i6" class="dc-opt"><span data-hf-id="hf-ootn" class="dc-rd"><span data-hf-id="hf-mjtl" class="on"></span></span>No car</div>
+                          <div data-hf-id="hf-u0tj" class="dc-opt"><span data-hf-id="hf-mpai" class="dc-rd"><span data-hf-id="hf-my4m" class="on"></span></span>Car, 1 seat free</div>
+                          <div data-hf-id="hf-toop" class="dc-opt"><span data-hf-id="hf-du6d" class="dc-rd" id="s03-rd-car2"><span data-hf-id="hf-ncfn" class="on"></span></span>Car, 2 seats free<i data-hf-id="hf-a96k" data-sq="ring" id="hl-s03-7"></i></div>
+                          <div data-hf-id="hf-p97w" class="dc-opt"><span data-hf-id="hf-mazh" class="dc-rd"><span data-hf-id="hf-nqqo" class="on"></span></span>Car, 3 seats free</div>
+                          <div data-hf-id="hf-nejz" class="dc-opt"><span data-hf-id="hf-nhwk" class="dc-rd"><span data-hf-id="hf-hs59" class="on"></span></span>Car, 4 seats free</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-hf-id="hf-z7t9" class="dc-mfoot"><span data-hf-id="hf-4gxz" class="dc-btn txt">Cancel</span><span data-hf-id="hf-3zby" class="dc-btn pri" id="s03-submit1">Submit<i data-hf-id="hf-5muq" class="dc-dim"></i></span></div>
+                </div>
+                <div data-hf-id="hf-ta2v" class="dc-modal" id="s03-modal2" data-layout-allow-overlap="">
+                  <div data-hf-id="hf-qjhk" class="dc-mhead">Join the squad (2/2)<span data-hf-id="hf-xdo6" data-dci="x"></span></div>
+                  <div data-hf-id="hf-xbjl" class="dc-mbody">
+                    <div data-hf-id="hf-vgal" class="dc-mlist">
+                      <div data-hf-id="hf-v952" class="dc-field-blk">
+                        <div data-hf-id="hf-0shs" class="dc-lab">WhatsApp number</div>
+                        <div data-hf-id="hf-zf18" class="dc-input"><span data-hf-id="hf-0o6y" class="dc-ph">+1 480 555 0123</span></div>
+                      </div>
+                      <div data-hf-id="hf-yn0q" class="dc-field-blk">
+                        <div data-hf-id="hf-3rcq" class="dc-lab">Voice nudge</div>
+                        <div data-hf-id="hf-wc13" class="dc-desc">One friendly call if you miss a plan poll</div>
+                        <div data-hf-id="hf-a8ve" class="dc-opts"><div data-hf-id="hf-rluj" class="dc-opt"><span data-hf-id="hf-kwkx" class="dc-cb" id="s03-cb-voice"><span data-hf-id="hf-ksge" class="on" data-dci="check"></span></span></div></div>
+                      </div>
+                      <div data-hf-id="hf-z1br" class="dc-field-blk">
+                        <div data-hf-id="hf-dbhg" class="dc-lab">Quiet hours</div>
+                        <div data-hf-id="hf-an6f" class="dc-opts">
+                          <div data-hf-id="hf-9bn7" class="dc-opt"><span data-hf-id="hf-xzk7" class="dc-rd ticked"><span data-hf-id="hf-i6ga" class="on"></span></span>10pm–9am</div>
+                          <div data-hf-id="hf-6uaz" class="dc-opt"><span data-hf-id="hf-n3lj" class="dc-rd"><span data-hf-id="hf-m9za" class="on"></span></span>11pm–8am</div>
+                          <div data-hf-id="hf-xuqr" class="dc-opt"><span data-hf-id="hf-rgyu" class="dc-rd"><span data-hf-id="hf-lvo9" class="on"></span></span>Midnight–10am</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-hf-id="hf-t7cx" class="dc-mfoot"><span data-hf-id="hf-rqw7" class="dc-btn txt">Cancel</span><span data-hf-id="hf-rhx9" class="dc-btn pri" id="s03-submit2">Submit<i data-hf-id="hf-615r" class="dc-dim"></i></span></div>
+                </div>
+              </div>
+            </div>
+            <div data-hf-id="hf-i7k5" class="dc-cursor" id="s03-cur" data-dci="cursor"></div>
+          </div>
+          <div data-hf-id="hf-bl4r" class="ag-slot s03-fr" id="s03-fr0" data-layout-allow-overlap="" style="left: 120px; top: 150px">
+            <div data-hf-id="hf-g930" class="fr-card" style="--c: var(--pink); transform: rotate(-2deg)">
+              <div data-hf-id="hf-5llf" class="ag-head"><span data-hf-id="hf-lg56" class="ag-av">M</span><span data-hf-id="hf-moa7" class="ag-name">Maya</span></div>
+              <div data-hf-id="hf-n0y9" class="fr-picks"><span data-hf-id="hf-xu9s">Live music</span><span data-hf-id="hf-tia4">Arts &amp; crafts</span><span data-hf-id="hf-tbdt">Food &amp; free food</span></div>
+              <div data-hf-id="hf-bb4y" class="ag-chips">
+                <span data-hf-id="hf-030u" class="sq-lock"><i data-hf-id="hf-n6ju" data-sq="lock"></i>budget</span>
+                <span data-hf-id="hf-7uh9" class="sq-lock wrap"><i data-hf-id="hf-uqb2" data-sq="lock"></i>calendar: busy / free only</span>
+              </div>
+            </div>
+          </div>
+          <div data-hf-id="hf-u45r" class="ag-slot s03-fr" id="s03-fr1" data-layout-allow-overlap="" style="left: 1470px; top: 130px">
+            <div data-hf-id="hf-1c57" class="fr-card" style="--c: var(--mint); transform: rotate(2deg)">
+              <div data-hf-id="hf-nr3n" class="ag-head"><span data-hf-id="hf-nfob" class="ag-av">J</span><span data-hf-id="hf-gsq9" class="ag-name">Jordan</span></div>
+              <div data-hf-id="hf-nnr9" class="fr-picks"><span data-hf-id="hf-npif">Sports &amp; games</span><span data-hf-id="hf-f9t6">Gaming &amp; esports</span><span data-hf-id="hf-97n9">Food &amp; free food</span></div>
+              <div data-hf-id="hf-rfgm" class="ag-chips">
+                <span data-hf-id="hf-kjf6" class="sq-lock"><i data-hf-id="hf-v4m3" data-sq="lock"></i>budget</span>
+                <span data-hf-id="hf-r96p" class="sq-lock wrap"><i data-hf-id="hf-vix4" data-sq="lock"></i>calendar: busy / free only</span>
+              </div>
+            </div>
+          </div>
+          <div data-hf-id="hf-x9yo" class="ag-slot s03-fr" id="s03-fr2" data-layout-allow-overlap="" style="left: 500px; top: 108px">
+            <div data-hf-id="hf-9wrq" class="fr-card" style="--c: var(--gold); transform: rotate(1deg)">
+              <div data-hf-id="hf-ncsm" class="ag-head"><span data-hf-id="hf-l1u5" class="ag-av">L</span><span data-hf-id="hf-545d" class="ag-name">Leo</span></div>
+              <div data-hf-id="hf-ouoc" class="fr-picks"><span data-hf-id="hf-4sde">Outdoors &amp; hiking</span><span data-hf-id="hf-jxgm">Chill hangouts</span><span data-hf-id="hf-pw1k">Live music</span></div>
+              <div data-hf-id="hf-rtrn" class="ag-chips">
+                <span data-hf-id="hf-kxq7" class="sq-lock"><i data-hf-id="hf-sqrx" data-sq="lock"></i>budget</span>
+                <span data-hf-id="hf-sg3s" class="sq-lock wrap"><i data-hf-id="hf-t52y" data-sq="lock"></i>calendar: busy / free only</span>
+              </div>
+            </div>
+          </div>
+          <div data-hf-id="hf-rp29" class="ag-slot s03-fr" id="s03-fr3" data-layout-allow-overlap="" style="left: 1470px; top: 530px">
+            <div data-hf-id="hf-rjn8" class="fr-card" style="--c: var(--sky); transform: rotate(-1deg)">
+              <div data-hf-id="hf-myhl" class="ag-head"><span data-hf-id="hf-w6ex" class="ag-av">P</span><span data-hf-id="hf-m10q" class="ag-name">Priya</span></div>
+              <div data-hf-id="hf-ogdb" class="fr-picks"><span data-hf-id="hf-1brr">Tech &amp; hackathons</span><span data-hf-id="hf-aekc">Food &amp; free food</span><span data-hf-id="hf-yylm">Chill hangouts</span></div>
+              <div data-hf-id="hf-s82o" class="ag-chips">
+                <span data-hf-id="hf-lc18" class="sq-lock"><i data-hf-id="hf-tjdz" data-sq="lock"></i>budget</span>
+                <span data-hf-id="hf-s1sr" class="sq-lock wrap"><i data-hf-id="hf-txp0" data-sq="lock"></i>calendar: busy / free only</span>
+              </div>
+            </div>
+          </div>
+          <div data-hf-id="hf-6qsn" class="sq-chip-slot" id="s03-chip" data-layout-allow-overlap=""><span data-hf-id="hf-xmcs" class="sq-chip"><b data-hf-id="hf-27a2">01</b>Join</span></div>
+          <div data-hf-id="hf-cdmr" class="sq-super" id="s03-super" data-hold=""><span data-hf-id="hf-f8ju">One agent</span><span data-hf-id="hf-o0ig">per friend</span></div>
+        </div>
+        <audio data-hf-id="hf-piog" id="s03-sfx-1" class="clip" data-hf-media-start-basis="local" data-start="1.933" data-duration="0.25" data-track-index="21" data-volume="0.12" src="assets/audio/sfx/keyboard/keypress-001.wav"></audio>
+        <audio data-hf-id="hf-hm3q" id="s03-sfx-2" class="clip" data-hf-media-start-basis="local" data-start="2.158" data-duration="0.25" data-track-index="20" data-volume="0.12" src="assets/audio/sfx/keyboard/keypress-003.wav"></audio>
+        <audio data-hf-id="hf-xb19" id="s03-sfx-3" class="clip" data-hf-media-start-basis="local" data-start="2.383" data-duration="0.25" data-track-index="21" data-volume="0.12" src="assets/audio/sfx/keyboard/keypress-006.wav"></audio>
+        <audio data-hf-id="hf-sq8d" id="s03-sfx-4" class="clip" data-hf-media-start-basis="local" data-start="5.45" data-duration="0.094" data-track-index="20" data-volume="0.3" src="assets/audio/sfx/ui/click1.ogg"></audio>
+        <audio data-hf-id="hf-c5mk" id="s03-sfx-5" class="clip" data-hf-media-start-basis="local" data-start="5.72" data-duration="0.056" data-track-index="21" data-volume="0.3" src="assets/audio/sfx/ui/click2.ogg"></audio>
+        <audio data-hf-id="hf-njd6" id="s03-sfx-6" class="clip" data-hf-media-start-basis="local" data-start="5.98" data-duration="0.086" data-track-index="20" data-volume="0.3" src="assets/audio/sfx/ui/click3.ogg"></audio>
+        <audio data-hf-id="hf-148a" id="s03-sfx-7" class="clip" data-hf-media-start-basis="local" data-start="7.6" data-duration="0.094" data-track-index="21" data-volume="0.3" src="assets/audio/sfx/ui/click1.ogg"></audio>
+        <audio data-hf-id="hf-5kny" id="s03-sfx-8" class="clip" data-hf-media-start-basis="local" data-start="11.46" data-duration="0.056" data-track-index="20" data-volume="0.3" src="assets/audio/sfx/ui/click2.ogg"></audio>
+        <audio data-hf-id="hf-mc6f" id="s03-sfx-9" class="clip" data-hf-media-start-basis="local" data-start="12.0" data-duration="0.086" data-track-index="21" data-volume="0.3" src="assets/audio/sfx/ui/click3.ogg"></audio>
+        <audio data-hf-id="hf-scvp" id="s03-sfx-10" class="clip" data-hf-media-start-basis="local" data-start="15.3" data-duration="0.689" data-track-index="20" data-volume="0.25" src="assets/audio/sfx/casino/card-place-1.ogg"></audio>
+      </div>
+      <script>
+        (function () {
+          var root = document.querySelector('[data-composition-id="s03"]');
+          SQ.mount(root);
+          DC.mount(root);
+          var $ = function (id) {
+            return document.getElementById(id);
+          };
+          var tl = gsap.timeline({ paused: true });
+
+          function build() {
+            var cam = $("s03-cam");
+            var win = $("s03-win");
+            var cur = $("s03-cur");
+            var scroller = $("s03-scroller");
+            var list = $("s03-list");
+            var m1 = $("s03-m1");
+            var m2 = $("s03-m2");
+
+            // chat list: only the channel start is shown first (Discord keeps the newest message at the bottom)
+            var y0 = DC.bottomY(scroller, $("s03-start"));
+            var y1 = DC.bottomY(scroller, m1);
+            var y2 = DC.bottomY(scroller, m2);
+            gsap.set(list, { y: y0 });
+            tl.set(list, { y: y0 }, 0);
+            gsap.set([m1, m2], { opacity: 0 });
+            tl.set([m1, m2], { opacity: 0 }, 0);
+
+            // v2 timing: every beat sits on its VO word (SPEC 10.3; s03.wav @0.30, word times + 0.30)
+            SQ.camSet(tl, cam, SQ.frame(1, 960, 540));
+            tl.fromTo(win, { scale: 0.96, opacity: 0 }, { scale: 1, duration: 0.35, ease: "back.out(1.0)" }, 0);
+            tl.fromTo(win, { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "none" }, 0);
+            SQ.land(tl, $("s03-chip"), 0.3);
+            tl.to($("s03-chip"), { opacity: 0, duration: 0.2, ease: "power1.in" }, 3.4); // camera fills the frame from the modal on
+            // 0.60-1.60 camera to the composer; 1.90 "/squad join" typed; 2.45 autocomplete; "You join" 2.91 ring
+            var comp = DC.at(win, $("s03-compose"), 0.5, 0.5);
+            tl.to(cam, Object.assign(SQ.frame(1.35, comp.x, comp.y, 960, 880), { duration: 1.0, ease: "power3.inOut" }), 0.6);
+            tl.set($("s03-ph"), { opacity: 0 }, 1.9);
+            gsap.set($("s03-ph"), { opacity: 1 });
+            DC.type(tl, $("s03-typed"), "/squad join", 1.9, 0.045);
+            var pop = $("s03-pop");
+            gsap.set(pop, { opacity: 0 });
+            tl.fromTo(pop, { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.15, ease: "power2.out" }, 2.45);
+            // "You join" 2.91: ring on the /squad join autocomplete row
+            SQ.ring(tl, $("hl-s03-1"), 2.91);
+            SQ.ringOut(tl, $("hl-s03-1"), 3.4);
+            tl.to(pop, { opacity: 0, duration: 0.08, ease: "none" }, 3.4);
+            // 3.50 modal (1/2) opens; camera onto it
+            var bd = $("s03-bd"),
+              mod1 = $("s03-modal1"),
+              mod2 = $("s03-modal2");
+            gsap.set([bd, mod1, mod2], { opacity: 0 });
+            tl.set([bd, mod1, mod2], { opacity: 0 }, 0);
+            tl.fromTo(bd, { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 3.5);
+            tl.fromTo(mod1, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out" }, 3.5);
+            tl.to([$("s03-typed"), $("s03-caret")], { opacity: 0, duration: 0.05 }, 3.5);
+            tl.to($("s03-ph"), { opacity: 1, duration: 0.05 }, 3.5);
+            var mc = DC.at(win, mod1, 0.5, 0.5);
+            tl.to(cam, Object.assign(SQ.frame(1.35, mc.x, mc.y, 960, 540), { duration: 0.7, ease: "power3.inOut" }), 3.5);
+            // modal body scroll (dp on the list); 14 dp head-room so a label's ring is never clipped
+            var ml = $("s03-ml1");
+            var bodyH = ml.parentNode.clientHeight;
+            var maxS = ml.offsetHeight - bodyH;
+            function top(id) {
+              return -Math.max(0, Math.min(maxS, $(id).offsetTop - 14));
+            }
+            var S_F2 = top("s03-f2"),
+              S_F3 = top("s03-f3"),
+              S_F4 = top("s03-f4"),
+              S_F5 = top("s03-f5");
+            gsap.set(ml, { y: 0 });
+            tl.set(ml, { y: 0 }, 0);
+            function sc(y, t0, d) {
+              tl.to(ml, { y: y, duration: d, ease: "power2.inOut" }, t0);
+            }
+            var p = function (id, dy, fx) {
+              return DC.at(win, $(id), fx === undefined ? 0.5 : fx, 0.5, dy);
+            };
+            var off = { x: mc.x + 520, y: mc.y + 520 };
+            gsap.set(cur, { x: off.x, y: off.y, opacity: 0 });
+            tl.set(cur, { x: off.x, y: off.y, opacity: 0 }, 0);
+            tl.to(cur, { opacity: 1, duration: 0.01 }, 3.9);
+            var rest = { x: mc.x + 120, y: mc.y + 40 };
+            DC.move(tl, cur, 3.9, off, rest, 0.6);
+            // "what you're into" 5.32
+            SQ.ring(tl, $("hl-s03-2"), 5.32);
+            var a1 = p("s03-cb-music", 0);
+            DC.move(tl, cur, 4.95, rest, a1, 0.45);
+            DC.press(tl, cur, 5.45);
+            DC.tick(tl, $("s03-cb-music"), 5.45);
+            var a2 = p("s03-cb-food", 0);
+            DC.move(tl, cur, 5.48, a1, a2, 0.22);
+            DC.press(tl, cur, 5.72);
+            DC.tick(tl, $("s03-cb-food"), 5.72);
+            var a3 = p("s03-cb-chill", 0);
+            DC.move(tl, cur, 5.74, a2, a3, 0.22);
+            DC.press(tl, cur, 5.98);
+            DC.tick(tl, $("s03-cb-chill"), 5.98);
+            SQ.ringOut(tl, $("hl-s03-2"), 5.95);
+            // "usually free" 6.30
+            sc(S_F2, 5.95, 0.33);
+            SQ.ring(tl, $("hl-s03-3"), 6.3);
+            SQ.ringOut(tl, $("hl-s03-3"), 6.95);
+            // "what you can spend" 7.60: Up to $20
+            sc(S_F3, 7.0, 0.4);
+            var a4 = p("s03-rd-20", S_F3);
+            DC.move(tl, cur, 7.05, a3, a4, 0.5);
+            DC.press(tl, cur, 7.6);
+            DC.tick(tl, $("s03-rd-20"), 7.6);
+            SQ.ring(tl, $("hl-s03-4"), 7.6);
+            SQ.ringOut(tl, $("hl-s03-4"), 7.9);
+            // "hard no's" 8.29
+            sc(S_F4, 7.95, 0.3);
+            SQ.ring(tl, $("hl-s03-5"), 8.29);
+            SQ.ringOut(tl, $("hl-s03-5"), 9.6);
+            // "got a car" 10.44, "two free seats" 11.46
+            sc(S_F5, 9.9, 0.4);
+            SQ.ring(tl, $("hl-s03-6"), 10.44);
+            SQ.ringOut(tl, $("hl-s03-6"), 11.2);
+            var a5 = p("s03-rd-car2", S_F5);
+            DC.move(tl, cur, 10.7, a4, a5, 0.6);
+            DC.press(tl, cur, 11.46);
+            DC.tick(tl, $("s03-rd-car2"), 11.46);
+            SQ.ring(tl, $("hl-s03-7"), 11.46);
+            SQ.ringOut(tl, $("hl-s03-7"), 12.0);
+            var a6 = p("s03-submit1", 0);
+            DC.move(tl, cur, 11.6, a5, a6, 0.3);
+            DC.press(tl, cur, 12.0);
+            DC.btnPress(tl, $("s03-submit1"), 12.0);
+            tl.to(mod1, { opacity: 0, scale: 0.96, duration: 0.15, ease: "power2.in" }, 12.05);
+            tl.to(bd, { opacity: 0, duration: 0.15, ease: "none" }, 12.05);
+            // 12.35 ephemeral reply; camera onto it; "Google Calendar" 13.73 ring
+            tl.to(list, { y: y1, duration: 0.2, ease: "power3.out" }, 12.35);
+            tl.set(m1, { opacity: 1 }, 12.35);
+            DC.arrive(tl, $("s03-ctr"), 12.35);
+            var rc = DC.at(win, $("s03-ctr"), 0.5, 0.5, y1);
+            tl.to(cam, Object.assign(SQ.frame(1.4, rc.x, rc.y, 960, 600), { duration: 0.6, ease: "power3.inOut" }), 12.45);
+            tl.to(cur, { opacity: 0, duration: 0.15, ease: "power1.in" }, 12.5);
+            SQ.ring(tl, $("s03-ring-cal"), 13.73);
+            SQ.ringOut(tl, $("s03-ring-cal"), 14.75);
+            // 14.75 pull back to 0.82 (window centred, clear of the super zone); friend cards land
+            tl.to(cam, Object.assign(SQ.frame(0.82, 960, 472, 960, 462), { duration: 0.7, ease: "power2.inOut" }), 14.75);
+            [15.3, 15.5, 15.7, 15.9].forEach(function (t, i) {
+              SQ.land(tl, $("s03-fr" + i), t);
+            });
+            // "when you're busy" 16.56: the locked calendar chips pulse once
+            root.querySelectorAll(".s03-fr .sq-lock.wrap").forEach(function (el, i) {
+              tl.to(el, { keyframes: [{ scale: 1.12, backgroundColor: "#ffc627", duration: 0.18, ease: "power2.out" }, { scale: 1, backgroundColor: "#fff4e0", duration: 0.3, ease: "power2.inOut" }] }, 16.56 + i * 0.04);
+            });
+            SQ.fitSuper($("s03-super"));
+            SQ.slam(tl, $("s03-super"), 16.95);
+            tl.to(cam, Object.assign(SQ.frame(0.845, 960, 472, 960, 462), { duration: 1.05, ease: "sine.inOut" }), 16.95);
+            // 18.20 cards fly outward (the maroon wipe takes the seam), super and window leave, camera returns to 1.0: bare stage for the S04 board
+            var outs = [
+              { x: -560, y: -60 },
+              { x: 560, y: -60 },
+              { x: 0, y: -620 },
+              { x: 560, y: 80 },
+            ];
+            outs.forEach(function (o, i) {
+              tl.to($("s03-fr" + i), { x: o.x, y: o.y, duration: 0.25, ease: "power3.in" }, 18.2 + i * 0.03);
+            });
+            SQ.exit(tl, $("s03-super"), 18.2, 0.2);
+            tl.to(win, { opacity: 0, scale: 0.94, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, 18.25);
+            tl.to(cam, Object.assign(SQ.frame(1, 960, 540), { duration: 0.38, ease: "power2.inOut" }), 18.2);
+            window.__timelines["s03"] = tl;
+          }
+          if (document.fonts && document.fonts.status !== "loaded") {
+            document.fonts.ready.then(build);
+          } else {
+            build();
+          }
+        })();
+      </script>
+    </template>
+  </body>
+</html>

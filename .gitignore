@@ -6,3 +6,8 @@ CLAUDE.md
 wa-voice/target/
 video/renders/
 video/**/node_modules/
+video/cut-b-imessage/
+video/shared/
+video/shared-assets/
+video/**/.hyperframes/
+video/**/.cache/

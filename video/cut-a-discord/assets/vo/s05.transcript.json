@@ -1,0 +1,342 @@
+{
+  "audio": "assets/vo/s05.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "So",
+      "start": 0.08,
+      "end": 0.18,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "how",
+      "start": 0.22,
+      "end": 0.36,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "did",
+      "start": 0.4,
+      "end": 0.48,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "it",
+      "start": 0.5,
+      "end": 0.56,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "decide?",
+      "start": 0.6,
+      "end": 1.04,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Every",
+      "start": 1.52,
+      "end": 1.68,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "friend",
+      "start": 1.82,
+      "end": 2.08,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "has",
+      "start": 2.12,
+      "end": 2.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "their",
+      "start": 2.32,
+      "end": 2.46,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "own",
+      "start": 2.52,
+      "end": 2.72,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "agent.",
+      "start": 2.78,
+      "end": 3.18,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Maya's",
+      "start": 3.74,
+      "end": 4.12,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "is",
+      "start": 4.16,
+      "end": 4.32,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "all",
+      "start": 4.4,
+      "end": 4.58,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "in",
+      "start": 4.64,
+      "end": 4.78,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "on",
+      "start": 4.84,
+      "end": 4.92,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "the",
+      "start": 4.96,
+      "end": 5.08,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "open",
+      "start": 5.16,
+      "end": 5.38,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "mic,",
+      "start": 5.46,
+      "end": 5.76,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Jordan's",
+      "start": 6.16,
+      "end": 6.52,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "happy",
+      "start": 6.56,
+      "end": 6.84,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "to",
+      "start": 6.88,
+      "end": 6.98,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "drive,",
+      "start": 7.02,
+      "end": 7.44,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 7.72,
+      "end": 7.82,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Leo",
+      "start": 7.88,
+      "end": 8.16,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "would",
+      "start": 8.18,
+      "end": 8.34,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "honestly",
+      "start": 8.42,
+      "end": 8.84,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "rather",
+      "start": 8.88,
+      "end": 9.14,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "go",
+      "start": 9.18,
+      "end": 9.34,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "hiking.",
+      "start": 9.36,
+      "end": 9.8,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "But",
+      "start": 10.38,
+      "end": 10.5,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "each",
+      "start": 10.56,
+      "end": 10.8,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "agent",
+      "start": 10.86,
+      "end": 11.3,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "only",
+      "start": 11.36,
+      "end": 11.64,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "shares",
+      "start": 11.68,
+      "end": 12.04,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "what's",
+      "start": 12.08,
+      "end": 12.24,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "safe",
+      "start": 12.3,
+      "end": 12.52,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "for",
+      "start": 12.56,
+      "end": 12.64,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "the",
+      "start": 12.68,
+      "end": 12.76,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "group.",
+      "start": 12.78,
+      "end": 13.06,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "The",
+      "start": 13.58,
+      "end": 13.64,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "coordinator",
+      "start": 13.68,
+      "end": 14.3,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "just",
+      "start": 14.44,
+      "end": 14.66,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "hears",
+      "start": 14.7,
+      "end": 15,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "that",
+      "start": 15.06,
+      "end": 15.22,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "someone",
+      "start": 15.28,
+      "end": 15.58,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "has",
+      "start": 15.62,
+      "end": 15.76,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "a",
+      "start": 15.82,
+      "end": 15.92,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "budget",
+      "start": 15.96,
+      "end": 16.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "limit,",
+      "start": 16.32,
+      "end": 16.62,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "not",
+      "start": 17.16,
+      "end": 17.38,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "who",
+      "start": 17.44,
+      "end": 17.7,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 17.98,
+      "end": 18.08,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "not",
+      "start": 18.12,
+      "end": 18.3,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "how",
+      "start": 18.36,
+      "end": 18.52,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "much",
+      "start": 18.56,
+      "end": 18.86,
+      "speaker": "speaker_0"
+    }
+  ]
+}

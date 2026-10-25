@@ -1,0 +1,110 @@
+[
+  {
+    "text": "Leo",
+    "start": 0.04,
+    "end": 0.21,
+    "id": "w0"
+  },
+  {
+    "text": "hasn't",
+    "start": 0.21,
+    "end": 0.63,
+    "id": "w1"
+  },
+  {
+    "text": "voted",
+    "start": 0.63,
+    "end": 0.92,
+    "id": "w2"
+  },
+  {
+    "text": "yet,",
+    "start": 0.97,
+    "end": 1.36,
+    "id": "w3"
+  },
+  {
+    "text": "so",
+    "start": 1.44,
+    "end": 1.54,
+    "id": "w4"
+  },
+  {
+    "text": "he",
+    "start": 1.54,
+    "end": 1.72,
+    "id": "w5"
+  },
+  {
+    "text": "gets",
+    "start": 1.72,
+    "end": 2.08,
+    "id": "w6"
+  },
+  {
+    "text": "one",
+    "start": 2.08,
+    "end": 2.35,
+    "id": "w7"
+  },
+  {
+    "text": "friendly",
+    "start": 2.35,
+    "end": 2.89,
+    "id": "w8"
+  },
+  {
+    "text": "call,",
+    "start": 3.44,
+    "end": 3.54,
+    "id": "w9"
+  },
+  {
+    "text": "just",
+    "start": 3.54,
+    "end": 3.73,
+    "id": "w10"
+  },
+  {
+    "text": "one,",
+    "start": 3.77,
+    "end": 4.27,
+    "id": "w11"
+  },
+  {
+    "text": "and",
+    "start": 4.27,
+    "end": 4.4,
+    "id": "w12"
+  },
+  {
+    "text": "never",
+    "start": 4.4,
+    "end": 4.64,
+    "id": "w13"
+  },
+  {
+    "text": "during",
+    "start": 4.64,
+    "end": 4.88,
+    "id": "w14"
+  },
+  {
+    "text": "his",
+    "start": 4.88,
+    "end": 5.05,
+    "id": "w15"
+  },
+  {
+    "text": "quiet",
+    "start": 5.12,
+    "end": 5.48,
+    "id": "w16"
+  },
+  {
+    "text": "hours.",
+    "start": 5.52,
+    "end": 5.95,
+    "id": "w17"
+  }
+]

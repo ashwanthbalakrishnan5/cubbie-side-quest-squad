@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="760" viewBox="0 0 560 760" role="img" aria-label="Discord demo: Priya says we should do something this weekend, Ashwanth asks the Side Quests Squad bot for something chill Friday under 15 dollars with no clubs, the bot posts a plan card for Open Mic Night with trade-offs, a poll fills with yes votes, a thread shows four agents agreeing, and a private DM asks Jordan why he can't make it.">
+<title>Squad Mode in a Discord chat</title>
+<style>
+  .t { font-family: 'gg sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  .name { font-weight: 700; font-size: 15px; }
+  .msg { font-size: 15px; fill: #DBDEE1; }
+  .time { font-size: 11px; fill: #949BA4; }
+  .small { font-size: 13px; fill: #B5BAC1; }
+  .h { font-weight: 800; font-size: 17px; fill: #F2F3F5; }
+  .k { font-weight: 800; font-size: 11px; fill: #FFC627; letter-spacing: 1.5px; }
+  .bot { font-weight: 700; font-size: 10px; fill: #fff; }
+  .m { opacity: 0; animation: in 14s cubic-bezier(.2,.8,.2,1) infinite both; }
+  @keyframes in { 0% { opacity: 0; transform: translateY(10px) } 4%, 94% { opacity: 1; transform: none } 100% { opacity: 0 } }
+  .bar { transform-box: fill-box; transform-origin: left; animation: fill 14s cubic-bezier(.2,.8,.2,1) infinite both; }
+  @keyframes fill { 0%, 45% { transform: scaleX(0) } 55%, 94% { transform: scaleX(.75) } 100% { transform: scaleX(.75) } }
+  @media (prefers-reduced-motion: reduce) { .m, .bar { animation: none; opacity: 1; } }
+</style>
+<rect width="560" height="760" rx="18" fill="#313338"/>
+<rect width="560" height="48" rx="18" fill="#2B2D31"/><rect y="30" width="560" height="18" fill="#2B2D31"/>
+<text class="t" x="20" y="30" font-size="16" font-weight="700" fill="#F2F3F5"># squad</text>
+<text class="t small" x="96" y="30">friends who keep saying "we should hang out"</text>
+
+<g class="t m" style="animation-delay:0s">
+  <circle cx="36" cy="84" r="18" fill="#8FD3FF"/><text x="29" y="90" font-weight="800" fill="#1E1F22">P</text>
+  <text class="name" x="64" y="78" fill="#8FD3FF">Priya</text><text class="time" x="112" y="78">Today at 4:02 PM</text>
+  <text class="msg" x="64" y="100">we should actually do something this weekend 😩</text>
+</g>
+<g class="t m" style="animation-delay:.7s">
+  <circle cx="36" cy="140" r="18" fill="#FF8FB1"/><text x="28" y="146" font-weight="800" fill="#1E1F22">A</text>
+  <text class="name" x="64" y="134" fill="#FF8FB1">Ashwanth</text><text class="time" x="140" y="134">Today at 4:03 PM</text>
+  <text class="msg" x="64" y="156"><tspan fill="#C9CDFB">@Side Quests Squad</tspan> something chill Friday under $15, no clubs</text>
+</g>
+
+<g class="t m" style="animation-delay:1.6s">
+  <circle cx="36" cy="198" r="18" fill="#8C1D40"/><text x="27" y="204" font-size="16">🗺️</text>
+  <text class="name" x="64" y="192" fill="#FFC627">Side Quests Squad</text>
+  <rect x="208" y="181" width="30" height="14" rx="3" fill="#5865F2"/><text class="bot" x="213" y="192">APP</text>
+  <rect x="64" y="206" width="460" height="196" rx="8" fill="#2B2D31"/>
+  <rect x="64" y="206" width="4" height="196" rx="2" fill="#8C1D40"/>
+  <text class="k" x="84" y="230">THIS WEEK'S SIDE QUEST</text>
+  <text class="h" x="84" y="256">Open Mic Night</text>
+  <text class="msg" x="84" y="280" font-size="14">🕖 Friday, Oct 30 · 7:00 PM · in 5 days</text>
+  <text class="msg" x="84" y="302" font-size="14">📍 Memorial Union 202 · free food 🍕</text>
+  <text class="small" x="84" y="328" font-style="italic">Fits all four of you, and it's free.</text>
+  <text class="small" x="84" y="352">Trade-offs: Leo would've picked a hike · ends 9 PM,</text>
+  <text class="small" x="84" y="370">so it works with someone's early Saturday.</text>
+  <rect x="84" y="380" width="104" height="16" rx="3" fill="#4E5058"/><text class="small" x="92" y="392" font-size="11" fill="#fff">Close poll now</text>
+  <rect x="196" y="380" width="148" height="16" rx="3" fill="#4E5058"/><text class="small" x="204" y="392" font-size="11" fill="#fff">How did you pick this?</text>
+</g>
+
+<g class="t m" style="animation-delay:2.6s">
+  <rect x="64" y="414" width="460" height="104" rx="8" fill="#2B2D31"/>
+  <text class="msg" x="80" y="438" font-weight="700">Open Mic Night, you in?</text>
+  <text class="small" x="80" y="464">I'm in ✅</text><rect x="190" y="454" width="300" height="12" rx="6" fill="#404249"/>
+  <rect class="bar" x="190" y="454" width="300" height="12" rx="6" fill="#FFC627"/>
+  <text class="small" x="80" y="486">Maybe 🤔</text><rect x="190" y="476" width="300" height="12" rx="6" fill="#404249"/>
+  <text class="small" x="80" y="508">Can't make it ❌</text><rect x="190" y="498" width="300" height="12" rx="6" fill="#404249"/>
+</g>
+
+<g class="t m" style="animation-delay:3.6s">
+  <rect x="64" y="530" width="460" height="98" rx="8" fill="#2B2D31"/>
+  <text class="small" x="80" y="552" font-weight="700" fill="#F2F3F5">🧵 Open Mic Night · 5 messages</text>
+  <text class="small" x="80" y="576"><tspan fill="#FF8FB1" font-weight="700">Maya's agent</tspan>  I'd love the open mic 🎤</text>
+  <text class="small" x="80" y="596"><tspan fill="#7CFFB2" font-weight="700">Jordan's agent</tspan>  happy to drive if it's not a late one</text>
+  <text class="small" x="80" y="616"><tspan fill="#FFC627" font-weight="700">Coordinator</tspan>  picked the one that fits everyone ✨</text>
+</g>
+
+<g class="t m" style="animation-delay:4.6s">
+  <rect x="24" y="644" width="512" height="96" rx="12" fill="#1E1F22" stroke="#5865F2" stroke-width="2"/>
+  <text class="small" x="44" y="668" font-weight="700" fill="#C9CDFB">Direct message · only Jordan sees this</text>
+  <text class="msg" x="44" y="694" font-size="14">Mind sharing why? Totally optional, it just helps me</text>
+  <text class="msg" x="44" y="714" font-size="14">pick better next time.</text>
+  <rect x="366" y="702" width="98" height="22" rx="4" fill="#5865F2"/><text class="small" x="376" y="718" fill="#fff">Tell you why</text>
+  <rect x="470" y="702" width="48" height="22" rx="4" fill="#4E5058"/><text class="small" x="480" y="718" fill="#fff">Skip</text>
+</g>
+</svg>

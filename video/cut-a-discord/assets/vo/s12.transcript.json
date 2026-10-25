@@ -1,0 +1,78 @@
+{
+  "audio": "assets/vo/s12.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "That's",
+      "start": 0.1,
+      "end": 0.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "squad",
+      "start": 0.32,
+      "end": 0.62,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "mode",
+      "start": 0.7,
+      "end": 0.94,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "let's",
+      "start": 1.36,
+      "end": 1.56,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "get",
+      "start": 1.6,
+      "end": 1.7,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "your",
+      "start": 1.72,
+      "end": 1.82,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "whole",
+      "start": 1.84,
+      "end": 1.98,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "squad",
+      "start": 2.08,
+      "end": 2.38,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "some",
+      "start": 2.44,
+      "end": 2.58,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "grass",
+      "start": 2.64,
+      "end": 2.94,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "to",
+      "start": 3,
+      "end": 3.08,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "touch",
+      "start": 3.12,
+      "end": 3.42,
+      "speaker": "speaker_0"
+    }
+  ]
+}

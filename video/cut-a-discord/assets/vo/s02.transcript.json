@@ -1,0 +1,144 @@
+{
+  "audio": "assets/vo/s02.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "So",
+      "start": 0.1,
+      "end": 0.18,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "we",
+      "start": 0.22,
+      "end": 0.32,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "built",
+      "start": 0.34,
+      "end": 0.54,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Squad",
+      "start": 0.62,
+      "end": 0.96,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Mode.",
+      "start": 1.04,
+      "end": 1.34,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "It's",
+      "start": 1.9,
+      "end": 2,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "a",
+      "start": 2.04,
+      "end": 2.1,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "bot",
+      "start": 2.12,
+      "end": 2.4,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "that",
+      "start": 2.44,
+      "end": 2.58,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "lives",
+      "start": 2.62,
+      "end": 2.82,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "in",
+      "start": 2.86,
+      "end": 2.92,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "your",
+      "start": 2.94,
+      "end": 3.06,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "friend",
+      "start": 3.08,
+      "end": 3.26,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "group's",
+      "start": 3.34,
+      "end": 3.66,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "chat,",
+      "start": 3.72,
+      "end": 4.019,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 4.36,
+      "end": 4.42,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "it",
+      "start": 4.46,
+      "end": 4.54,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "actually",
+      "start": 4.66,
+      "end": 5.04,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "does",
+      "start": 5.06,
+      "end": 5.24,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "the",
+      "start": 5.28,
+      "end": 5.34,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "picking",
+      "start": 5.38,
+      "end": 5.64,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "for",
+      "start": 5.72,
+      "end": 5.84,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "you",
+      "start": 5.9,
+      "end": 6.02,
+      "speaker": "speaker_0"
+    }
+  ]
+}

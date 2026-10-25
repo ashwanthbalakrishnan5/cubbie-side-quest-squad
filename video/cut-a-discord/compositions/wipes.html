@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Maroon act wipes (root overlay, both cuts). Spans the whole film; each wipe is 0.4 s centred on its seam:
+     covers x -1920 -> 0 in 0.2 s power3.in, the cut happens under it, reveals 0 -> +1920 in 0.2 s power3.out.
+     Times are variables (wipe start = seam - 0.2) so a scratch project can remap them. -->
+<html lang="en" data-composition-variables="[
+    {&quot;id&quot;:&quot;w1&quot;,&quot;type&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Wipe 1 start (S01-S02)&quot;,&quot;default&quot;:13.233},
+    {&quot;id&quot;:&quot;w2&quot;,&quot;type&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Wipe 2 start (S10-S11)&quot;,&quot;default&quot;:143.6},
+    {&quot;id&quot;:&quot;w3&quot;,&quot;type&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Wipe 3 start (S11-S12)&quot;,&quot;default&quot;:146.333},
+    {&quot;id&quot;:&quot;w4&quot;,&quot;type&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Wipe 4 start (S03-S04)&quot;,&quot;default&quot;:38.6},
+    {&quot;id&quot;:&quot;w5&quot;,&quot;type&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Wipe 5 start (S04-S05)&quot;,&quot;default&quot;:60.533}
+  ]">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          pointer-events: none;
+        }
+        .wp-panel {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1932px;
+          height: 1080px;
+          background: #8c1d40;
+          border-right: 6px solid #111;
+          border-left: 6px solid #111;
+          margin-left: -6px;
+        }
+      </style>
+      <div data-hf-id="hf-auxl" id="root" data-composition-id="wipes" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-zuvg" class="wp-panel" id="wipes-panel" data-layout-ignore=""></div>
+      </div>
+      <script>
+        (function () {
+          var v = (window.__hyperframes && window.__hyperframes.getVariables && window.__hyperframes.getVariables()) || {};
+          var times = [v.w1, v.w2, v.w3, v.w4, v.w5].map(Number).filter(function (t) {
+            return isFinite(t) && t >= 0;
+          });
+          if (!times.length) times = [13.233, 38.6, 60.533, 143.6, 146.333];
+          var p = document.getElementById("wipes-panel");
+          var tl = gsap.timeline({ paused: true });
+          tl.set(p, { x: -1940 }, 0);
+          times.forEach(function (t) {
+            tl.fromTo(p, { x: -1940 }, { x: 0, duration: 0.2, ease: "power3.in", immediateRender: false }, t);
+            tl.fromTo(p, { x: 0 }, { x: 1940, duration: 0.2, ease: "power3.out", immediateRender: false }, t + 0.2);
+            tl.set(p, { x: -1940 }, t + 0.4);
+          });
+          window.__timelines["wipes"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

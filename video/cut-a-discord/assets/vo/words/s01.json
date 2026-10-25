@@ -1,0 +1,176 @@
+[
+  {
+    "text": "We",
+    "start": 0.05,
+    "end": 0.14,
+    "id": "w0"
+  },
+  {
+    "text": "should",
+    "start": 0.14,
+    "end": 0.56,
+    "id": "w1"
+  },
+  {
+    "text": "hang",
+    "start": 0.56,
+    "end": 0.71,
+    "id": "w2"
+  },
+  {
+    "text": "out.",
+    "start": 0.77,
+    "end": 1.28,
+    "id": "w3"
+  },
+  {
+    "text": "The",
+    "start": 1.33,
+    "end": 1.49,
+    "id": "w4"
+  },
+  {
+    "text": "most",
+    "start": 1.49,
+    "end": 1.77,
+    "id": "w5"
+  },
+  {
+    "text": "sent,",
+    "start": 1.77,
+    "end": 2.08,
+    "id": "w6"
+  },
+  {
+    "text": "least",
+    "start": 2.65,
+    "end": 2.66,
+    "id": "w7"
+  },
+  {
+    "text": "done",
+    "start": 2.66,
+    "end": 2.99,
+    "id": "w8"
+  },
+  {
+    "text": "text",
+    "start": 3.19,
+    "end": 3.36,
+    "id": "w9"
+  },
+  {
+    "text": "in",
+    "start": 3.36,
+    "end": 3.44,
+    "id": "w10"
+  },
+  {
+    "text": "college.",
+    "start": 3.53,
+    "end": 4.16,
+    "id": "w11"
+  },
+  {
+    "text": "Every",
+    "start": 4.21,
+    "end": 4.43,
+    "id": "w12"
+  },
+  {
+    "text": "week,",
+    "start": 4.43,
+    "end": 4.74,
+    "id": "w13"
+  },
+  {
+    "text": "somebody",
+    "start": 4.74,
+    "end": 4.87,
+    "id": "w14"
+  },
+  {
+    "text": "says",
+    "start": 5.15,
+    "end": 5.36,
+    "id": "w15"
+  },
+  {
+    "text": "it,",
+    "start": 5.48,
+    "end": 5.64,
+    "id": "w16"
+  },
+  {
+    "text": "everybody",
+    "start": 5.64,
+    "end": 6.26,
+    "id": "w17"
+  },
+  {
+    "text": "agrees,",
+    "start": 6.3,
+    "end": 6.88,
+    "id": "w18"
+  },
+  {
+    "text": "someone",
+    "start": 6.93,
+    "end": 7.32,
+    "id": "w19"
+  },
+  {
+    "text": "says",
+    "start": 7.32,
+    "end": 7.57,
+    "id": "w20"
+  },
+  {
+    "text": "pick",
+    "start": 7.57,
+    "end": 7.66,
+    "id": "w21"
+  },
+  {
+    "text": "something,",
+    "start": 8.25,
+    "end": 8.44,
+    "id": "w22"
+  },
+  {
+    "text": "and",
+    "start": 8.44,
+    "end": 8.58,
+    "id": "w23"
+  },
+  {
+    "text": "nobody",
+    "start": 8.77,
+    "end": 9.04,
+    "id": "w24"
+  },
+  {
+    "text": "ever",
+    "start": 9.13,
+    "end": 9.32,
+    "id": "w25"
+  },
+  {
+    "text": "picks.",
+    "start": 9.32,
+    "end": 9.9,
+    "id": "w26"
+  },
+  {
+    "text": "Sound",
+    "start": 9.9,
+    "end": 11.11,
+    "id": "w27"
+  },
+  {
+    "text": "familiar?",
+    "start": 11.11,
+    "end": 11.85,
+    "id": "w28"
+  }
+]

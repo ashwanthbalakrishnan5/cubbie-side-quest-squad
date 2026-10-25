@@ -1,0 +1,74 @@
+[
+  {
+    "text": "That's",
+    "start": 0.07,
+    "end": 0.41,
+    "id": "w0"
+  },
+  {
+    "text": "squad",
+    "start": 0.41,
+    "end": 0.76,
+    "id": "w1"
+  },
+  {
+    "text": "mode.",
+    "start": 0.76,
+    "end": 1.26,
+    "id": "w2"
+  },
+  {
+    "text": "Let's",
+    "start": 1.33,
+    "end": 1.43,
+    "id": "w3"
+  },
+  {
+    "text": "get",
+    "start": 1.51,
+    "end": 1.65,
+    "id": "w4"
+  },
+  {
+    "text": "your",
+    "start": 1.65,
+    "end": 1.85,
+    "id": "w5"
+  },
+  {
+    "text": "whole",
+    "start": 1.85,
+    "end": 2.08,
+    "id": "w6"
+  },
+  {
+    "text": "squad",
+    "start": 2.15,
+    "end": 2.35,
+    "id": "w7"
+  },
+  {
+    "text": "some",
+    "start": 2.44,
+    "end": 2.59,
+    "id": "w8"
+  },
+  {
+    "text": "grass",
+    "start": 2.63,
+    "end": 2.85,
+    "id": "w9"
+  },
+  {
+    "text": "to",
+    "start": 2.89,
+    "end": 3.02,
+    "id": "w10"
+  },
+  {
+    "text": "touch.",
+    "start": 3.02,
+    "end": 3.46,
+    "id": "w11"
+  }
+]

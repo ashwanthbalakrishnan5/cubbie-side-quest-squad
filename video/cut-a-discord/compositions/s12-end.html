@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- S12 End card (film 146.533-150.766 s, both cuts; VO s12.wav @0.30). Dead still once built. Cut B mounts it with
+     data-variable-values='{"liveChip": true}' to add the "Live now on Discord." chip. -->
+<html lang="en" data-composition-variables="[
+    {&quot;id&quot;:&quot;liveChip&quot;,&quot;type&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Show \&quot;Live now on Discord.\&quot; chip (Cut B only)&quot;,&quot;default&quot;:false},
+    {&quot;id&quot;:&quot;liveChipText&quot;,&quot;type&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Live chip text&quot;,&quot;default&quot;:&quot;Live now on Discord.&quot;}
+  ]">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s12-line1 {
+          top: 222px;
+        }
+        #s12-stk {
+          top: 388px;
+        }
+        #s12-sub {
+          top: 610px;
+        }
+        #s12-btns {
+          position: absolute;
+          left: 192px;
+          top: 760px;
+          display: flex;
+          align-items: center;
+          gap: 28px;
+        }
+        #s12-live {
+          margin-left: 14px;
+        }
+        #s12-live > span {
+          display: inline-block;
+          transform: rotate(3deg);
+          background: var(--gold);
+          border: 3px solid var(--ink);
+          border-radius: 10px;
+          padding: 10px 18px;
+          box-shadow: 5px 5px 0 var(--ink);
+          font-family: var(--f-body);
+          font-weight: 700;
+          font-size: 30px;
+          line-height: 1.1;
+          white-space: nowrap;
+        }
+        #s12-url {
+          position: absolute;
+          left: 192px;
+          top: 872px;
+          font-family: var(--f-display);
+          font-size: 44px;
+          line-height: 1.1;
+          color: var(--ink);
+          white-space: nowrap;
+          background: linear-gradient(var(--gold), var(--gold)) 0 100% / 100% 8px no-repeat;
+          padding-bottom: 6px;
+        }
+        #s12-small {
+          position: absolute;
+          right: 192px;
+          top: 950px;
+          font-family: var(--f-body);
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 1.2;
+          color: #3d3d3d;
+          white-space: nowrap;
+        }
+      </style>
+      <div data-hf-id="hf-4wuj" id="root" data-composition-id="s12" data-width="1920" data-height="1080" data-duration="4.233">
+        <div data-hf-id="hf-7p4v" class="sq-scene">
+          <div data-hf-id="hf-7vlo" class="sq-grid" data-layout-ignore=""></div>
+          <div data-hf-id="hf-e76x" class="sq-title-1" id="s12-line1">Side Quests:</div>
+          <div data-hf-id="hf-f3fu" class="sq-sticker-slot" id="s12-stk"><span data-hf-id="hf-d37m" class="sq-sticker">Squad Mode</span></div>
+          <div data-hf-id="hf-fsfo" class="sq-sub" id="s12-sub">
+            Squad Mode picks the event, the time and the ride, so you actually go.
+          </div>
+          <div data-hf-id="hf-jeqp" id="s12-btns">
+            <div data-hf-id="hf-lmkj" id="s12-btn1"><span data-hf-id="hf-gaia" class="sq-btn blurple">Add to Discord <i data-hf-id="hf-1kda" data-sq="arrow"></i></span></div>
+            <div data-hf-id="hf-ar2w" id="s12-btn2"><span data-hf-id="hf-wkxj" class="sq-btn mint">See the code</span></div>
+            <div data-hf-id="hf-86xg" id="s12-live"><span data-hf-id="hf-wej3" data-var-text="liveChipText">Live now on Discord.</span></div>
+          </div>
+          <div data-hf-id="hf-b4wj" id="s12-url">squad.ashwanthbk.com</div>
+          <div data-hf-id="hf-g90q" id="s12-small">Cubbie Hackathon · Track 3 · team NRK</div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var root = document.querySelector('[data-composition-id="s12"]');
+          SQ.mount(root);
+          var $ = function (id) {
+            return document.getElementById(id);
+          };
+          var v = (window.__hyperframes && window.__hyperframes.getVariables && window.__hyperframes.getVariables()) || {};
+          var live = v.liveChip === true || v.liveChip === "true";
+          var tl = gsap.timeline({ paused: true });
+          SQ.blurWords(tl, SQ.words($("s12-line1")), 0.3);
+          SQ.land(tl, $("s12-stk"), 0.71);
+          tl.fromTo($("s12-sub"), { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "none" }, 1.2);
+          SQ.inkWords(tl, SQ.words($("s12-sub")), 1.2, 0.05);
+          SQ.land(tl, $("s12-btn1"), 2.93);
+          SQ.blurWords(tl, [$("s12-url")], 2.93, 0, 0.18);
+          SQ.land(tl, $("s12-btn2"), 3.05);
+          SQ.blurWords(tl, [$("s12-small")], 3.15, 0, 0.18);
+          if (live) {
+            SQ.land(tl, $("s12-live"), 3.2);
+          } else {
+            $("s12-live").style.display = "none";
+          }
+          window.__timelines["s12"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
