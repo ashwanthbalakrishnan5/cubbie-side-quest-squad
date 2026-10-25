@@ -1,0 +1,24 @@
+[project]
+name = "squad"
+version = "0.1.0"
+description = "Side Quests: Squad Mode, a Discord group-chat bot that gets your friends out together"
+requires-python = ">=3.12"
+dependencies = [
+    "discord.py==2.7.1",
+    "anthropic>=1.0",
+    "composio>=0.10",
+    "google-genai>=2.30",
+    "pydantic>=2.9",
+    "python-dotenv>=1.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.24", "ruff>=0.7"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+extend-exclude = ["squad/campus_events.py", "docs"]
