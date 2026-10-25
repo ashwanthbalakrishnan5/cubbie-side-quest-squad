@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Made-up events in the CampusGroups rss_events format, used by the script sample mode. -->
+<rss version="2.0" xmlns:cg="https://www.campusgroups.com/rss_calendar">
+	<channel>
+		<title>Sample State University Events</title>
+		<item>
+			<group>Board Game Guild</group>
+			<title>Board Game Night: Catan &amp; Codenames</title>
+			<fullDescription>Drop in, learn a game in 5 minutes, stay for snacks. New people always welcome &#8212; we teach every game.</fullDescription>
+			<eventStartDateTime>2026-10-29T19:00:00.0000000-07:00</eventStartDateTime>
+			<eventLocation>Memorial Union 204</eventLocation>
+			<locationType>On-Campus</locationType>
+			<allDayEvent>0</allDayEvent>
+			<eventType>Social</eventType>
+			<eventTopicsSeparated><eventTopic>In-Person Event</eventTopic><eventTopic>Tempe Campus</eventTopic></eventTopicsSeparated>
+			<eventLink>https://events.example.edu/boardgames/rsvp?id=1001</eventLink>
+		</item>
+		<item>
+			<group>Climbing Club</group>
+			<title>Beginner Bouldering Social</title>
+			<fullDescription>Never climbed? Perfect. Shoes provided, then tacos after.</fullDescription>
+			<eventStartDateTime>2026-10-27T18:30:00.0000000-07:00</eventStartDateTime>
+			<eventLocation>Private Location (sign in to display)</eventLocation>
+			<locationType>On-Campus</locationType>
+			<allDayEvent>0</allDayEvent>
+			<eventType>Athletic/Sports</eventType>
+			<eventTopicsSeparated><eventTopic>In-Person Event</eventTopic><eventTopic>Tempe Campus</eventTopic></eventTopicsSeparated>
+			<eventLink>https://events.example.edu/climbing/rsvp?id=1002</eventLink>
+		</item>
+		<item>
+			<group>Anime Society</group>
+			<title>Studio Ghibli Watch Party</title>
+			<fullDescription>Spirited Away on the big screen. Pizza while it lasts.</fullDescription>
+			<eventStartDateTime>2026-10-30T20:00:00.0000000-07:00</eventStartDateTime>
+			<eventLocation>Coor Hall 170</eventLocation>
+			<locationType>On-Campus</locationType>
+			<allDayEvent>0</allDayEvent>
+			<eventType>Social</eventType>
+			<eventTopicsSeparated><eventTopic>In-Person Event</eventTopic><eventTopic>Tempe Campus</eventTopic></eventTopicsSeparated>
+			<eventLink>https://events.example.edu/anime/rsvp?id=1003</eventLink>
+		</item>
+		<item>
+			<group>Downtown Run Club</group>
+			<title>Sunrise 5K Fun Run</title>
+			<fullDescription>All paces. We finish at the coffee cart.</fullDescription>
+			<eventStartDateTime>2026-10-31T07:00:00.0000000-07:00</eventStartDateTime>
+			<eventLocation>Taylor Place Courtyard</eventLocation>
+			<locationType>On-Campus</locationType>
+			<allDayEvent>0</allDayEvent>
+			<eventType>Athletic/Sports</eventType>
+			<eventTopicsSeparated><eventTopic>In-Person Event</eventTopic><eventTopic>Downtown Phoenix Campus</eventTopic></eventTopicsSeparated>
+			<eventLink>https://events.example.edu/run/rsvp?id=1004</eventLink>
+		</item>
+		<item>
+			<group>Creative Writing Collective</group>
+			<title>Open Mic: Bring a Poem, Leave a Fan</title>
+			<fullDescription>Read something or just listen. Hot cocoa provided.</fullDescription>
+			<eventStartDateTime>2026-10-28T19:30:00.0000000-07:00</eventStartDateTime>
+			<eventLocation>Piper Writers House 109</eventLocation>
+			<locationType>On-Campus</locationType>
+			<allDayEvent>0</allDayEvent>
+			<eventType>Cultural</eventType>
+			<eventTopicsSeparated><eventTopic>In-Person Event</eventTopic><eventTopic>Tempe Campus</eventTopic></eventTopicsSeparated>
+			<eventLink>https://events.example.edu/writers/rsvp?id=1005</eventLink>
+		</item>
+		<item>
+			<group>Career Services</group>
+			<title>Resume Review Webinar</title>
+			<fullDescription>Online session.</fullDescription>
+			<eventStartDateTime>2026-10-28T12:00:00.0000000-07:00</eventStartDateTime>
+			<eventLocation>Zoom</eventLocation>
+			<locationType>Virtual</locationType>
+			<allDayEvent>0</allDayEvent>
+			<eventType>Career Workshop</eventType>
+			<eventLink>https://events.example.edu/careers/rsvp?id=1006</eventLink>
+		</item>
+		<item>
+			<group>University Library</group>
+			<title>Banned Books Display</title>
+			<fullDescription>All week in the lobby.</fullDescription>
+			<eventStartDateTime>2026-10-26T00:00:00.0000000-07:00</eventStartDateTime>
+			<eventLocation>Hayden Library Lobby</eventLocation>
+			<locationType>On-Campus</locationType>
+			<allDayEvent>1</allDayEvent>
+			<eventType>Educational/Awareness</eventType>
+			<eventLink>https://events.example.edu/library/rsvp?id=1007</eventLink>
+		</item>
+		<item>
+			<group>Cooking Club</group>
+			<title>Dorm Ramen Glow-Up Workshop</title>
+			<fullDescription>Turn instant ramen into a real meal. Ingredients provided, food provided.</fullDescription>
+			<eventStartDateTime>2026-11-03T18:00:00.0000000-07:00</eventStartDateTime>
+			<eventLocation>Manzanita Hall Kitchen</eventLocation>
+			<locationType>On-Campus</locationType>
+			<allDayEvent>0</allDayEvent>
+			<eventType>Social</eventType>
+			<eventTopicsSeparated><eventTopic>In-Person Event</eventTopic><eventTopic>Tempe Campus</eventTopic></eventTopicsSeparated>
+			<eventLink>https://events.example.edu/cooking/rsvp?id=1008</eventLink>
+		</item>
+	</channel>
+</rss>

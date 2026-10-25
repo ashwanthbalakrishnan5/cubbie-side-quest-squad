@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img" aria-label="Side Quests: Squad Mode. Four friends' agents chat (open mic? I'll drive, free please, after 6 works), a plan card for Open Mic Night appears, the poll fills up with yeses, and carpools are sorted.">
+<title>Side Quests: Squad Mode</title>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#160E33"/><stop offset=".55" stop-color="#25103A"/><stop offset="1" stop-color="#4A0F2A"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFB000"/><stop offset="1" stop-color="#FFE27A"/></linearGradient>
+  <linearGradient id="cardbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A1D52"/><stop offset="1" stop-color="#1B1236"/></linearGradient>
+  <radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFC627" stop-opacity=".45"/><stop offset="1" stop-color="#FFC627" stop-opacity="0"/></radialGradient>
+</defs>
+<style>
+  .star { fill:#fff; opacity:.4; animation: twinkle 4s ease-in-out infinite; }
+  @keyframes twinkle { 0%,100% { opacity:.12 } 50% { opacity:.75 } }
+  .title { font: 800 60px ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; fill:#FFC627; letter-spacing:3px; }
+  .kicker { font: 700 16px ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; fill:#C7B6EA; letter-spacing:4px; }
+  .sub { font: 600 23px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill:#F6EEFF; }
+  .sub2 { font: 500 17px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill:#C7B6EA; }
+  .ini { font: 800 22px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill:#160E33; }
+  .nm { font: 600 13px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill:#C7B6EA; }
+  .chip { font: 600 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill:#fff; }
+  .card-h { font: 800 13px ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; fill:#FFC627; letter-spacing:2px; }
+  .card-t { font: 800 26px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill:#fff; }
+  .card-m { font: 500 15px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill:#CDBEF2; }
+  .opt { font: 600 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill:#fff; }
+  .pct { font: 700 13px ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; fill:#FFC627; }
+  .ride { font: 600 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill:#160E33; }
+  .a { animation-duration:10s; animation-iteration-count:infinite; animation-timing-function:cubic-bezier(.2,.8,.2,1); animation-fill-mode:both; }
+  .c1 { animation-name: c1 } .c2 { animation-name: c2 } .c3 { animation-name: c3 } .c4 { animation-name: c4 }
+  @keyframes c1 { 0%,2% { opacity:0; transform:translateY(8px) } 6%,90% { opacity:1; transform:none } 96%,100% { opacity:0 } }
+  @keyframes c2 { 0%,8% { opacity:0; transform:translateY(8px) } 12%,90% { opacity:1; transform:none } 96%,100% { opacity:0 } }
+  @keyframes c3 { 0%,14% { opacity:0; transform:translateY(8px) } 18%,90% { opacity:1; transform:none } 96%,100% { opacity:0 } }
+  @keyframes c4 { 0%,20% { opacity:0; transform:translateY(8px) } 24%,90% { opacity:1; transform:none } 96%,100% { opacity:0 } }
+  .card { animation-name: cardIn; transform-box: fill-box; transform-origin: center; }
+  @keyframes cardIn { 0%,28% { opacity:0; transform:translateX(40px) rotate(2deg) } 34%,92% { opacity:1; transform:none } 100% { opacity:0; transform:translateX(-20px) } }
+  .yes { animation-name: yes; transform-box: fill-box; transform-origin: left; }
+  @keyframes yes { 0%,38% { transform:scaleX(0) } 44% { transform:scaleX(.25) } 50% { transform:scaleX(.5) } 56%,92% { transform:scaleX(.75) } 100% { transform:scaleX(.75) } }
+  .maybe { animation-name: maybe; transform-box: fill-box; transform-origin: left; }
+  @keyframes maybe { 0%,47% { transform:scaleX(0) } 53%,100% { transform:scaleX(.25) } }
+  .rideIn { animation-name: rideIn; }
+  @keyframes rideIn { 0%,62% { opacity:0; transform:translateY(10px) } 68%,92% { opacity:1; transform:none } 100% { opacity:0 } }
+  .ring { animation-name: ring; transform-box: fill-box; transform-origin: center; }
+  @keyframes ring { 0%,70% { opacity:0; transform:rotate(0) } 72% { opacity:1; transform:rotate(-14deg) } 74% { transform:rotate(14deg) } 76% { transform:rotate(-14deg) } 78% { transform:rotate(14deg) } 80%,92% { opacity:1; transform:rotate(0) } 100% { opacity:0 } }
+  @media (prefers-reduced-motion: reduce) { .a, .star { animation: none !important; } }
+</style>
+<rect width="1000" height="420" rx="24" fill="url(#bg)"/>
+<g>
+  <circle class="star" cx="84" cy="44" r="1.6"/><circle class="star" cx="300" cy="30" r="1.2" style="animation-delay:1s"/>
+  <circle class="star" cx="520" cy="58" r="1.4" style="animation-delay:2s"/><circle class="star" cx="958" cy="40" r="1.5" style="animation-delay:.5s"/>
+  <circle class="star" cx="40" cy="380" r="1.2" style="animation-delay:3s"/><circle class="star" cx="560" cy="396" r="1.3" style="animation-delay:1.5s"/>
+</g>
+
+<text class="kicker" x="56" y="74">SIDE QUESTS</text>
+<text class="title" x="52" y="136">SQUAD MODE</text>
+<text class="sub" x="56" y="178">your group chat, but you actually go.</text>
+<text class="sub2" x="56" y="206">an agent for every friend · one real ASU event a week</text>
+
+<!-- friends and their agents -->
+<g transform="translate(56,250)">
+  <g class="a c1"><rect x="-4" y="0" width="118" height="30" rx="15" fill="#3A2A6E"/><text class="chip" x="14" y="20">open mic? 🎤</text></g>
+  <g class="a c2"><rect x="118" y="0" width="112" height="30" rx="15" fill="#3A2A6E"/><text class="chip" x="134" y="20">I'll drive 🚗</text></g>
+  <g class="a c3"><rect x="236" y="0" width="112" height="30" rx="15" fill="#3A2A6E"/><text class="chip" x="252" y="20">free pls 💸</text></g>
+  <g class="a c4"><rect x="354" y="0" width="118" height="30" rx="15" fill="#3A2A6E"/><text class="chip" x="370" y="20">after 6 ✓ 🌵</text></g>
+  <g transform="translate(0,48)">
+    <circle cx="54" cy="30" r="28" fill="#FF8FB1"/><text class="ini" x="45" y="38">M</text><text class="nm" x="36" y="80">Maya</text>
+    <circle cx="174" cy="30" r="28" fill="#7CFFB2"/><text class="ini" x="167" y="38">J</text><text class="nm" x="152" y="80">Jordan</text>
+    <circle cx="292" cy="30" r="28" fill="#8FD3FF"/><text class="ini" x="284" y="38">P</text><text class="nm" x="275" y="80">Priya</text>
+    <circle cx="412" cy="30" r="28" fill="#FFC627"/><text class="ini" x="405" y="38">L</text><text class="nm" x="400" y="80">Leo</text>
+  </g>
+</g>
+
+<!-- plan card -->
+<circle cx="770" cy="210" r="210" fill="url(#halo)" opacity=".5"/>
+<g class="a card">
+  <rect x="590" y="56" width="360" height="300" rx="22" fill="url(#cardbg)" stroke="#8C1D40" stroke-width="3"/>
+  <rect x="590" y="56" width="8" height="300" rx="4" fill="#8C1D40"/>
+  <text class="card-h" x="620" y="92">THIS WEEK'S SIDE QUEST</text>
+  <text class="card-t" x="620" y="130">Open Mic Night</text>
+  <text class="card-m" x="620" y="156">Fri 7:00 PM · Memorial Union · free 🍕</text>
+  <g transform="translate(620,182)">
+    <text class="opt" x="0" y="14">I'm in ✅</text>
+    <rect x="110" y="2" width="180" height="14" rx="7" fill="#2E2458"/>
+    <rect class="a yes" x="110" y="2" width="180" height="14" rx="7" fill="url(#gold)"/>
+    <text class="opt" x="0" y="44">Maybe 🤔</text>
+    <rect x="110" y="32" width="180" height="14" rx="7" fill="#2E2458"/>
+    <rect class="a maybe" x="110" y="32" width="180" height="14" rx="7" fill="#C7B6EA"/>
+    <text class="opt" x="0" y="74">Can't ❌</text>
+    <rect x="110" y="62" width="180" height="14" rx="7" fill="#2E2458"/>
+  </g>
+  <g class="a rideIn">
+    <rect x="620" y="282" width="300" height="34" rx="17" fill="#FFC627"/>
+    <text class="ride" x="638" y="304">🚗 Jordan → Maya, Priya · 🚆 Leo</text>
+  </g>
+  <g class="a ring"><circle cx="918" cy="92" r="18" fill="#7CFFB2"/><text x="908" y="99" font-size="18">📞</text></g>
+</g>
+</svg>
