@@ -13,6 +13,8 @@
 
 [See it](#see-it) · [Try it](#try-it) · [How it works](#how-it-works) · [Run your own](#run-your-own)
 
+### 🎬 [Watch the 2:30 demo film](https://squad.ashwanthbk.com/media/squad-mode.mp4) · [squad.ashwanthbk.com](https://squad.ashwanthbk.com)
+
 </div>
 
 ## The moment
@@ -165,7 +167,7 @@ cp .env.example .env
 |---|---|
 | `DISCORD_TOKEN` | the bot token (required) |
 | `ANTHROPIC_API_KEY` | the agents and coordinator (required) |
-| `GEMINI_API_KEY` | the voice nudge (required at start-up, even before WhatsApp is paired) |
+| `GEMINI_API_KEY` | the voice nudge (required at start-up) |
 | `COMPOSIO_API_KEY` | a Composio **project** key; leave empty to turn calendars off |
 | `COMPOSIO_CALENDAR_AUTH_CONFIG` | your Composio Google Calendar auth config id |
 | `PUBLIC_URL` | where Composio sends people back after calendar sign-in (`/calendar/done`) |
@@ -195,11 +197,12 @@ in and gave a number, that nudge can be a short phone call: a friendly voice giv
 
 How: [`wa-voice/`](wa-voice/README.md) is a small Rust sidecar on
 [whatsapp-rust](https://github.com/oxidezap/whatsapp-rust) that places the WhatsApp call, and
-`squad/voice/bridge.py` streams the audio to Gemini Live (`gemini-3.8-live`). Calls end within 90 seconds.
+`squad/voice/bridge.py` streams the audio to Gemini Live (`gemini-3.8-live`). Answered calls end within 90 seconds.
 
-**Honest status:** it's built and tested, but it needs a WhatsApp number paired by QR code, and that hasn't happened
-yet. Until it's paired, nudges fall back to a Discord DM (or a channel @-mention if DMs are closed). whatsapp-rust is
-an unofficial client, so the number it runs on may get banned. Use a spare.
+**Status: live.** The sidecar runs next to the bot on our server, paired by QR as a linked WhatsApp device, and real
+calls ring (a declined or unanswered call ends within 35 s and the bot moves on quietly). If the sidecar is ever down
+or unpaired, nudges fall back to a Discord DM (or a channel @-mention if DMs are closed). whatsapp-rust is an
+unofficial client, so the number it runs on may get banned. Use a spare.
 
 ```bash
 cd wa-voice && cargo run --release     # first start writes the pairing QR to data/wa-qr.txt
@@ -223,7 +226,7 @@ qrencode -t ansiutf8 < data/wa-qr.txt  # scan from WhatsApp → Linked devices
 ```bash
 uv run pytest                               # 155 tests
 uv run ruff check . && uv run ruff format .
-cd wa-voice && cargo test && cargo clippy -- -D warnings   # 4 tests
+cd wa-voice && cargo test && cargo clippy -- -D warnings   # 5 tests
 ```
 
 ```text
