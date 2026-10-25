@@ -121,17 +121,11 @@
 
   <section>
     <div class="box video">
-      <video id="demo" controls playsinline preload="metadata" poster="/media/squad-mode.jpg" hidden>
+      <video id="demo" controls playsinline preload="metadata" poster="/media/squad-mode.jpg">
         <source src="/media/squad-mode.mp4" type="video/mp4">
+        <a href="/media/squad-mode.mp4">Watch the 2:30 demo film</a>
       </video>
-      <p id="demo-soon">Demo video coming soon 🎬</p>
     </div>
-    <script>
-      // show the player only once the video exists on the server
-      fetch("/media/squad-mode.mp4", { method: "HEAD" }).then(r => {
-        if (r.ok) { document.getElementById("demo").hidden = false; document.getElementById("demo-soon").remove(); }
-      }).catch(() => {});
-    </script>
   </section>
 
   <section>
