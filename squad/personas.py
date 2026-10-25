@@ -61,7 +61,7 @@ PERSONAS: list[Member] = [
 
 # member id -> (days after Monday, start hour, end hour)
 _BUSY: dict[str, list[tuple[int, int, int]]] = {
-    "demo:leo": [(4, 18, 21)],
+    "demo:leo": [(3, 18, 21)],
     "demo:maya": [(5, 12, 16)],
 }
 
