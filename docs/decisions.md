@@ -201,3 +201,4 @@ One line each: what was decided, and why, when the plan didn't cover it.
 - `NudgeFlow.nudge` now returns what happened ("answered", "no_answer", "dm", "mention", "closed") for those replies; the loop ignores it.
 - `why_no_submitted` catches any error from `learn_from_no` (not only `LLMError`) and just thanks the member, so a live "Can't make it" never leaves a stuck "thinking…".
 - Tests zero every `*_S` constant in `demo_script`; `tests/test_bot_core.py` stubs `demo_script.run` and `tests/test_demo.py` runs it with all three flows set up.
+- 2026-10-25: wa-voice paired on openclaw as a linked device of the existing wa-gateway WhatsApp number; DEMO_PHONE set on the server; a real call rang the presenter and ended "declined" in 6 s.
