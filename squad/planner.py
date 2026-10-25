@@ -23,6 +23,13 @@ from .models import (
 )
 
 LEAD = timedelta(minutes=90)  # events starting sooner than this are too late to plan
+WATCH_SOON = timedelta(hours=6)  # the watcher leaves time to read, vote and get there
+WATCH_AHEAD = timedelta(days=7)
+CALENDAR_KINDS = {
+    "busy",
+    "late",
+    "no_go",
+}  # budget and learned go through the private check
 
 
 def pick_candidates(
@@ -48,6 +55,44 @@ def pick_candidates(
         scored.append((key, event, violations))
     scored.sort(key=lambda s: s[0])
     return [(e, v) for _, e, v in scored[:CANDIDATES_K]]
+
+
+def find_match(
+    members: list[Member],
+    events: list[Event],
+    busy: dict[str, list[BusyBlock] | None],
+    tz,
+    now: datetime,
+    exclude: set[str],
+) -> tuple[Event, list[Member]] | None:
+    """The watcher's pick: an event that fits everyone's week, else a keen subset."""
+    best = None
+    for event in events:
+        if event.id in exclude or not (
+            now + WATCH_SOON <= event.start <= now + WATCH_AHEAD
+        ):
+            continue
+        kinds = {
+            m.id: {v.kind for v in violations_for(m, event, busy.get(m.id), tz)}
+            for m in members
+        }
+        scores = {m.id: interest_score(m, event) for m in members}
+        everyone = (
+            not any(k & CALENDAR_KINDS for k in kinds.values())
+            and sum(scores.values()) >= len(members)
+            and 2 * sum(s >= 1 for s in scores.values()) >= len(members)
+        )
+        who = (
+            members
+            if everyone
+            else [m for m in members if not kinds[m.id] and scores[m.id] >= 2]
+        )
+        if not everyone and len(who) < 2:
+            continue
+        key = (not everyone, -sum(scores[m.id] for m in who), event.start)
+        if best is None or key < best[0]:
+            best = (key, event, who)
+    return None if best is None else (best[1], best[2])
 
 
 async def build_plan(

@@ -1,8 +1,8 @@
 from datetime import datetime, timedelta
 
 from squad.agents import DecisionOut, StanceOut, StancesOut
-from squad.models import NoPlan, Plan, Request
-from squad.planner import build_plan, pick_candidates
+from squad.models import BusyBlock, NoPlan, Plan, Request
+from squad.planner import build_plan, find_match, pick_candidates
 from tests.fakes import TZ, make_event, make_member
 
 NOW = datetime(2026, 10, 26, 12, 0, tzinfo=TZ)
@@ -135,3 +135,65 @@ def test_pick_candidates_sorts_fewest_violations_then_interest():
     )
     assert [e.id for e, _ in out] == [music.id, plain.id, pricey.id]
     assert out[2][1][0].kind == "budget"
+
+
+def _busy_during(event):
+    return [BusyBlock(start=event.start, end=event.end)]
+
+
+def test_find_match_everyone():
+    mic = make_event("Open Mic Night")
+    members = [make_member("u1"), make_member("u2")]
+    assert find_match(members, [mic], {}, TZ, NOW, set()) == (mic, members)
+
+
+def test_find_match_everyone_allows_budget_but_not_calendar():
+    mic = make_event("Open Mic Night", price_usd=5)
+    broke = make_member("u2", budget_usd=0)
+    members = [make_member("u1"), broke]
+    assert find_match(members, [mic], {}, TZ, NOW, set()) == (mic, members)
+    busy = {"u2": _busy_during(mic)}
+    assert find_match(members, [mic], busy, TZ, NOW, set()) is None
+
+
+def test_find_match_subset_when_one_member_is_busy():
+    gig = make_event("Open Mic Night with free pizza")
+    fans = [make_member(i, interests=["music", "food"]) for i in ("u1", "u2")]
+    busy_one = make_member("u3")
+    out = find_match(
+        [*fans, busy_one], [gig], {"u3": _busy_during(gig)}, TZ, NOW, set()
+    )
+    assert out == (gig, fans)
+
+
+def test_find_match_none_when_nothing_qualifies():
+    talk = make_event("Chemistry Seminar")
+    assert (
+        find_match([make_member("u1"), make_member("u2")], [talk], {}, TZ, NOW, set())
+        is None
+    )
+
+
+def test_find_match_skips_events_within_6_hours():
+    soon = make_event("Open Mic Night", start=NOW + timedelta(hours=5))
+    later = make_event("Open Mic Night", start=NOW + timedelta(hours=7))
+    members = [make_member("u1"), make_member("u2")]
+    assert find_match(members, [soon], {}, TZ, NOW, set()) is None
+    assert find_match(members, [soon, later], {}, TZ, NOW, set()) == (later, members)
+
+
+def test_find_match_respects_exclude_and_prefers_everyone():
+    mic = make_event("Open Mic Night")
+    gig = make_event("Jam with free pizza", start=NOW + timedelta(days=1, hours=7))
+    members = [
+        make_member("u1", interests=["music", "food"]),
+        make_member("u2", interests=["music", "food"]),
+        make_member("u3"),
+    ]
+    busy = {"u3": _busy_during(gig)}
+    # gig is earlier and scores higher but is only a subset match
+    assert find_match(members, [gig, mic], busy, TZ, NOW, set()) == (mic, members)
+    assert find_match(members, [gig, mic], busy, TZ, NOW, {mic.id}) == (
+        gig,
+        members[:2],
+    )

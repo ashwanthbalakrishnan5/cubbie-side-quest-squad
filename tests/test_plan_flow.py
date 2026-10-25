@@ -11,7 +11,7 @@ from squad.config import Settings
 from squad.constants import VOTE_ANSWERS
 from squad.events import EventsUnavailable
 from squad.flows import plan_flow
-from squad.models import Squad
+from squad.models import Plan, Squad
 from squad.personas import PERSONAS
 from tests.fakes import TZ, make_event, make_member
 
@@ -102,6 +102,7 @@ async def bot(store, fake_llm, monkeypatch):
     plan_flow.setup(b)
     yield b
     b.flows.weekly_loop.cancel()
+    b.flows.watch_loop.cancel()
 
 
 def feed(monkeypatch, *events):
@@ -361,3 +362,165 @@ async def test_card_and_turns_have_no_private_detail(bot, store, fake_llm, monke
         assert private not in public
     (plan,) = store.plans("polling")
     assert plan.confirmations == {"demo:maya": True, "2": True}
+
+
+NOON = ahead(0, 12)
+
+
+def watched(bot, monkeypatch) -> Channel:
+    channel = Channel()
+    monkeypatch.setattr(bot, "get_channel", lambda _id: channel)
+    return channel
+
+
+async def test_watch_tick_posts_everyone_intro_then_card_and_poll(
+    bot, store, monkeypatch
+):
+    event = make_event("Open Mic Night", start=ahead(2, 18))
+    feed(monkeypatch, event)
+    await seed(store, make_member("1"), make_member("2"))
+    channel = watched(bot, monkeypatch)
+
+    await bot.flows.watch_tick(NOON)
+
+    (intro, kw), (_, card), (_, poll) = channel.sent
+    unix = int(event.start.timestamp())
+    assert intro == (
+        "👀 Spotted something that fits everyone's week: "
+        f"**Open Mic Night**, <t:{unix}:f>. Want to go?"
+    )
+    mentions = kw["allowed_mentions"]
+    assert (mentions.users, mentions.everyone, mentions.roles) == (True, False, False)
+    assert "### Open Mic Night" in texts(card["view"])
+    assert poll["poll"].question == "Open Mic Night, you in?"
+    (plan,) = store.plans("polling")
+    assert plan.event.id == event.id
+    squad = store.squad("555")
+    assert squad.suggested_event_ids == [event.id]
+    assert squad.last_watch_post == NOON
+
+
+async def test_watch_tick_subset_mentions_only_the_fans(bot, store, monkeypatch):
+    event = make_event("Jam with free pizza", start=ahead(2, 18))
+    feed(monkeypatch, event)
+    fans = ["music", "food"]
+    await seed(
+        store,
+        make_member("1", interests=fans),
+        make_member("demo:xi", name="Xi", is_demo=True, interests=fans),
+        make_member("3", free_slots=[]),  # no calendar, no free slots: busy
+    )
+    channel = watched(bot, monkeypatch)
+
+    await bot.flows.watch_tick(NOON)
+
+    unix = int(event.start.timestamp())
+    assert channel.sent[0][0] == (
+        f"👀 <@1>, Xi: **Jam with free pizza**, <t:{unix}:f> fits your calendars "
+        "and looks very you. Want to go? Anyone else is welcome too."
+    )
+    assert "### Jam with free pizza" in texts(channel.sent[1][1]["view"])
+
+
+async def test_watch_tick_budget_goes_through_private_check(bot, store, monkeypatch):
+    event = make_event("Open Mic Night", start=ahead(2, 18), price_usd=5)
+    feed(monkeypatch, event)
+    await seed(store, make_member("1"), make_member("2", budget_usd=0))
+    channel = watched(bot, monkeypatch)
+    dms = fake_dm(bot, "yes")
+    inner, posted_before_dm = bot.dm, []
+
+    async def dm(user_id, **kw):
+        posted_before_dm.append(len(channel.sent))
+        return await inner(user_id, **kw)
+
+    bot.dm = dm
+
+    await bot.flows.watch_tick(NOON)
+
+    assert [uid for uid, _ in dms] == ["2"]
+    assert posted_before_dm == [1]  # only the intro, the card waits for the answer
+    assert channel.sent[0][0].startswith("👀 Spotted something that fits everyone")
+    assert "### Open Mic Night" in texts(channel.sent[1][1]["view"])
+    assert "cap" not in "\n".join(public_texts(channel))
+    (plan,) = store.plans("polling")
+    assert plan.confirmations == {"2": True}
+
+
+async def test_watch_tick_skips_while_a_plan_is_polling(bot, store, monkeypatch):
+    event = make_event("Open Mic Night", start=ahead(2, 18))
+    feed(monkeypatch, event)
+    await seed(store, make_member("1"), make_member("2"))
+    await store.put_plan(
+        Plan(
+            id="p1",
+            channel_id="555",
+            event=event,
+            status="polling",
+            headline="h",
+            why="w",
+            created_at=NOON,
+        )
+    )
+    channel = watched(bot, monkeypatch)
+
+    await bot.flows.watch_tick(NOON)
+
+    assert channel.sent == []
+    assert store.squad("555").suggested_event_ids == []
+
+
+async def test_watch_tick_waits_72_hours_between_posts(bot, store, monkeypatch):
+    feed(monkeypatch, make_event("Open Mic Night", start=ahead(2, 18)))
+    squad = await seed(store, make_member("1"), make_member("2"))
+    squad.last_watch_post = NOON - timedelta(hours=71)
+    await store.put_squad(squad)
+    channel = watched(bot, monkeypatch)
+
+    await bot.flows.watch_tick(NOON)
+    assert channel.sent == []
+
+    await bot.flows.watch_tick(NOON + timedelta(hours=2))
+    assert channel.sent[0][0].startswith("👀")
+
+
+async def test_watch_tick_quiet_at_night(bot, store, monkeypatch):
+    feed(monkeypatch, make_event("Open Mic Night", start=ahead(2, 18)))
+    await seed(store, make_member("1"), make_member("2"))
+    channel = watched(bot, monkeypatch)
+
+    await bot.flows.watch_tick(NOON.replace(hour=23))
+
+    assert channel.sent == []
+
+
+async def test_watch_tick_never_suggests_the_same_event_twice(bot, store, monkeypatch):
+    event = make_event("Open Mic Night", start=ahead(2, 18))
+    feed(monkeypatch, event)
+    await seed(store, make_member("1"), make_member("2"))
+    channel = watched(bot, monkeypatch)
+    await bot.flows.watch_tick(NOON)
+    (plan,) = store.plans("polling")
+    plan.status = "closed"
+    squad = store.squad("555")
+    squad.last_watch_post = NOON - timedelta(days=30)
+    await store.put_squad(squad)
+    sent = len(channel.sent)
+
+    await bot.flows.watch_tick(NOON)
+
+    assert len(channel.sent) == sent
+    assert store.squad("555").suggested_event_ids == [event.id]
+
+
+async def test_watch_tick_feed_down_is_silent(bot, store, monkeypatch):
+    async def down(settings, now, days=7):
+        raise EventsUnavailable("Sun Devil Central isn't answering")
+
+    monkeypatch.setattr(plan_flow, "upcoming_events", down)
+    await seed(store, make_member("1"), make_member("2"))
+    channel = watched(bot, monkeypatch)
+
+    await bot.flows.watch_tick(NOON)
+
+    assert channel.sent == []

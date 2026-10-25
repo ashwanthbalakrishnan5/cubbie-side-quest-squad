@@ -186,3 +186,6 @@ One line each: what was decided, and why, when the plan didn't cover it.
 - Deployed to openclaw: `~/squad`, `squad.service` (systemd, `uv run --python 3.12 python -m squad`), `.env` with `PUBLIC_URL=https://squad.ashwanthbk.com` and `DEMO_FAST=1` (quick persona votes and nudges for demos and judges).
 - Caddy (`/opt/media/Caddyfile`, backup `.bak-squad`) proxies `squad.ashwanthbk.com` → `172.19.0.1:8090`; iptables allows `172.19.0.0/16` → 8090 (saved with netfilter-persistent); Cloudflare A record `squad` → 129.146.181.140, DNS only like `door`.
 - `wa-voice` is not built on openclaw yet: WhatsApp pairing was skipped, so there is nothing to run.
+
+## Watcher (2026-10-25)
+- Watcher: every 3 h (DEMO_FAST 2 min) `watch_tick` runs `planner.find_match` per squad (2+ members, no confirming/polling plan, 72 h / DEMO_FAST 10 min since `last_watch_post`, 09:00-22:00 local); everyone match ignores budget/learned violations (the consent round DMs those privately), subset match is strict; the event id is saved in `suggested_event_ids` before posting, feed outages stay silent, and `run_plan(only_event=...)` reuses the watcher's event instead of refetching the feed.

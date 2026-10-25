@@ -9,7 +9,7 @@
 <a href="#try-it"><img alt="Discord bot" src="https://img.shields.io/badge/Discord-bot-5865F2?style=for-the-badge&labelColor=2A0F22"></a>
 <a href="#how-it-works"><img alt="Real ASU events" src="https://img.shields.io/badge/real-ASU%20events-8C1D40?style=for-the-badge&labelColor=2A0F22"></a>
 <a href="#what-each-agent-shares-vs-keeps-private"><img alt="One agent per friend" src="https://img.shields.io/badge/agents-one%20per%20friend-FFC627?style=for-the-badge&labelColor=2A0F22"></a>
-<a href="#for-builders"><img alt="131 tests passing" src="https://img.shields.io/badge/tests-131%20passing-0A84FF?style=for-the-badge&labelColor=2A0F22"></a>
+<a href="#for-builders"><img alt="145 tests passing" src="https://img.shields.io/badge/tests-145%20passing-0A84FF?style=for-the-badge&labelColor=2A0F22"></a>
 
 [See it](#see-it) · [Try it](#try-it) · [How it works](#how-it-works) · [Run your own](#run-your-own)
 
@@ -74,11 +74,15 @@ More: `/squad weekly` sets the day and hour of the automatic weekly plan (Wednes
 right-click any message → **Apps → Plan this** turns "we should go bowling" into a plan, and `/squad leave` forgets
 you.
 
+You don't even have to ask. Every few hours the bot checks the coming week against everyone's calendar and tastes, and
+when something fits it pings the group: "👀 Spotted something that fits everyone's week: **Open Mic Night**… Want to
+go?" (at most once every 3 days, never at night, never the same event twice).
+
 ## How it works
 
 ```mermaid
 flowchart TD
-    A["@mention, /squad plan or the weekly timer"] --> B["Sun Devil Central feed<br/>+ everyone's hard limits, checked in code"]
+    A["@mention, /squad plan, the weekly timer<br/>or the watcher spotting a fit"] --> B["Sun Devil Central feed<br/>+ everyone's hard limits, checked in code"]
     B --> C["Member agents<br/>one per friend, in parallel"]
     C --> D["Coordinator<br/>picks one event, explains the trade-offs"]
     D --> E{"Breaks anyone's limit?"}
@@ -93,6 +97,7 @@ flowchart TD
 
 | | Step | What happens |
 |:-:|---|---|
+| 👀 | **The watcher** | Every 3 hours it checks events 6 h to 7 days out against everyone's calendar and interests. A fit for everyone (or a keen 2+) gets a ping in the channel and the usual card and poll. |
 | 🗺️ | **The feed** | Real in-person events from ASU's Sun Devil Central for the next 7 days (the same reader as [Side Quests](https://github.com/ashwanthbalakrishnan5/cubbie-side-quest), cached so it's fast). |
 | 🧮 | **The rules** | Plain code drops what doesn't fit the ask and ranks the rest by how few people's limits each one breaks. Top 6 go to the agents. |
 | 🤖 | **The agents** | One Claude call per friend, in parallel. Each scores the events 0–10 and writes one line the group can see. |
@@ -172,7 +177,8 @@ uv run python -m squad           # the bot, plus a small web server on :8090 (si
 ```
 
 For demos, `DEMO_FAST=1 uv run python -m squad` makes the demo friends vote within 20 seconds, the private check
-wait 1 minute instead of 10, and the nudge come after 1 minute instead of 30.
+wait 1 minute instead of 10, the nudge come after 1 minute instead of 30, and the watcher look every 2 minutes (posting at
+most every 10).
 
 > [!WARNING]
 > Run one copy of the bot per token. Two processes with the same token both answer every command.
@@ -211,7 +217,7 @@ qrencode -t ansiutf8 < data/wa-qr.txt  # scan from WhatsApp → Linked devices
 ## For builders
 
 ```bash
-uv run pytest                               # 131 tests
+uv run pytest                               # 145 tests
 uv run ruff check . && uv run ruff format .
 cd wa-voice && cargo test && cargo clippy -- -D warnings   # 4 tests
 ```
@@ -220,7 +226,7 @@ cd wa-voice && cargo test && cargo clippy -- -D warnings   # 4 tests
 squad/
 ├── __main__.py         python -m squad (and --check)
 ├── bot.py              slash commands, sign-up, demo squad, DMs
-├── flows/              plan_flow (triggers, consent, card, thread, poll) · vote_flow (votes, why-no, close, rides, event) · nudge_flow
+├── flows/              plan_flow (triggers, watcher, consent, card, thread, poll) · vote_flow (votes, why-no, close, rides, event) · nudge_flow
 ├── planner.py          candidates → member agents → coordinator → Plan
 ├── constraints.py      hard limits and request filters, in code
 ├── agents.py           member agents, coordinator, request parsing, learning from a no

@@ -109,6 +109,8 @@ class Squad(BaseModel):
     poll_hours: int = 1
     webhook_url: str = ""
     last_weekly_date: date | None = None
+    suggested_event_ids: list[str] = []
+    last_watch_post: datetime | None = None
 
 
 class Plan(BaseModel):

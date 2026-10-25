@@ -16,9 +16,9 @@ from ..agents import parse_request
 from ..constants import MAX_ROUNDS, VOTE_ANSWERS
 from ..constraints import violations_for
 from ..events import EventsUnavailable, upcoming_events
-from ..models import BusyBlock, Member, NoPlan, Plan, Request, Squad
+from ..models import BusyBlock, Event, Member, NoPlan, Plan, Request, Squad
 from ..personas import persona_busy, post_as
-from ..planner import build_plan
+from ..planner import build_plan, find_match
 from ..ui.cards import _view, confirm_view, no_plan_card, plan_card
 
 if TYPE_CHECKING:
@@ -32,6 +32,12 @@ ALL_DECLINED = "I couldn't land on one that works for everyone this time."
 NOTED = "Got it, thanks 🙏"
 STALE = "That check already closed, thanks though 🙂"
 GONE = "I can't find that plan anymore 🙂"
+SPOTTED_ALL = "👀 Spotted something that fits everyone's week: **{title}**, <t:{unix}:f>. Want to go?"
+SPOTTED_SOME = (
+    "👀 {mentions}: **{title}**, <t:{unix}:f> fits your calendars and looks very you. "
+    "Want to go? Anyone else is welcome too."
+)
+WATCH_HOURS = range(9, 22)  # the watcher never posts 22:00-09:00 local
 
 
 class PlanFlow:
@@ -69,17 +75,41 @@ class PlanFlow:
             self.bot.calendar.busy_blocks, member.id, now, now + timedelta(days=7), tz
         )
 
-    async def run_plan(self, squad: Squad, channel, request: Request) -> None:
+    async def _busy_all(
+        self, members: list[Member], now: datetime
+    ) -> dict[str, list[BusyBlock] | None]:
+        found = await asyncio.gather(*(self._busy(m, now) for m in members))
+        return {m.id: b for m, b in zip(members, found)}
+
+    async def run_plan(
+        self,
+        squad: Squad,
+        channel,
+        request: Request,
+        intro: str | None = None,
+        only_event: Event | None = None,
+        members: list[Member] | None = None,
+    ) -> None:
         bot, tz = self.bot, self.bot.settings.tz
         now = datetime.now(tz)
-        try:
-            events = await upcoming_events(bot.settings, now)
-        except EventsUnavailable:
-            await channel.send(FEED_DOWN)
-            return
-        members = bot.store.members(squad.member_ids)
-        found = await asyncio.gather(*(self._busy(m, now) for m in members))
-        busy = {m.id: b for m, b in zip(members, found)}
+        if intro:
+            await channel.send(
+                intro,
+                allowed_mentions=discord.AllowedMentions(
+                    everyone=False, users=True, roles=False, replied_user=False
+                ),
+            )
+        if only_event:
+            # the watcher already read the feed; same as excluding every other event
+            events = [only_event]
+        else:
+            try:
+                events = await upcoming_events(bot.settings, now)
+            except EventsUnavailable:
+                await channel.send(FEED_DOWN)
+                return
+        members = members or bot.store.members(squad.member_ids)
+        busy = await self._busy_all(members, now)
 
         async def build(exclude: set[str]) -> Plan | NoPlan:
             return await build_plan(
@@ -258,6 +288,52 @@ class PlanFlow:
             self.tasks.add(task)
             task.add_done_callback(self.tasks.discard)
 
+    async def watch_tick(self, now: datetime) -> None:
+        bot = self.bot
+        if now.astimezone(bot.settings.tz).hour not in WATCH_HOURS:
+            return
+        gap = timedelta(minutes=10) if bot.settings.demo_fast else timedelta(hours=72)
+        busy_channels = {p.channel_id for p in bot.store.plans("confirming", "polling")}
+        for squad in bot.store.squads():
+            if len(squad.member_ids) < 2 or squad.channel_id in busy_channels:
+                continue
+            if squad.last_watch_post and now - squad.last_watch_post < gap:
+                continue
+            channel = bot.get_channel(int(squad.channel_id))
+            if channel is None:
+                continue
+            try:
+                await self._watch(squad, channel, now)
+            except Exception:  # one squad's failure must not stop the loop
+                log.exception("watcher failed for a squad")
+
+    async def _watch(self, squad: Squad, channel, now: datetime) -> None:
+        bot = self.bot
+        try:
+            events = await upcoming_events(bot.settings, now)
+        except EventsUnavailable:
+            return  # nobody asked, so a feed outage stays quiet
+        members = bot.store.members(squad.member_ids)
+        busy = await self._busy_all(members, now)
+        match = find_match(
+            members, events, busy, bot.settings.tz, now, set(squad.suggested_event_ids)
+        )
+        if match is None:
+            return
+        event, who = match
+        squad.suggested_event_ids.append(event.id)
+        squad.last_watch_post = now
+        await bot.store.put_squad(squad)
+        unix = int(event.start.timestamp())
+        if len(who) == len(members):
+            intro = SPOTTED_ALL.format(title=event.title, unix=unix)
+        else:
+            mentions = ", ".join(m.name if m.is_demo else f"<@{m.id}>" for m in who)
+            intro = SPOTTED_SOME.format(mentions=mentions, title=event.title, unix=unix)
+        await bot.flows.run_plan(
+            squad, channel, Request(), intro=intro, only_event=event, members=who
+        )
+
     async def _weekly_run(self, squad: Squad, channel) -> None:
         try:
             await channel.send(ON_IT)
@@ -275,6 +351,7 @@ def setup(bot: SquadBot) -> None:
     flows.explain = flow.explain
     flows.run_plan = flow.run_plan
     flows.weekly_tick = flow.weekly_tick
+    flows.watch_tick = flow.watch_tick
 
     @tasks.loop(minutes=1)
     async def weekly_loop() -> None:
@@ -283,3 +360,11 @@ def setup(bot: SquadBot) -> None:
 
     flows.weekly_loop = weekly_loop
     weekly_loop.start()
+
+    @tasks.loop(minutes=2 if bot.settings.demo_fast else 180)
+    async def watch_loop() -> None:
+        if bot.is_ready():
+            await flow.watch_tick(datetime.now(bot.settings.tz))
+
+    flows.watch_loop = watch_loop
+    watch_loop.start()
