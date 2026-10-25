@@ -2,12 +2,29 @@ from datetime import datetime
 from types import SimpleNamespace
 
 import discord
+import pytest
 
+from squad import demo_script
 from squad.bot import SquadBot, next_weekly_run
 from squad.config import Settings
 from squad.personas import INTRO_LINES, PERSONAS
 from squad.ui.onboarding import CallsValues, JoinValues
 from tests.fakes import TZ, make_member
+
+
+@pytest.fixture(autouse=True)
+def scripted_runs(monkeypatch) -> list:
+    """No gaps, and the scripted run after the intros is recorded, not run (tests/test_demo.py runs it)."""
+    for name in dir(demo_script):
+        if name.endswith("_S"):
+            monkeypatch.setattr(demo_script, name, 0)
+    runs = []
+
+    async def run(bot, interaction, squad):
+        runs.append(squad.channel_id)
+
+    monkeypatch.setattr(demo_script, "run", run)
+    return runs
 
 
 class Sink:
@@ -190,21 +207,17 @@ async def test_leave_deletes_member_and_calendar(store, fake_llm):
     ]
 
 
-async def test_demo_adds_four_personas_once(store, fake_llm):
+async def test_demo_adds_four_personas_once(store, fake_llm, scripted_runs):
     bot = make_bot(store, fake_llm)
     channel = Channel()
     for _ in range(2):
         inter = interaction(channel)
         await bot.demo(inter)
-        assert inter.followup.sent == [
-            (
-                "Your demo squad is here: Maya, Jordan, Priya and Leo. Try /squad plan.",
-                {"ephemeral": True},
-            )
-        ]
+        assert inter.followup.sent == [(demo_script.ROLLING, {"ephemeral": True})]
+    assert scripted_runs == ["555", "555"]
 
     ids = [p.id for p in PERSONAS]
-    assert store.squad("555").member_ids == ids
+    assert store.squad("555").member_ids == [*ids, "42"]
     assert [store.member(i).is_demo for i in ids] == [True] * 4
     assert len(channel.webhooks_made) == 1
     assert store.squad("555").webhook_url == Webhook.url
@@ -250,7 +263,7 @@ async def test_demo_in_thread_posts_through_parent_webhook(store, fake_llm):
     assert len(text_channel.webhooks_made) == 1
     sent = text_channel.webhooks_made[0].sent
     assert [kw["thread"] for _, kw in sent] == [thread] * 4
-    assert store.squad("556").member_ids == [p.id for p in PERSONAS]
+    assert store.squad("556").member_ids == [*(p.id for p in PERSONAS), "42"]
 
 
 async def test_dm_returns_false_on_forbidden(store, fake_llm, monkeypatch):
@@ -301,6 +314,7 @@ async def test_setup_hook_registers_commands(store, fake_llm, monkeypatch):
         "join",
         "leave",
         "demo",
+        "nudge",
         "plan",
         "weekly",
     }
@@ -345,7 +359,7 @@ async def test_demo_failed_intro_retry_posts_only_missing(store, fake_llm, monke
     inter = interaction(channel)
     await bot.demo(inter)
     assert [kw["username"] for _, kw in hook.sent] == ["Maya", "Jordan", "Priya", "Leo"]
-    assert store.squad("555").member_ids == [p.id for p in PERSONAS]
+    assert store.squad("555").member_ids == [*(p.id for p in PERSONAS), "42"]
 
 
 async def test_demo_stale_webhook_is_forgotten(store, fake_llm, monkeypatch):
@@ -368,4 +382,4 @@ async def test_demo_stale_webhook_is_forgotten(store, fake_llm, monkeypatch):
     inter = interaction(channel)
     await bot.demo(inter)  # makes a fresh webhook
     assert len(channel.webhooks_made) == 1
-    assert store.squad("555").member_ids == [p.id for p in PERSONAS]
+    assert store.squad("555").member_ids == [*(p.id for p in PERSONAS), "42"]

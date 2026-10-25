@@ -26,6 +26,7 @@ class Settings:
     campus: str = "Tempe Campus"
     dev_channel_id: int = 1563800077368295476
     demo_fast: bool = False
+    demo_phone: str = ""  # the presenter's WhatsApp number for /squad demo
 
     @property
     def confirm_timeout_s(self) -> int:
@@ -58,4 +59,5 @@ def load_settings() -> Settings:
         data_dir=Path(env("DATA_DIR", "data")),
         dev_channel_id=int(env("DEV_CHANNEL_ID") or 1563800077368295476),
         demo_fast=env("DEMO_FAST", "0") not in ("", "0", "false", "False"),
+        demo_phone=env("DEMO_PHONE", "").strip(),
     )

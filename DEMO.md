@@ -2,7 +2,31 @@
 
 One take per beat, cut together. Real bot, real ASU events, four demo friends.
 
+## Live table demo (judges, about 3 minutes)
+
+Hosted bot, nothing to start. `/squad demo` is fully scripted: no events feed, no Claude, no calendars, so it runs
+the same every time in about 30 seconds.
+
+1. **Play the film** (squad.ashwanthbk.com plays it, or the local render).
+2. **Fresh channel:** make `#demo-N` in Test-Server-Cubbie and run `/squad demo`. Maya, Jordan, Priya and Leo say hi,
+   the bot posts "👀 Spotted something that fits everyone's week: **Open Mic Night**…", then the card, the thread
+   (each agent's line, the coordinator, "Priya's agent checked with Priya privately: all good.") and the poll. The
+   friends vote a few seconds apart; Jordan's agent remembers "no events after 9pm on Fridays". If you haven't
+   joined, it signs you up (music, food, chill, $20, 2 seats).
+3. **Vote live.** Try **Can't make it ❌** to show the private "Mind sharing why?" DM (only you see it). Changing to
+   **I'm in ✅** afterwards is fine; it won't ask again.
+4. **Nudge.** Didn't vote within about 8 s of the friends? It nudges you on its own. Any time, `/squad nudge` rings
+   your phone over WhatsApp (when `wa-voice` is connected and `DEMO_PHONE` is set in `.env`, or your number is on
+   your profile) or DMs you otherwise. Decline the call: you get "📞 Rang …, no answer" privately, nothing public.
+   Quiet hours still apply (default 10pm–9am).
+5. **Close poll now** on the card: "🎉 It's on" with going, rides and the 📅 Discord event, instantly.
+
+Again? Run `/squad demo` once more (same channel works: new plan, no repeat intros) or use a new channel.
+
 ## Before you record
+
+The shot list below was for the film. `/squad demo` now runs the scripted demo above, so for these beats use a
+channel that already has the demo friends and plan with `/squad plan` or an @-mention.
 
 **Use the hosted bot.** It runs on openclaw with `DEMO_FAST=1` already, so there is nothing to start. (To record
 against a local copy instead, stop the hosted one first, because two processes on one token both answer:

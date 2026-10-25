@@ -184,20 +184,24 @@ class VoteFlow:
             squad = store.squad(plan.channel_id)
             if persona is None or squad is None or persona.id not in squad.member_ids:
                 continue
-            plan.votes[persona.id] = vote
-            await self._save_and_edit(plan)
-            await self._post(
-                plan, persona.name, persona.avatar_url, PERSONA_LINES[vote]
-            )
+            await self.persona_vote(plan, persona, vote)
             if reason:
                 learned = await learn_from_no(self.bot.llm, persona, reason, plan.event)
-                if learned and await self._remember(persona.id, learned):
-                    await self._post(
-                        plan,
-                        f"{persona.name}'s agent",
-                        persona.avatar_url,
-                        JORDAN_LEARNED,
-                    )
+                if learned:
+                    await self.persona_learned(plan, persona, learned)
+
+    async def persona_vote(self, plan: Plan, persona: Member, vote: str) -> None:
+        plan.votes[persona.id] = vote
+        await self._save_and_edit(plan)
+        await self._post(plan, persona.name, persona.avatar_url, PERSONA_LINES[vote])
+
+    async def persona_learned(
+        self, plan: Plan, persona: Member, learned: LearnedFilter
+    ) -> None:
+        if await self._remember(persona.id, learned):
+            await self._post(
+                plan, f"{persona.name}'s agent", persona.avatar_url, JORDAN_LEARNED
+            )
 
     async def why_no(self, interaction: discord.Interaction, plan_id: str) -> None:
         await interaction.response.send_modal(WhyNoModal(self, plan_id))
@@ -212,7 +216,11 @@ class VoteFlow:
         member, plan = self.bot.store.member(uid), self.bot.store.plan(plan_id)
         learned = None
         if member and plan and reason.strip():
-            learned = await learn_from_no(self.bot.llm, member, reason, plan.event)
+            try:
+                learned = await learn_from_no(self.bot.llm, member, reason, plan.event)
+            # any failure still gets a thank-you, never a stuck "thinking…"
+            except Exception as error:  # noqa: BLE001
+                log.info("learn from no failed: %s", type(error).__name__)
         kept = learned is not None and await self._remember(uid, learned)
         await interaction.followup.send(KEPT if kept else THANKS, ephemeral=True)
 
@@ -290,6 +298,8 @@ def setup(bot: SquadBot) -> None:
     bot.on_raw_poll_vote_remove = flow.on_raw_poll_vote_remove
     flows = bot.flows
     flows.schedule_persona_votes = flow.schedule_persona_votes
+    flows.persona_vote = flow.persona_vote
+    flows.persona_learned = flow.persona_learned
     flows.why_no = flow.why_no
     flows.close_poll = flow.close_poll
     flows.finish = flow.finish

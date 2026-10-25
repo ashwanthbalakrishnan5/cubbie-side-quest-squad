@@ -189,3 +189,15 @@ One line each: what was decided, and why, when the plan didn't cover it.
 
 ## Watcher (2026-10-25)
 - Watcher: every 3 h (DEMO_FAST 2 min) `watch_tick` runs `planner.find_match` per squad (2+ members, no confirming/polling plan, 72 h / DEMO_FAST 10 min since `last_watch_post`, 09:00-22:00 local); everyone match ignores budget/learned violations (the consent round DMs those privately), subset match is strict; the event id is saved in `suggested_event_ids` before posting, feed outages stay silent, and `run_plan(only_event=...)` reuses the watcher's event instead of refetching the feed.
+
+## Live table demo (2026-10-25)
+- `/squad demo` is now a fully scripted run (`squad/demo_script.py`) that mirrors the film: intros 1.5 s apart, the watcher's `SPOTTED_ALL` line, then card + thread + poll through `PlanFlow.post_plan` (extracted from `run_plan`, `gap` between thread posts), persona votes through `VoteFlow.persona_vote`/`persona_learned` (extracted from `_persona_votes`). About 25 s end to end; no Claude, feed, calendar or Composio calls.
+- The demo plan is built in code (fixed headline, why, trade-offs, agent turns); Priya's "checked with Priya privately" line is canned, so the presenter never gets a consent DM and nothing waits on a confirmation.
+- Demo votes are Maya, Priya, Leo yes and Jordan no (Leo is "maybe" in the slow `DEMO_VOTES` path, which `/squad plan` still uses). Jordan's filter is a canned `note` ("no events after 9pm on Fridays"), so it never blocks a real plan.
+- The presenter is signed up automatically if missing (music/food/chill, every free slot, $20, 2 seats, calls on, phone from `DEMO_PHONE`); an existing member keeps their answers. They're appended after the personas, only once the intros posted.
+- The demo sets `squad.last_watch_post = now` so the real watcher (every 2 min with `DEMO_FAST`) stays out of the demo channel for 10 min.
+- 8 s after the persona votes, a presenter who hasn't voted is nudged through `NudgeFlow.ring`, and the result goes to them as an ephemeral follow-up on the `/squad demo` interaction.
+- `/squad nudge member:` uses `ring`: quiet hours still apply (ephemeral refusal), the 30-min delay and once-per-plan rule don't. The member is added to `plan.nudged` so the loop doesn't nudge again. A call that rang but wasn't answered (or was declined) replies "📞 Rang {name}, no answer" and does not fall back to a DM; the loop's own nudges keep the DM fallback (`dm_if_unanswered`).
+- `NudgeFlow.nudge` now returns what happened ("answered", "no_answer", "dm", "mention", "closed") for those replies; the loop ignores it.
+- `why_no_submitted` catches any error from `learn_from_no` (not only `LLMError`) and just thanks the member, so a live "Can't make it" never leaves a stuck "thinking…".
+- Tests zero every `*_S` constant in `demo_script`; `tests/test_bot_core.py` stubs `demo_script.run` and `tests/test_demo.py` runs it with all three flows set up.

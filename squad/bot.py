@@ -11,6 +11,7 @@ from datetime import datetime, time, timedelta
 import discord
 from discord import app_commands, ui
 
+from . import demo_script
 from .calendar import CalendarLinker
 from .config import Settings
 from .llm import LLM
@@ -121,9 +122,20 @@ class SquadBot(discord.Client):
         async def leave(interaction: discord.Interaction) -> None:
             await self.leave(interaction)
 
-        @group.command(name="demo", description="Add four demo friends to this channel")
+        @group.command(
+            name="demo", description="Run the scripted demo with four demo friends"
+        )
         async def demo(interaction: discord.Interaction) -> None:
             await self.demo(interaction)
+
+        @group.command(
+            name="nudge", description="Nudge someone about this channel's poll now"
+        )
+        @app_commands.describe(member="Who to nudge (you if empty)")
+        async def nudge(
+            interaction: discord.Interaction, member: discord.User | None = None
+        ) -> None:
+            await self.flows.nudge_now(interaction, member or interaction.user)
 
         @group.command(name="plan", description="Plan a hangout now")
         @app_commands.describe(
@@ -302,6 +314,7 @@ class SquadBot(discord.Client):
                     # saved per intro, so a retry posts only the missing ones
                     squad.member_ids.append(p.id)
                     await self.store.put_squad(squad)
+                    await asyncio.sleep(demo_script.INTRO_GAP_S)
             # AttributeError: DMs and user-install channels have no create_webhook
             except (AttributeError, discord.Forbidden) as error:
                 log.info("demo intros failed: %s", type(error).__name__)
@@ -314,10 +327,15 @@ class SquadBot(discord.Client):
                     await self.store.put_squad(squad)
                 await interaction.followup.send(DEMO_RETRY, ephemeral=True)
                 return
-        await interaction.followup.send(
-            "Your demo squad is here: Maya, Jordan, Priya and Leo. Try /squad plan.",
-            ephemeral=True,
-        )
+        uid = str(interaction.user.id)
+        if self.store.member(uid) is None:  # an existing member keeps their answers
+            member = demo_script.presenter(interaction.user, self.settings.demo_phone)
+            await self.store.put_member(member)
+        if uid not in squad.member_ids:
+            squad.member_ids.append(uid)
+            await self.store.put_squad(squad)
+        await interaction.followup.send(demo_script.ROLLING, ephemeral=True)
+        await demo_script.run(self, interaction, squad)
 
     async def plan_from_interaction(
         self, interaction: discord.Interaction, text: str

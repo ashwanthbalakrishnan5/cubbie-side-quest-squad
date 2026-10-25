@@ -143,7 +143,24 @@ class PlanFlow:
             )
             return
         plan.declined_event_ids = declined
+        await self.post_plan(squad, channel, plan, members, lines)
+        schedule = getattr(bot.flows, "schedule_persona_votes", None)
+        if schedule:
+            result = schedule(plan)
+            if inspect.isawaitable(result):
+                await result
 
+    async def post_plan(
+        self,
+        squad: Squad,
+        channel,
+        plan: Plan,
+        members: list[Member],
+        lines: list[tuple[Member, str]],
+        gap: float = 0,
+    ) -> None:
+        """Card, poll and thread for a ready plan; `gap` seconds between thread posts."""
+        bot, tz = self.bot, self.bot.settings.tz
         names = {m.id: m.name for m in members}
         card = await channel.send(view=plan_card(plan, names, tz))
         poll = discord.Poll(
@@ -161,12 +178,7 @@ class PlanFlow:
         plan.status = "polling"
         await bot.store.put_plan(plan)  # saved before the thread so early votes land
 
-        await self._post_thread(squad, channel, thread, plan, members, lines)
-        schedule = getattr(bot.flows, "schedule_persona_votes", None)
-        if schedule:
-            result = schedule(plan)
-            if inspect.isawaitable(result):
-                await result
+        await self._post_thread(squad, channel, thread, plan, members, lines, gap)
 
     async def _confirm(
         self,
@@ -224,6 +236,7 @@ class PlanFlow:
         plan: Plan,
         members: list[Member],
         lines: list[tuple[Member, str]],
+        gap: float = 0,
     ) -> None:
         bot = self.bot
         avatars = {m.id: m.avatar_url for m in members}
@@ -237,6 +250,8 @@ class PlanFlow:
         try:
             webhook = await bot.webhook_for(squad, channel)
             for name, avatar, text in posts:
+                if gap:
+                    await asyncio.sleep(gap)
                 await post_as(webhook, name, avatar, text, thread=thread)
                 done += 1
         # no Manage Webhooks or a deleted webhook: the bot posts the rest itself
@@ -350,6 +365,7 @@ def setup(bot: SquadBot) -> None:
     flows.confirm = flow.confirm
     flows.explain = flow.explain
     flows.run_plan = flow.run_plan
+    flows.post_plan = flow.post_plan
     flows.weekly_tick = flow.weekly_tick
     flows.watch_tick = flow.watch_tick
 

@@ -9,7 +9,7 @@
 <a href="#try-it"><img alt="Discord bot" src="https://img.shields.io/badge/Discord-bot-5865F2?style=for-the-badge&labelColor=2A0F22"></a>
 <a href="#how-it-works"><img alt="Real ASU events" src="https://img.shields.io/badge/real-ASU%20events-8C1D40?style=for-the-badge&labelColor=2A0F22"></a>
 <a href="#what-each-agent-shares-vs-keeps-private"><img alt="One agent per friend" src="https://img.shields.io/badge/agents-one%20per%20friend-FFC627?style=for-the-badge&labelColor=2A0F22"></a>
-<a href="#for-builders"><img alt="146 tests passing" src="https://img.shields.io/badge/tests-146%20passing-0A84FF?style=for-the-badge&labelColor=2A0F22"></a>
+<a href="#for-builders"><img alt="155 tests passing" src="https://img.shields.io/badge/tests-155%20passing-0A84FF?style=for-the-badge&labelColor=2A0F22"></a>
 
 [See it](#see-it) · [Try it](#try-it) · [How it works](#how-it-works) · [Run your own](#run-your-own)
 
@@ -62,15 +62,19 @@ vote? One friendly nudge.
 2. In any channel: `/squad join`. Two short forms: what you're into, when you're usually free, budget, hard no's,
    car seats, then (optional) a WhatsApp number and quiet hours. There's an optional "Connect Google Calendar" button
    too.
-3. Alone right now? `/squad demo` brings in four demo friends (Maya, Jordan, Priya and Leo), each with their own
-   agent, schedule and opinions.
+3. Alone right now? `/squad demo` runs a scripted demo in about 30 seconds: four demo friends (Maya, Jordan, Priya
+   and Leo) say hi, the bot spots Open Mic Night this Friday, posts the card, the agents' thread and the poll, and the
+   friends vote. You vote live (try "Can't make it ❌" to get the private "why?"), then hit **Close poll now** for
+   rides and a Discord event. It's fully scripted, so nothing waits on the events feed, Claude or calendars, and it
+   signs you up with sensible answers if you haven't joined yet. Haven't voted? It nudges you.
 4. `/squad plan`, or just @-mention the bot with a vibe:
 
 ```text
 @Side Quests Squad something chill Friday under $15, no clubs
 ```
 
-More: `/squad weekly` sets the day and hour of the automatic weekly plan (Wednesday 6 pm until you change it),
+More: `/squad nudge` (optionally `member:@someone`) nudges right now about this channel's open poll: a WhatsApp call
+when the sidecar is connected and they gave a number, otherwise a DM (still never in their quiet hours). `/squad weekly` sets the day and hour of the automatic weekly plan (Wednesday 6 pm until you change it),
 right-click any message → **Apps → Plan this** turns "we should go bowling" into a plan, and `/squad leave` forgets
 you.
 
@@ -217,7 +221,7 @@ qrencode -t ansiutf8 < data/wa-qr.txt  # scan from WhatsApp → Linked devices
 ## For builders
 
 ```bash
-uv run pytest                               # 146 tests
+uv run pytest                               # 155 tests
 uv run ruff check . && uv run ruff format .
 cd wa-voice && cargo test && cargo clippy -- -D warnings   # 4 tests
 ```
@@ -234,6 +238,7 @@ squad/
 ├── calendar.py         Composio free/busy
 ├── carpool.py          seats, riders and transit tips
 ├── personas.py         Maya, Jordan, Priya and Leo
+├── demo_script.py      the scripted /squad demo (Open Mic Night, no Claude, feed or calendars)
 ├── store.py            all state in one JSON file
 ├── ui/                 Components V2 cards and the two sign-up modals
 ├── voice/              Gemini Live bridge and resampling

@@ -336,3 +336,120 @@ async def test_poll_closed_during_one_call_skips_the_rest(
 
     assert calls == [("Ada", "polling")]
     assert dms == [] and channel.sent == []
+
+
+def nudge_interaction(user_id: int = 1, name: str = "Ada"):
+    from types import SimpleNamespace
+
+    out = SimpleNamespace(replies=[])
+
+    async def send_message(content=None, **kw):
+        out.replies.append(content)
+
+    async def followup(content=None, **kw):
+        assert kw["ephemeral"] is True
+        out.replies.append(content)
+
+    async def defer(**kw):
+        assert kw["ephemeral"] is True
+
+    out.inter = SimpleNamespace(
+        channel=Channel(),
+        response=SimpleNamespace(send_message=send_message, defer=defer),
+        followup=SimpleNamespace(send=followup),
+    )
+    out.user = SimpleNamespace(id=user_id, display_name=name)
+    return out
+
+
+def awake(monkeypatch, quiet: bool = False) -> None:
+    monkeypatch.setattr(nudge_flow, "in_quiet_hours", lambda *a: quiet)
+
+
+async def test_nudge_now_calls_when_whatsapp_connected(
+    store, fake_llm, channel, thread, monkeypatch
+):
+    bot = await make_bot(store, fake_llm, channel, thread)
+    try:
+        await seed(
+            store, make_member("1", name="Ada", phone="+14805550123", call_opt_in=True)
+        )
+        store.plan("p1").nudged.append("1")  # already nudged once: rings anyway
+        calls = []
+
+        async def connected(settings):
+            return True
+
+        async def call(settings, phone, name, plan, going_names):
+            calls.append(phone)
+            return CallOutcome(answered=True, answer="yes")
+
+        monkeypatch.setattr(nudge_flow, "voice_connected", connected)
+        monkeypatch.setattr(nudge_flow, "nudge_call", call)
+        awake(monkeypatch)
+        dms = fake_dm(bot, ok=True)
+        n = nudge_interaction()
+        await bot.flows.nudge_now(n.inter, n.user)
+
+        assert calls == ["+14805550123"] and dms == []
+        assert store.plan("p1").votes["1"] == "yes"
+        assert n.replies == ["📞 Ada picked up and answered, it's on the card."]
+    finally:
+        bot.flows.nudge_loop.cancel()
+
+
+async def test_nudge_now_dms_when_whatsapp_is_off(bot, store, monkeypatch):
+    await seed(store, make_member("1", name="Ada", phone="+14805550123"))
+    awake(monkeypatch)
+    dms = fake_dm(bot, ok=True)
+    n = nudge_interaction()
+    await bot.flows.nudge_now(n.inter, n.user)
+    assert [uid for uid, _ in dms] == ["1"]
+    assert store.plan("p1").nudged == ["1"]  # the 30-min loop won't nudge again
+    assert n.replies == ["💬 DMed Ada a nudge."]
+
+
+async def test_nudge_now_declined_call_reports_no_answer_without_dm(
+    bot, store, channel, thread, monkeypatch
+):
+    await seed(
+        store, make_member("1", name="Ada", phone="+14805550123", call_opt_in=True)
+    )
+
+    async def connected(settings):
+        return True
+
+    async def declined(*a, **kw):
+        return CallOutcome(answered=False)
+
+    monkeypatch.setattr(nudge_flow, "voice_connected", connected)
+    monkeypatch.setattr(nudge_flow, "nudge_call", declined)
+    awake(monkeypatch)
+    dms = fake_dm(bot, ok=True)
+    n = nudge_interaction()
+    await bot.flows.nudge_now(n.inter, n.user)
+    assert n.replies == ["📞 Rang Ada, no answer"]
+    assert dms == [] and channel.sent == [] and thread.sent == []
+    assert "1" not in store.plan("p1").votes
+
+
+async def test_nudge_now_respects_quiet_hours(bot, store, monkeypatch):
+    await seed(store, make_member("1", name="Ada"))
+    awake(monkeypatch, quiet=True)
+    dms = fake_dm(bot, ok=True)
+    n = nudge_interaction()
+    await bot.flows.nudge_now(n.inter, n.user)
+    assert n.replies == ["🌙 It's Ada's quiet hours, so no nudge right now."]
+    assert dms == [] and store.plan("p1").nudged == []
+
+
+async def test_nudge_now_needs_an_open_poll_and_a_member(bot, store, monkeypatch):
+    awake(monkeypatch)
+    n = nudge_interaction()
+    await bot.flows.nudge_now(n.inter, n.user)
+    await seed(store, make_member("2", name="Bo"))
+    await bot.flows.nudge_now(n.inter, n.user)
+    assert n.replies == [
+        "There's no open poll in this channel right now 🙂",
+        "Ada hasn't joined a squad yet 🙂",
+    ]
